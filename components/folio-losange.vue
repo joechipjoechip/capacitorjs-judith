@@ -1,6 +1,47 @@
 <template>
-	<div>
-		folio losange
+	<div class="folio-losange-wrapper">
+
+		<div class="column">
+
+			<div v-for="index of 4" :class="'item item-num-' + index">
+
+				<div :class="'wording-num-' + index">
+					<h4 class="title">Project Name</h4>
+					<p class="description">Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+				</div>
+
+				<picture :class="'picture-num-' + index">
+
+					<!-- high res -->
+					<source 
+						:media="$store.state.variables.mqDesktopLarge" 
+						:srcset="'/images/' + pathName + '/image-' + index + '@3x.jpg'"
+					>
+
+					<!-- med res -->
+					<source 
+						:media="$store.state.variables.mqDesktop" 
+						:srcset="'/images/' + pathName + '/image-' + index + '@2x.jpg'"
+					>
+
+					<!-- low res -->
+					<source 
+						:media="$store.state.variables.mqDesktop" 
+						:srcset="'/images/' + pathName + '/image-' + index + '.jpg'"
+					>
+
+					<!-- base -->
+					<img
+						:src="'/images/' + pathName + '/image-' + index + '.jpg'" 
+						alt="illustration picture"
+					>
+
+				</picture>
+
+			</div>
+
+		</div>
+
 	</div>
 </template>
 
@@ -11,10 +52,173 @@
 				type: String,
 				required: true
 			}
+		},
+		mounted(){
+
+			console.log("wsh : ", this.$store.state.variables.mqDesktop);
+
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
 
+	$firstPictureWidth: 536px;
+	$innerMargin: calc($firstPictureWidth/4);
+
+	.folio-losange-wrapper {
+		display: block;
+		padding-top: 150px;
+		margin-bottom: 150px;
+		height: 1036px;
+
+		.column {
+			position: relative;
+			max-width: 810px;
+			display: block;
+			margin: 0 auto;
+		}
+
+		*[class^="item"] {
+			position: absolute;
+
+			*[class^="wording"] {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+
+			*[class^="picture"] {
+				opacity: 0.45;
+			}
+
+			&:hover {
+
+				*[class^="wording"] {
+					opacity: 1;
+					transform: translateY(0);
+				}
+
+				*[class^="picture"] {
+					opacity: 1;
+				}
+				
+			}
+			
+			&.item-num {
+
+				&-1 {
+					top: 0;
+					left: $innerMargin;
+				}
+
+				&-2 {
+					top: 255px;
+					right: 0;
+				}
+
+				&-3 {
+					top: 450px;
+					left: 0;
+				}
+
+				&-4 {
+					top: 536px;
+					right: $innerMargin;
+				}
+
+			}
+
+		}
+
+		*[class^="wording"] {
+			z-index: 20;
+			position: absolute;
+			width: 264px;
+
+			will-change: opacity, transform;
+			transition: opacity .3s,
+						transform .6s;
+
+			.title {
+				text-transform: uppercase;
+				font-family: "PresicavRg";
+				font-size: 14px;
+				font-weight: bold;
+				line-height: 1.21;
+				letter-spacing: 5.6px;
+				opacity: .9;
+			}
+
+			.description {
+				font-family: "AktivGrotesk";
+				font-size: 12px;
+				font-weight: 300;
+				line-height: 15px;
+				letter-spacing: 0.24px;
+				opacity: .7;
+
+				max-height: 90px;
+				overflow: hidden;
+			}
+
+			&.wording-num {
+
+				&-1 {
+					left: -140px;
+					top: 115px;
+				}
+
+				&-2 {
+					left: -192px;
+					top: 105px;
+				}
+
+				&-3 {
+					top: -155px;
+				}
+
+				&-4 {
+					top: 200px;
+					right: -210px;
+				}
+
+			}
+
+		}
+
+		*[class^="picture"] {
+			z-index: 10;
+			display: block;
+
+			will-change: opacity;
+			transition: opacity .8s;
+
+			img {
+				width: 100%;
+			}
+
+			&.picture-num {
+
+				&-1 {
+					width: $firstPictureWidth;
+				}
+
+				&-2 {
+					width: 260px;
+				}
+
+				&-3 {
+					width: 260px;
+				}
+
+				&-4 {
+					width: 400px;
+				}
+
+
+			}
+
+		}
+
+	}
 </style>

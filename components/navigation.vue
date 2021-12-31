@@ -38,6 +38,7 @@
 
 	.nav-wrapper {
 
+		z-index: 500;
 		position: fixed;
 		background-color: $colorBlack;
 		width: 100%;
@@ -80,10 +81,10 @@
 
 					a {
 						text-transform: uppercase;
-						font-family: 'Aktiv Grotesk Corp';
+						font-family: 'AktivGrotesk';
 						font-weight: 300;
 						letter-spacing: 0.32px;
-						
+
 						color: $colorWhite;
 						text-decoration: none;
 						font-size: 16px;
