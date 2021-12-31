@@ -23,9 +23,6 @@
 
 <style lang="scss" scoped>
 
-	@import "@/static/style/variables.scss";
-
-
 	.home-wrapper {
 		margin-top: $headerHeight;
 	}

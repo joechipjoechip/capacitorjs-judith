@@ -39,10 +39,22 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    "nuxt-svg-loader"
+    "nuxt-svg-loader",
+    '@nuxtjs/style-resources'
   ],
+
+  styleResources: {
+    scss: [
+      "./assets/style/variables.scss"
+    ]
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel: {
+      plugins: [
+        '@babel/plugin-proposal-optional-chaining'
+      ]
+    }
   }
 }

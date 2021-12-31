@@ -24,8 +24,6 @@
 
 <style lang="scss" scoped>
 
-	@import "@/static/style/variables.scss";
-
 	.nav-wrapper {
 
 		position: fixed;
