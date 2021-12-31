@@ -3,9 +3,9 @@
 		<nav>
 			<JudithLogo class="logo" />
 			<ul class="links">
-				<li>Home</li>
-				<li>Team</li>
-				<li>Work with us</li>
+				<li class="link-wrapper">Home</li>
+				<li class="link-wrapper">Team</li>
+				<li class="link-wrapper">Work with us</li>
 			</ul>
 		</nav>
 	</div>
@@ -51,7 +51,17 @@
 				justify-content: space-between;
 				align-items: center;
 				background-color: rebeccapurple;
+
+				.link-wrapper {
+
+					&:nth-of-type(2) {
+						font-family: 'PresicavRg';
+					}
+
+				}
+
 			}
+
 		}
 
 	}

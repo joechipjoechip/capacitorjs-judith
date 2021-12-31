@@ -45,7 +45,8 @@ export default {
 
   styleResources: {
     scss: [
-      "./assets/style/variables.scss"
+      "./assets/style/variables.scss",
+      "./assets/style/fontsloader.scss"
     ]
   },
 
