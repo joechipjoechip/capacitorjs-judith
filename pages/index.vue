@@ -1,15 +1,22 @@
 <template>
 	<div class="home-wrapper">
-		<p>hey</p>
-		<p class="layoutTest">ici lindex</p>
+
+		<folio-losange path-name="home"/>
+
 	</div>
 </template>
 
 <script>
 
+	import FolioLosange from "@/components/folio-losange.vue";
+
 	export default {
 
 		layout: "mainLayout",
+
+		components: {
+			"folio-losange": FolioLosange
+		},
 
 		data(){
 			return {

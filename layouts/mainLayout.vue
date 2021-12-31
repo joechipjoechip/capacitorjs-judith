@@ -22,15 +22,9 @@
 	// (fonts, mq, etc)
 
 	body {
-		background-color: #000;
-		color: #FFF;
+		background-color: $colorBlack;
+		color: $colorWhite;
 	}
 
-
-
-
-	.layoutTest {
-		border: solid 5px rebeccapurple;
-	}
 
 </style>

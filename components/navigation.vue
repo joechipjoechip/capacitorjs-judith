@@ -3,9 +3,21 @@
 		<nav>
 			<JudithLogo class="logo" />
 			<ul class="links">
-				<li class="link-wrapper">Home</li>
-				<li class="link-wrapper">Team</li>
-				<li class="link-wrapper">Work with us</li>
+				<li class="link-wrapper active">
+					<nuxt-link to="">
+						Home
+					</nuxt-link>
+				</li>
+				<li class="link-wrapper">
+					<nuxt-link to="">
+						Team
+					</nuxt-link>
+				</li>
+				<li class="link-wrapper">
+					<nuxt-link to="">
+						Work with us
+					</nuxt-link>
+				</li>
 			</ul>
 		</nav>
 	</div>
@@ -27,7 +39,7 @@
 	.nav-wrapper {
 
 		position: fixed;
-		background-color: red;
+		background-color: $colorBlack;
 		width: 100%;
 		height: $headerHeight;
 		top: 0;
@@ -40,22 +52,41 @@
 			text-align: center;
 
 			.logo {
+				width: 100%;
 				margin-top: 40px;
+				margin-bottom: 28px;
 			}
 	
 			.links {
+				width: 85%;
+				margin: 0 auto;
 				list-style: none;
+				padding: 0;
 	
 				display: flex;
 				flex-flow: row nowrap;
 				justify-content: space-between;
 				align-items: center;
-				background-color: rebeccapurple;
 
 				.link-wrapper {
 
-					&:nth-of-type(2) {
-						font-family: 'PresicavRg';
+					&.active {
+
+						a {
+							color: $colorRed;
+						}
+
+					}
+
+					a {
+						text-transform: uppercase;
+						font-family: 'Aktiv Grotesk Corp';
+						font-weight: 300;
+						letter-spacing: 0.32px;
+						
+						color: $colorWhite;
+						text-decoration: none;
+						font-size: 16px;
 					}
 
 				}
