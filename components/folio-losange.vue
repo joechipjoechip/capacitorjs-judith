@@ -1,7 +1,11 @@
 <template>
 	<div class="folio-losange-wrapper">
 
-		<div class="column">
+		<div class="losange-container">
+			<div class="losange"></div>
+		</div>
+
+		<div class="folio-container">
 
 			<div v-for="index of 4" :class="'item item-num-' + index">
 
@@ -59,166 +63,188 @@
 
 		}
 	}
+	
 </script>
 
 <style lang="scss" scoped>
 
 	$firstPictureWidth: 536px;
-	$innerMargin: calc($firstPictureWidth/4);
+	$folioWidth: 810px;
+	$innerMargin: calc(($folioWidth - $firstPictureWidth)/2);
 
 	.folio-losange-wrapper {
 		display: block;
-		padding-top: 150px;
+		padding-top: 70vh;
 		margin-bottom: 150px;
 		height: 1036px;
 
-		.column {
-			position: relative;
-			max-width: 810px;
+		.losange-container {
 			display: block;
-			margin: 0 auto;
+			position: absolute;
+			margin-top: 50px;
+
+			.losange {
+				display: block;
+				width: 100vw;
+				height: 100vw;
+				transform: rotate(45deg);
+	
+				border-left: solid 1px red;
+				border-top: solid 1px red;
+
+			}
+
 		}
 
-		*[class^="item"] {
-			position: absolute;
+		.folio-container {
+			position: relative;
+			max-width: $folioWidth;
+			display: block;
+			margin: 0 auto;
 
-			*[class^="wording"] {
-				opacity: 0;
-				transform: translateY(-10px);
-			}
-
-			*[class^="picture"] {
-				opacity: 0.45;
-			}
-
-			&:hover {
+			*[class^="item"] {
+				position: absolute;
 
 				*[class^="wording"] {
-					opacity: 1;
-					transform: translateY(0);
+					opacity: 0;
+					transform: translateY(-10px);
 				}
 
 				*[class^="picture"] {
-					opacity: 1;
+					opacity: 0.45;
+				}
+
+				&:hover {
+
+					*[class^="wording"] {
+						opacity: 1;
+						transform: translateY(0);
+					}
+
+					*[class^="picture"] {
+						opacity: 1;
+					}
+					
 				}
 				
+				&.item-num {
+
+					&-1 {
+						top: 0;
+						left: $innerMargin;
+					}
+
+					&-2 {
+						top: 255px;
+						right: 0;
+					}
+
+					&-3 {
+						top: 450px;
+						left: 0;
+					}
+
+					&-4 {
+						top: 536px;
+						right: $innerMargin;
+					}
+
+				}
+
 			}
-			
-			&.item-num {
 
-				&-1 {
-					top: 0;
-					left: $innerMargin;
+			*[class^="wording"] {
+				z-index: 20;
+				position: absolute;
+				width: 264px;
+
+				will-change: opacity, transform;
+				transition: opacity .3s,
+							transform .6s;
+
+				.title {
+					text-transform: uppercase;
+					font-family: "PresicavRg";
+					font-size: 14px;
+					font-weight: bold;
+					line-height: 1.21;
+					letter-spacing: 5.6px;
+					opacity: .9;
 				}
 
-				&-2 {
-					top: 255px;
-					right: 0;
+				.description {
+					font-family: "AktivGrotesk";
+					font-size: 12px;
+					font-weight: 300;
+					line-height: 15px;
+					letter-spacing: 0.24px;
+					opacity: .7;
+
+					max-height: 90px;
+					overflow: hidden;
 				}
 
-				&-3 {
-					top: 450px;
-					left: 0;
+				&.wording-num {
+
+					&-1 {
+						left: -140px;
+						top: 115px;
+					}
+
+					&-2 {
+						left: -192px;
+						top: 105px;
+					}
+
+					&-3 {
+						top: -155px;
+					}
+
+					&-4 {
+						top: 200px;
+						right: -210px;
+					}
+
 				}
 
-				&-4 {
-					top: 536px;
-					right: $innerMargin;
+			}
+
+			*[class^="picture"] {
+				z-index: 10;
+				display: block;
+
+				will-change: opacity;
+				transition: opacity .8s;
+
+				img {
+					width: 100%;
+				}
+
+				&.picture-num {
+
+					&-1 {
+						width: $firstPictureWidth;
+					}
+
+					&-2 {
+						width: 260px;
+					}
+
+					&-3 {
+						width: 260px;
+					}
+
+					&-4 {
+						width: 400px;
+					}
+
+
 				}
 
 			}
 
 		}
 
-		*[class^="wording"] {
-			z-index: 20;
-			position: absolute;
-			width: 264px;
-
-			will-change: opacity, transform;
-			transition: opacity .3s,
-						transform .6s;
-
-			.title {
-				text-transform: uppercase;
-				font-family: "PresicavRg";
-				font-size: 14px;
-				font-weight: bold;
-				line-height: 1.21;
-				letter-spacing: 5.6px;
-				opacity: .9;
-			}
-
-			.description {
-				font-family: "AktivGrotesk";
-				font-size: 12px;
-				font-weight: 300;
-				line-height: 15px;
-				letter-spacing: 0.24px;
-				opacity: .7;
-
-				max-height: 90px;
-				overflow: hidden;
-			}
-
-			&.wording-num {
-
-				&-1 {
-					left: -140px;
-					top: 115px;
-				}
-
-				&-2 {
-					left: -192px;
-					top: 105px;
-				}
-
-				&-3 {
-					top: -155px;
-				}
-
-				&-4 {
-					top: 200px;
-					right: -210px;
-				}
-
-			}
-
-		}
-
-		*[class^="picture"] {
-			z-index: 10;
-			display: block;
-
-			will-change: opacity;
-			transition: opacity .8s;
-
-			img {
-				width: 100%;
-			}
-
-			&.picture-num {
-
-				&-1 {
-					width: $firstPictureWidth;
-				}
-
-				&-2 {
-					width: 260px;
-				}
-
-				&-3 {
-					width: 260px;
-				}
-
-				&-4 {
-					width: 400px;
-				}
-
-
-			}
-
-		}
 
 	}
 </style>
