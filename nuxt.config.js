@@ -45,6 +45,7 @@ export default {
 
   styleResources: {
     scss: [
+      "./assets/style/resets.scss",
       "./assets/style/variables.scss",
       "./assets/style/fontsloader.scss"
     ]
