@@ -1,13 +1,9 @@
 <template>
 	<div class="home-wrapper">
 
-		<div>
+		<losange text="dare to care"/>
 
-			<losange text="dare to care"/>
-
-			<folio path-name="home"/>
-
-		</div>
+		<folio path-name="home"/>
 
 
 	</div>
