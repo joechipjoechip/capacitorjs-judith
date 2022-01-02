@@ -1,21 +1,27 @@
 <template>
 	<div class="home-wrapper">
 
-		<folio-losange path-name="home"/>
+		<losange text="dare to care"/>
+
+		<folio path-name="home"/>
 
 	</div>
 </template>
 
 <script>
 
-	import FolioLosange from "@/components/folio-losange.vue";
+
+
+	import Folio from "@/components/folio.vue";
+	import Losange from '@/components/losange.vue';
 
 	export default {
 
 		layout: "mainLayout",
 
 		components: {
-			"folio-losange": FolioLosange
+			"folio": Folio,
+			"losange": Losange
 		},
 
 		data(){

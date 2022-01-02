@@ -1,9 +1,5 @@
 <template>
-	<div class="folio-losange-wrapper">
-
-		<div class="losange-container">
-			<div class="losange"></div>
-		</div>
+	<div class="folio-wrapper">
 
 		<div class="folio-container">
 
@@ -72,29 +68,11 @@
 	$folioWidth: 810px;
 	$innerMargin: calc(($folioWidth - $firstPictureWidth)/2);
 
-	.folio-losange-wrapper {
+	.folio-wrapper {
 		display: block;
 		padding-top: 70vh;
 		margin-bottom: 150px;
 		height: 1036px;
-
-		.losange-container {
-			display: block;
-			position: absolute;
-			margin-top: 50px;
-
-			.losange {
-				display: block;
-				width: 100vw;
-				height: 100vw;
-				transform: rotate(45deg);
-	
-				border-left: solid 1px red;
-				border-top: solid 1px red;
-
-			}
-
-		}
 
 		.folio-container {
 			position: relative;
