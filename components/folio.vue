@@ -60,7 +60,6 @@
 		},
 		mounted(){
 
-			// console.log("wsh : ", this.$store.state.variables.mqDesktop);
 			this.initEvents();
 
 		},
@@ -76,9 +75,8 @@
 
 				const escapedFromTop = event.intersectionRect.top < (Math.abs(event.rootMargin) + 10);
 
-				console.log("escapedFromTop : ", escapedFromTop, event.isIntersecting, event.intersectionRatio);
-				// console.log("event : ", event);
-				console.log("- - - - - - - - ");
+				// console.log("escapedFromTop : ", escapedFromTop, event.isIntersecting, event.intersectionRatio);
+				// console.log("- - - - - - - - ");
 
 				if( escapedFromTop ){
 
@@ -94,7 +92,7 @@
 
 				} else {
 
-					this.isActive = event.intersectionRatio > 0.7;
+					this.isActive = event.isIntersecting;
 
 				}
 

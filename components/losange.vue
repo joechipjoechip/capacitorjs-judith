@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div class="losanges-container">
+		<div ref="losangesContainer" class="losanges-container">
 
-			<div class="losange-ext">
+			<div ref="losangeExt" class="losange-ext">
 
 				<div ref="losangeIn" class="losange-in"></div>
 
@@ -45,12 +45,12 @@
 
 			initSomeValues(){
 
-				this.rootMargin = -100;
+				// this.rootMargin = -100;
+				this.rootMargin = 0;
 
 				this.intersectionOptions = {
 					rootMargin: `${this.rootMargin}px`,
-					threshold: [0.25, 0.5, 0.75, 1.0]
-					// threshold: 1.0
+					threshold: 0.5
 				};
 
 			},
@@ -59,15 +59,13 @@
 
 				this.observer = new IntersectionObserver(this.intersectionHandler, this.intersectionOptions);
 
-				this.observer.observe(this.$refs.losangeText);
+				this.observer.observe(this.$refs.losangesContainer);
 
 			},
 
 			intersectionHandler( intersects ){
 
 				const { isIntersecting, intersectionRatio, intersectionRect } = intersects[0];
-
-				// console.log("ca intersect han : ", intersects);
 
 				$nuxt.$emit("activateFolio", { 
 					isIntersecting, 
