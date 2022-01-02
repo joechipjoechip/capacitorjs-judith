@@ -1,5 +1,5 @@
 <template>
-	<div class="folio-wrapper">
+	<div class="folio-wrapper" :class="{ 'isActive': isActive }">
 
 		<div class="folio-container">
 
@@ -53,11 +53,55 @@
 				required: true
 			}
 		},
+		data(){
+			return {
+				isActive: false
+			}
+		},
 		mounted(){
 
-			console.log("wsh : ", this.$store.state.variables.mqDesktop);
+			// console.log("wsh : ", this.$store.state.variables.mqDesktop);
+			this.initEvents();
+
+		},
+		methods: {
+
+			initEvents(){
+
+				this.$nuxt.$on("activateFolio", this.onActivateFolioHandler);
+
+			},
+
+			onActivateFolioHandler( event ){
+
+				const escapedFromTop = event.intersectionRect.top < (Math.abs(event.rootMargin) + 10);
+
+				console.log("escapedFromTop : ", escapedFromTop, event.isIntersecting, event.intersectionRatio);
+				// console.log("event : ", event);
+				console.log("- - - - - - - - ");
+
+				if( escapedFromTop ){
+
+					if( event.isIntersecting ){
+
+						if( !this.isActive ){
+
+							this.isActive = true;
+
+						}
+
+					}
+
+				} else {
+
+					this.isActive = event.intersectionRatio > 0.7;
+
+				}
+
+			}
 
 		}
+
 	}
 	
 </script>
@@ -69,10 +113,18 @@
 	$innerMargin: calc(($folioWidth - $firstPictureWidth)/2);
 
 	.folio-wrapper {
+		position: fixed;
 		display: block;
-		padding-top: 70vh;
-		margin-bottom: 150px;
+		width: 100%;
 		height: 1036px;
+		top: 50vw;
+		// padding-top: 70vh;
+		margin-bottom: 150px;
+
+		&.isActive {
+			position: relative;
+			margin-top: -160vh;
+		}
 
 		.folio-container {
 			position: relative;

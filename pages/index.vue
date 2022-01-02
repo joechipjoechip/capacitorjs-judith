@@ -1,16 +1,19 @@
 <template>
 	<div class="home-wrapper">
 
-		<losange text="dare to care"/>
+		<div>
 
-		<folio path-name="home"/>
+			<losange text="dare to care"/>
+
+			<folio path-name="home"/>
+
+		</div>
+
 
 	</div>
 </template>
 
 <script>
-
-
 
 	import Folio from "@/components/folio.vue";
 	import Losange from '@/components/losange.vue';
