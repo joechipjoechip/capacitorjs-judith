@@ -53,7 +53,6 @@
 
 				if( wordingBottomPosition <= this.yTrigger ){
 
-					
 					this.$refs.folio.isActive = true;
 
 				} else {

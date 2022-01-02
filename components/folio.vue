@@ -64,8 +64,8 @@
 			}
 		},
 		mounted(){
-
-			this.initEvents();
+			
+			// 
 
 		},
 		watch: {
@@ -81,42 +81,6 @@
 				} else {
 
 					this.topCssString = "";
-
-				}
-
-			}
-
-		},
-		methods: {
-
-			initEvents(){
-
-				// this.$nuxt.$on("activateFolio", this.onActivateFolioHandler);
-
-			},
-
-			onActivateFolioHandler( event ){
-
-				const escapedFromTop = event.intersectionRect.top < (Math.abs(event.rootMargin) + 10);
-
-				// console.log("escapedFromTop : ", escapedFromTop, event.isIntersecting, event.intersectionRatio);
-				// console.log("- - - - - - - - ");
-
-				if( escapedFromTop ){
-
-					if( event.isIntersecting ){
-
-						if( !this.isActive ){
-
-							this.isActive = true;
-
-						}
-
-					}
-
-				} else {
-
-					this.isActive = event.isIntersecting;
 
 				}
 
