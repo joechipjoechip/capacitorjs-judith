@@ -47,7 +47,6 @@
 
 <script>
 	export default {
-		name: "folio",
 		props: {
 			pathName: {
 				type: String,
