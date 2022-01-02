@@ -1,7 +1,7 @@
 <template>
 	<div class="folio-wrapper" :class="{ 'isActive': isActive }">
 
-		<div class="folio-container">
+		<div ref="folioContainer" class="folio-container">
 
 			<div v-for="index of 4" :class="'item item-num-' + index">
 
@@ -47,6 +47,7 @@
 
 <script>
 	export default {
+		name: "folio",
 		props: {
 			pathName: {
 				type: String,
@@ -121,7 +122,8 @@
 
 		&.isActive {
 			position: relative;
-			margin-top: -160vh;
+			top: 0;
+			margin-top: -35vw;
 		}
 
 		.folio-container {
