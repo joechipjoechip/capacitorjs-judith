@@ -1,5 +1,9 @@
 <template>
-	<div class="folio-wrapper" :class="{ 'isActive': isActive }">
+	<div class="folio-wrapper" :class="{ 'isActive': isActive }" 
+		:style="{
+			'top': topCssString
+		}"
+	>
 
 		<div ref="folioContainer" class="folio-container">
 
@@ -55,7 +59,8 @@
 		},
 		data(){
 			return {
-				isActive: false
+				isActive: false,
+				topCssString: ""
 			}
 		},
 		mounted(){
@@ -63,11 +68,30 @@
 			this.initEvents();
 
 		},
+		watch: {
+
+			isActive( newVal ){
+
+				if( newVal ){
+
+					const finalDecay = 820;
+
+					this.topCssString = `calc(80vh + ${finalDecay}px)`;
+
+				} else {
+
+					this.topCssString = "";
+
+				}
+
+			}
+
+		},
 		methods: {
 
 			initEvents(){
 
-				this.$nuxt.$on("activateFolio", this.onActivateFolioHandler);
+				// this.$nuxt.$on("activateFolio", this.onActivateFolioHandler);
 
 			},
 
@@ -115,14 +139,10 @@
 		display: block;
 		width: 100%;
 		height: 1036px;
-		top: 50vw;
-		// padding-top: 70vh;
-		margin-bottom: 150px;
+		top: calc(80vh);
 
 		&.isActive {
 			position: relative;
-			top: 0;
-			margin-top: -35vw;
 		}
 
 		.folio-container {

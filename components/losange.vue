@@ -1,24 +1,23 @@
 <template>
-	<div>
-		<div ref="losangesContainer" class="losanges-container">
 
-			<div ref="losangeExt" class="losange-ext">
+	<div ref="losangesContainer" class="losanges-container">
 
-				<div ref="losangeIn" class="losange-in"></div>
+		<div ref="losangeExt" class="losange-ext">
 
-				<h3 ref="losangeText" class="losange-in-text">
+			<div ref="losangeIn" class="losange-in"></div>
 
-					<span v-for="letter in letters">
-						{{ letter }}
-					</span>
+			<h3 ref="losangeText" class="losange-in-text">
 
-				</h3>
+				<span v-for="letter in letters">
+					{{ letter }}
+				</span>
 
-			</div>
+			</h3>
 
 		</div>
 
 	</div>
+
 </template>
 
 <script>
@@ -33,51 +32,7 @@
 			return {
 				letters: this.text.split("")
 			}
-		},
-		mounted(){
-
-			this.initSomeValues();
-
-			this.initIntersectionObserver();
-
-		},
-		methods: {
-
-			initSomeValues(){
-
-				// this.rootMargin = -100;
-				this.rootMargin = 0;
-
-				this.intersectionOptions = {
-					rootMargin: `${this.rootMargin}px`,
-					threshold: 0.5
-				};
-
-			},
-
-			initIntersectionObserver(){
-
-				this.observer = new IntersectionObserver(this.intersectionHandler, this.intersectionOptions);
-
-				this.observer.observe(this.$refs.losangesContainer);
-
-			},
-
-			intersectionHandler( intersects ){
-
-				const { isIntersecting, intersectionRatio, intersectionRect } = intersects[0];
-
-				$nuxt.$emit("activateFolio", { 
-					isIntersecting, 
-					intersectionRatio, 
-					intersectionRect, 
-					rootMargin: this.rootMargin
-				});
-
-			}
-
 		}
-
 	}
 
 </script>
@@ -87,11 +42,12 @@
 	$fontSize: 31px;
 
 	.losanges-container {
-		position: relative;
+		position: absolute;
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: center;
-		margin-top: 70vh;
+		width: 100%;
+		top: 70vh;
 
 		.losange {
 
@@ -99,8 +55,6 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				width: 84vw;
-				height: 84vw;
 				transform: rotate(45deg);
 	
 				border: solid 1px $colorRed;
@@ -110,8 +64,11 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				width: 20vw;
-				height: 20vw;
+				// width: 20vh;
+				// height: 20vh;
+				width: 250px;
+				height: 250px;
+				margin: 800px;
 				max-width: 400px;
 				max-height: 400px;
 	
@@ -122,6 +79,7 @@
 					display: flex;
 					justify-content: space-between;
 					width: 80vw;
+
 					max-width: $columnMaxWith;
 					text-transform: uppercase;
 					transform: rotate(-45deg);

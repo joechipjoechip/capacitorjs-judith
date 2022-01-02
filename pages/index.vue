@@ -1,9 +1,9 @@
 <template>
 	<div class="home-wrapper">
 
-		<losange text="dare to care"/>
+		<losange ref="losange" text="dare to care"/>
 
-		<folio path-name="home"/>
+		<folio ref="folio" path-name="home"/>
 
 
 	</div>
@@ -27,6 +27,43 @@
 			return {
 				// 
 			}
+		},
+		mounted(){
+
+			this.initSomeValues();
+
+			window.addEventListener("scroll", this.wheelHandler);
+
+		},
+		methods: {
+
+			initSomeValues(){
+
+				// 20vh
+				this.triggerLine = ((window.innerHeight / 100) * 20);
+
+				// 80vh
+				this.yTrigger = window.innerHeight - this.triggerLine;
+
+			},
+
+			wheelHandler(){
+
+				const wordingBottomPosition = this.$refs.losange.$refs.losangeText.getBoundingClientRect().bottom;
+
+				if( wordingBottomPosition <= this.yTrigger ){
+
+					
+					this.$refs.folio.isActive = true;
+
+				} else {
+					
+					this.$refs.folio.isActive = false;
+
+				}
+
+			}
+
 		}
 
 	}
@@ -36,7 +73,8 @@
 <style lang="scss" scoped>
 
 	.home-wrapper {
-		margin-top: $headerHeight;
+		position: relative;
+		// padding-top: $headerHeight;
 	}
 
 </style>
