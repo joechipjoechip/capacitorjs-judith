@@ -120,7 +120,7 @@
 					this.$parent.active3d = true;
 
 					this.rotateCssString =  `rotate3d(
-						${(this.mousePos.y) * - this.ratioTransform}, 
+						${(this.mousePos.y + 0.5) * - this.ratioTransform}, 
 						${(this.mousePos.x) * this.ratioTransform * 2}, 
 						${this.mousePos.x * this.ratioTransform * -0.5}, 
 						10deg)`;
@@ -153,7 +153,7 @@
 		width: 100%;
 		height: 1036px;
 		top: calc(80vh);
-		transform-origin: center center;
+		transform-origin: center top;
 
 		will-change: transform;
 		transition: transform .1s;
@@ -189,6 +189,8 @@
 
 					*[class^="picture"] {
 						opacity: 1;
+						border-radius: 999px;
+						box-shadow: 0 5px 0 rgba(188, 67, 66, 1);
 					}
 					
 				}
@@ -278,9 +280,16 @@
 			*[class^="picture"] {
 				z-index: 10;
 				display: block;
+				overflow: hidden;
+				box-shadow: 0 -5px 5px rgba(0,0,0,0);
 
-				will-change: opacity;
-				transition: opacity .8s;
+				will-change: opacity, border-radius, box-shadow;
+
+				transition: opacity .8s, 
+							border-radius 3s, 
+							box-shadow 6s;
+
+				transition-timing-function: cubic-bezier(.12,.98,.78,1);
 
 				img {
 					width: 100%;
