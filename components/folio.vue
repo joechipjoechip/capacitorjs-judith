@@ -51,32 +51,50 @@
 
 <script>
 	export default {
+	
 		props: {
+
 			pathName: {
 				type: String,
 				required: true
+			},
+
+			mousePos: {
+				type: Object,
+				required: true
 			}
+
 		},
+
 		data(){
 			return {
 				isActive: false,
 				topCssString: ""
 			}
 		},
+
 		mounted(){
 			
 			// 
+			$nuxt.$on("hookFolio", this.onHookHandler)
 
 		},
-		watch: {
 
-			isActive( newVal ){
+		methods: {
 
-				if( newVal ){
+			onHookHandler( event ){
 
-					this.topCssString = `calc(80vh + ${this.$parent.customTopHook}px)`;
+				// console.log("hook triggered : ", event);
+
+				if( event.hook ){
+
+					this.isActive = true;
+
+					this.topCssString = `calc(80vh + ${event.hookCustomPosition}px)`;
 
 				} else {
+
+					this.isActive = false;
 
 					this.topCssString = "";
 
