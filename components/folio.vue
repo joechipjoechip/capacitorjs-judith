@@ -1,7 +1,8 @@
 <template>
 	<div class="folio-wrapper" :class="{ 'isActive': isActive }" 
 		:style="{
-			'top': topCssString
+			'top': topCssString,
+			'transform': rotateCssString
 		}"
 	>
 
@@ -69,7 +70,9 @@
 		data(){
 			return {
 				isActive: false,
-				topCssString: ""
+				topCssString: "",
+				ratioTransform: 0.05,
+				rotateCssString: `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg)`
 			}
 		},
 
@@ -80,11 +83,23 @@
 
 		},
 
+		watch: {
+
+			mousePos(){
+
+				this.setRotate();
+
+			}
+
+		},
+
 		methods: {
 
 			onHookHandler( event ){
 
 				this.isActive = event.pleaseHook;
+
+				this.setRotate();
 
 				if( this.isActive ){
 
@@ -93,6 +108,28 @@
 				} else {
 
 					this.topCssString = "";
+
+				}
+
+			},
+
+			setRotate(){
+
+				if( this.isActive ){
+
+					this.$parent.active3d = true;
+
+					this.rotateCssString =  `rotate3d(
+						${(this.mousePos.y) * - this.ratioTransform}, 
+						${(this.mousePos.x) * this.ratioTransform * 2}, 
+						${this.mousePos.x * this.ratioTransform * -0.5}, 
+						10deg)`;
+
+				} else {
+
+					this.$parent.active3d = false;
+
+					this.rotateCssString =  "rotate3d(0, 0, 0, 45deg)";
 
 				}
 
@@ -116,6 +153,10 @@
 		width: 100%;
 		height: 1036px;
 		top: calc(80vh);
+		transform-origin: center center;
+
+		will-change: transform;
+		transition: transform .1s;
 
 		&.isActive {
 			position: relative;

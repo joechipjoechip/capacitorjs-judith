@@ -1,5 +1,5 @@
 <template>
-	<div class="home-wrapper">
+	<div class="home-wrapper" :class="{ 'active3d': active3d }">
 
 		<losange 
 			ref="losange" 
@@ -35,7 +35,8 @@
 				mousePos: {
 					x: window.innerWidth / 2,
 					y: window.innerHeight / 2
-				}
+				},
+				active3d: false
 			}
 		},
 		mounted(){
@@ -74,11 +75,13 @@
 						hookCustomPosition
 					});
 
+
 				} else {
 
 					$nuxt.$emit("hookFolio", { 
 						pleaseHook: false
 					});
+
 
 				}
 
@@ -90,8 +93,6 @@
 					x: event.x / window.innerWidth - 0.5,
 					y: event.y / window.innerHeight - 0.5
 				}
-
-				console.log("mousePos : ", this.mousePos.x, this.mousePos.y);
 
 			}
 
@@ -106,6 +107,10 @@
 	.home-wrapper {
 		position: relative;
 		// padding-top: $headerHeight;
+
+		&.active3d {
+			perspective: 4000px;
+		}
 	}
 
 </style>
