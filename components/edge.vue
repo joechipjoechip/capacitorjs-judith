@@ -33,14 +33,20 @@
 
 				if( event.pleaseHook ){
 
-					const { bottom, height } = this.$parent.$refs[this.relativeRef].$el.getBoundingClientRect();
+					// const { bottom, height } = this.$parent.$refs[this.relativeRef].$el.getBoundingClientRect();
 
-					const value = Math.floor(bottom + height);
+					// const value = Math.floor(bottom + height);
+
+					const value = this.$parent.$refs[this.relativeRef].$el.offsetTop;
 
 					this.cssDecayValue = `${value}px`;
+
+					this.$parent.hookedDisplayed = true;
 	
 
 				} else {
+
+					this.$parent.hookedDisplayed = false;
 					
 					this.cssDecayValue = "";
 

@@ -12,15 +12,23 @@
 			:mouse-pos="mousePos"
 		/>
 
-		<edge 
-			ref="edge" 
-			relative-ref="folio" 
-		/>
+		<div 
+			class="hooked-content"
+			:class="{'hooked-displayed': hookedDisplayed}"
+		>
 
-		<philosophy
-			ref="philosophy"
-			main-title="our philosophy"
-		/>
+			<edge 
+				ref="edge" 
+				relative-ref="folio" 
+			/>
+
+			<philosophy
+				ref="philosophy"
+				main-title="our philosophy"
+			/>
+
+		</div>
+
 
 
 
@@ -51,7 +59,8 @@
 					x: window.innerWidth / 2,
 					y: window.innerHeight / 2
 				},
-				active3d: false
+				active3d: false,
+				hookedDisplayed: false
 			}
 		},
 		mounted(){
@@ -126,6 +135,20 @@
 		&.active3d {
 			perspective: 4000px;
 		}
+
+		.hooked-content {
+			opacity: 0;
+
+			will-change: opacity;
+
+			transition: opacity .01s;
+
+			&.hooked-displayed {
+				opacity: 1;
+			}
+
+		}
+
 	}
 
 </style>
