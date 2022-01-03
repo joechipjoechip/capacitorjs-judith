@@ -1,13 +1,21 @@
 <template>
 	<div class="philosophy-container">
-		<h3>{{ title }}</h3>
+
+		<micro-title :text="mainTitle" />
+
 	</div>
 </template>
 
 <script>
+
+	import Title from "@/components/micro/title.vue";
+
 	export default {
+		components: {
+			"micro-title": Title
+		},
 		props: {
-			title: {
+			mainTitle: {
 				type: String,
 				required: true
 			}
@@ -29,13 +37,8 @@
 	.philosophy-container {
 		display: block;
 		position: relative;
-		
 
-		h3 {
-			color: white;
-			font-size: 50px;
-		}
-
+		border: solid 1px red;
 	}
 
 </style>

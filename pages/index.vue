@@ -16,7 +16,7 @@
 
 		<philosophy
 			ref="philosophy"
-			title="our philosophy"
+			main-title="our philosophy"
 		/>
 
 
