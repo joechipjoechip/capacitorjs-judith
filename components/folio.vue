@@ -79,7 +79,7 @@
 		mounted(){
 			
 			// 
-			$nuxt.$on("hookFolio", this.onHookHandler)
+			$nuxt.$on("hookFolio", this.onHookHandler);
 
 		},
 
@@ -167,6 +167,7 @@
 			max-width: $folioWidth;
 			display: block;
 			margin: 0 auto;
+			// height: 1040px;
 
 			*[class^="item"] {
 				position: absolute;

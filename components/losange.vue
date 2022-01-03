@@ -57,7 +57,8 @@
 				align-items: center;
 				transform: rotate(45deg);
 	
-				border: solid 1px $colorRed;
+				border-top: solid 1px $colorRed;
+				border-left: solid 1px $colorRed;
 			}
 
 			&-in {

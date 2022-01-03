@@ -12,6 +12,14 @@
 			:mouse-pos="mousePos"
 		/>
 
+		<edge ref="edge" relative-ref="folio" />
+
+		<philosophy
+			ref="philosophy"
+			title="our philosophy"
+		/>
+
+
 
 	</div>
 </template>
@@ -20,6 +28,8 @@
 
 	import Folio from "@/components/folio.vue";
 	import Losange from '@/components/losange.vue';
+	import Edge from '@/components/edge.vue';
+	import Philosophy from '@/components/philosophy.vue';
 
 	export default {
 
@@ -27,7 +37,9 @@
 
 		components: {
 			"folio": Folio,
-			"losange": Losange
+			"losange": Losange,
+			"edge": Edge,
+			"philosophy": Philosophy
 		},
 
 		data(){
