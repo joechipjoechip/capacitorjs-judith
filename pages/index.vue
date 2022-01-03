@@ -1,9 +1,16 @@
 <template>
 	<div class="home-wrapper">
 
-		<losange ref="losange" text="dare to care"/>
+		<losange 
+			ref="losange" 
+			text="dare to care"
+		/>
 
-		<folio ref="folio" path-name="home" :mouse-pos="mousePos"/>
+		<folio 
+			ref="folio" 
+			path-name="home" 
+			:mouse-pos="mousePos"
+		/>
 
 
 	</div>
@@ -35,6 +42,8 @@
 
 			this.initSomeValues();
 
+			window.addEventListener("resize", this.initSomeValues);
+
 			window.addEventListener("scroll", this.onWheelHandler);
 
 			window.addEventListener("mousemove", this.onMouseMoveHandler);
@@ -61,14 +70,14 @@
 					const hookCustomPosition = window.scrollY + wordingBottomPosition - this.yTrigger;
 
 					$nuxt.$emit("hookFolio", { 
-						hook: true,
+						pleaseHook: true,
 						hookCustomPosition
 					});
 
 				} else {
 
 					$nuxt.$emit("hookFolio", { 
-						hook: false
+						pleaseHook: false
 					});
 
 				}

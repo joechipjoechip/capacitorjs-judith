@@ -84,17 +84,13 @@
 
 			onHookHandler( event ){
 
-				// console.log("hook triggered : ", event);
+				this.isActive = event.pleaseHook;
 
-				if( event.hook ){
-
-					this.isActive = true;
+				if( this.isActive ){
 
 					this.topCssString = `calc(80vh + ${event.hookCustomPosition}px)`;
 
 				} else {
-
-					this.isActive = false;
 
 					this.topCssString = "";
 
