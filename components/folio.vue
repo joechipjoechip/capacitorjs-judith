@@ -74,9 +74,7 @@
 
 				if( newVal ){
 
-					const finalDecay = 820;
-
-					this.topCssString = `calc(80vh + ${finalDecay}px)`;
+					this.topCssString = `calc(80vh + ${this.$parent.customTopHook}px)`;
 
 				} else {
 
