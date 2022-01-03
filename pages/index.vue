@@ -12,7 +12,10 @@
 			:mouse-pos="mousePos"
 		/>
 
-		<edge ref="edge" relative-ref="folio" />
+		<edge 
+			ref="edge" 
+			relative-ref="folio" 
+		/>
 
 		<philosophy
 			ref="philosophy"
