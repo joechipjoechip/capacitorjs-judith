@@ -35,9 +35,10 @@
 
 					const { bottom, height } = this.$parent.$refs[this.relativeRef].$el.getBoundingClientRect();
 
-					const value = bottom + height;
-	
+					const value = Math.floor(bottom + height);
+
 					this.cssDecayValue = `${value}px`;
+	
 
 				} else {
 					

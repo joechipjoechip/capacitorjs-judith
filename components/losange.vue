@@ -48,6 +48,7 @@
 		justify-content: center;
 		width: 100%;
 		top: 70vh;
+		overflow: hidden;
 
 		.losange {
 
@@ -56,6 +57,7 @@
 				justify-content: center;
 				align-items: center;
 				transform: rotate(45deg);
+				margin-top: 390px;
 	
 				border-top: solid 1px $colorRed;
 				border-left: solid 1px $colorRed;

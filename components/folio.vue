@@ -120,7 +120,7 @@
 					this.$parent.active3d = true;
 
 					this.rotateCssString =  `rotate3d(
-						${(this.mousePos.y + 0.5) * - this.ratioTransform}, 
+						${(this.mousePos.y) * this.ratioTransform * 2},
 						${(this.mousePos.x) * this.ratioTransform * 2}, 
 						${this.mousePos.x * this.ratioTransform * -0.5}, 
 						10deg)`;
@@ -153,7 +153,7 @@
 		width: 100%;
 		height: 1036px;
 		top: calc(80vh);
-		transform-origin: center top;
+		transform-origin: center center;
 
 		will-change: transform;
 		transition: transform .1s;
