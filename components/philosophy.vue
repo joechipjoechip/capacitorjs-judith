@@ -9,27 +9,56 @@
 
 				<div ref="big-square" class="big-square">
 
-					<div class="wording-1">Transparency</div>
+					<div 
+						class="wording-1" 
+						@click="letterClickHandler"
+						data-text="transparency">Transparency</div>
 
-					<div class="wording-2">Advocacy</div>
+					<div 
+						class="wording-2" 
+						@click="letterClickHandler"
+						data-text="advocacy">Advocacy</div>
 
-					<div class="wording-3">Insightfullness</div>
+					<div 
+						class="wording-3" 
+						@click="letterClickHandler"
+						data-text="insightfullness">Insightfullness</div>
 
-					<div class="wording-4">Accountability</div>
-
-					<div ref="letter-transparency" class="little-square-outside-1">T</div>
-
-					<div ref="letter-advocacy" class="little-square-outside-2">A</div>
+					<div 
+						class="wording-4" 
+						@click="letterClickHandler"
+						data-text="accountability">Accountability</div>
 
 					<div ref="square-inside-1" class="little-square-inside-1"></div>
 
 					<div ref="square-inside-2" class="little-square-inside-2"></div>
 
-					<div ref="letter-insightfullness" class="little-square-outside-3">I</div>
+					<div 
+						class="little-square-outside-1"
+						@click="letterClickHandler"
+						data-text="transparency">T</div>
 
-					<div ref="letter-accountability" class="little-square-outside-4">A</div>
+					<div 
+						class="little-square-outside-2"
+						@click="letterClickHandler"
+						data-text="advocacy">A</div>
 
-					<div ref="wording-description" class="wording-description">Our mission is no longer to make people dream, but to lead them to an informed consent.</div>
+					<div 
+						class="little-square-outside-3"
+						@click="letterClickHandler"
+						data-text="insightfullness">I</div>
+
+					<div 
+						class="little-square-outside-4"
+						@click="letterClickHandler"
+						data-text="accountability">A</div>
+
+					<div 
+						class="wording-description"
+						ref="wording-description" 
+						v-if="descriptionText[currentKey]">
+						{{ descriptionText[currentKey] }}
+					</div>
 
 				</div>
 
@@ -54,16 +83,35 @@
 				required: true
 			}
 		},
+		data(){
+			return {
+				descriptionDisplayed: false,
+				descriptionText: {
+					transparency: "transparencyy Our mission is no longer to make people dream, but to lead them to an informed consent.",
+					advocacy: "advocacyy Our mission is no longer to make people dream, but to lead them to an informed consent.",
+					insightfullness: "insightfullnessss Our mission is no longer to make people dream, but to lead them to an informed consent.",
+					accountability: "accountabilityyy Our mission is no longer to make people dream, but to lead them to an informed consent."
+				},
+				currentKey: ""
+			}
+		},
 		mounted(){
-
-			// $nuxt.$on("hookFolio", this.onHookFolioHandler);
-
+			// 
 		},
 
 		methods: {
-			// 
+
+			letterClickHandler( event ){
+
+				// console.log("a letter has been clicked : ", event.target.dataset.text);
+				this.currentKey = event.target.dataset.text;
+
+			}
+
 		}
+
 	}
+
 </script>
 
 <style lang="scss" scoped>
@@ -148,6 +196,7 @@
 				position: absolute;
 				width: 100%;
 				text-align: center;
+				cursor: pointer;
 
 				&[class*="-1"]{
 					top: $calcWordingMargin;
@@ -216,6 +265,7 @@
 
 			*[class^="little-square-outside"] {
 				position: absolute;
+				cursor: pointer;
 
 				&[class*="-1"] {
 					top: $calcDecay1;
