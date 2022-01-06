@@ -4,7 +4,6 @@
 			'margin-top': cssDecayValue
 		}"
 	>
-		<h3>EDGE EDGE EDGE</h3>
 	</div>
 </template>
 
@@ -37,7 +36,7 @@
 
 					// const value = Math.floor(bottom + height);
 
-					const value = this.$parent.$refs[this.relativeRef].$el.offsetTop;
+					const value = this.$parent.$refs[this.relativeRef].$el.offsetTop + 200;
 
 					this.cssDecayValue = `${value}px`;
 
