@@ -7,19 +7,29 @@
 
 			<div class="philosophy-inner">
 
-				<div class="big-square">
+				<div ref="big-square" class="big-square">
 
-					<div class="little-square-outside-1"></div>
+					<div class="wording-1">Transparency</div>
 
-					<div class="little-square-outside-2"></div>
+					<div class="wording-2">Advocacy</div>
 
-					<div class="little-square-inside-1"></div>
+					<div class="wording-3">Insightfullness</div>
 
-					<div class="little-square-inside-2"></div>
+					<div class="wording-4">Accountability</div>
 
-					<div class="little-square-outside-3"></div>
+					<div ref="letter-transparency" class="little-square-outside-1">T</div>
 
-					<div class="little-square-outside-4"></div>
+					<div ref="letter-advocacy" class="little-square-outside-2">A</div>
+
+					<div ref="square-inside-1" class="little-square-inside-1"></div>
+
+					<div ref="square-inside-2" class="little-square-inside-2"></div>
+
+					<div ref="letter-insightfullness" class="little-square-outside-3">I</div>
+
+					<div ref="letter-accountability" class="little-square-outside-4">A</div>
+
+					<div ref="wording-description" class="wording-description">Our mission is no longer to make people dream, but to lead them to an informed consent.</div>
 
 				</div>
 
@@ -58,16 +68,28 @@
 
 <style lang="scss" scoped>
 
+
 	.philosophy {
+		
+		// $innerSize: 700px;
 
-		$innerSize: 700px;
+		// only css property (which can be override with an inline-style)
 		$bigSquareSize: 500px;
+
+		// all relatives variables
 		$littleSquareSize: 10%;
-
-
+	
+		$wordingFontSize: 18px;
+		$wordingDecay: 40px;
+		$calcWordingMargin: calc($wordingFontSize * -1 - $wordingDecay);
+	
+	
 		$calcDecayInside: calc($littleSquareSize / 2);
 		$calcDecay1: calc(-50% - ($littleSquareSize / 2));
 		$calcDecay2: calc(50% - ($littleSquareSize / 2));
+
+		$borderColorWhiteFaded: rgba(255,255,255, 0.4);
+
 
 		&-container {
 			display: block;
@@ -89,8 +111,8 @@
 			justify-content: center;
 			align-items: center;
 
-			width: $innerSize;
-			height: $innerSize;
+			// width: $innerSize;
+			// height: $innerSize;
 			margin: 25% auto;
 
 			transform-origin: center;
@@ -100,23 +122,85 @@
 
 			.big-square {
 				position: relative;
-				border: solid 1px green;
+				border: solid 1px $colorRed;
 
-				display: block;
 				width: $bigSquareSize;
 				height: $bigSquareSize;
 				margin: 0 auto;
+
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: center;
+				align-items: center;
+			}
+
+			// font styles
+			*[class^="wording"],
+			*[class^="little-square"] {
+				font-family: "AktivGrotesk";
+				font-size: $wordingFontSize;
+				text-transform: uppercase;
+				letter-spacing: 2.4px;
+				color: $borderColorWhiteFaded;
+			}
+
+			*[class^="wording"] {
+				position: absolute;
+				width: 100%;
+				text-align: center;
+
+				&[class*="-1"]{
+					top: $calcWordingMargin;
+				}
+
+				&[class*="-2"]{
+					transform-origin: left;
+					transform: rotate(-90deg);
+
+					left: $calcWordingMargin;
+					bottom: calc($wordingFontSize / -2);
+				}
+
+				&[class*="-3"]{
+					bottom: $calcWordingMargin;
+				}
+
+				&[class*="-4"]{
+					transform-origin: right;
+					transform: rotate(-90deg);
+
+					right: $calcWordingMargin;
+					top: calc($wordingFontSize / -2);
+				}
+
+			}
+
+			.wording-description {
+				width: 60%;
+				font-size: 20px;
+				line-height: 30px;
+				color: $colorWhite;
+				transform: rotate(-45deg);
+				text-transform: none;
 			}
 
 			*[class^="little-square"] {
 				width: $littleSquareSize;
 				height: $littleSquareSize;
-				border: solid 1px transparent;
+				border: solid 1px $borderColorWhiteFaded;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				transform-origin: center;
+				transform: rotate(-45deg);
 			}
 
 			*[class^="little-square-inside"] {
-				border-color: yellow;
 				position: absolute;
+				border-color: $colorRed;
+				color: $colorRed;
 
 				&[class*="-1"] {
 					top: $calcDecayInside;
@@ -131,34 +215,26 @@
 			}
 
 			*[class^="little-square-outside"] {
-				border-color: rebeccapurple;
 				position: absolute;
-
-				transform-origin: center;
-				transform: rotate(-45deg);
 
 				&[class*="-1"] {
 					top: $calcDecay1;
 					left: $calcDecay2;
-					border-color: red;
 				}
 
 				&[class*="-2"] {
 					top: $calcDecay2;
 					left: $calcDecay1;
-					border-color: green;
 				}
 
 				&[class*="-3"] {
 					bottom: $calcDecay1;
 					right: $calcDecay2;
-					border-color: orange;
 				}
 
 				&[class*="-4"] {
 					bottom: $calcDecay2;
 					right: $calcDecay1;
-					border-color: blue;
 				}
 
 			}
