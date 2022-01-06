@@ -9,48 +9,66 @@
 
 				<div ref="big-square" class="big-square">
 
+					<!-- WORDINGS -->
 					<div 
 						class="wording-1" 
-						@click="letterClickHandler"
+						:class="{ 'is-active': currentKey === 'transparency' }"
+						@mouseenter="letterEventHandler"
 						data-text="transparency">Transparency</div>
 
 					<div 
 						class="wording-2" 
-						@click="letterClickHandler"
+						:class="{ 'is-active': currentKey === 'advocacy' }"
+						@mouseenter="letterEventHandler"
 						data-text="advocacy">Advocacy</div>
 
 					<div 
 						class="wording-3" 
-						@click="letterClickHandler"
+						:class="{ 'is-active': currentKey === 'insightfullness' }"
+						@mouseenter="letterEventHandler"
 						data-text="insightfullness">Insightfullness</div>
 
 					<div 
 						class="wording-4" 
-						@click="letterClickHandler"
+						:class="{ 'is-active': currentKey === 'accountability' }"
+						@mouseenter="letterEventHandler"
 						data-text="accountability">Accountability</div>
 
-					<div ref="square-inside-1" class="little-square-inside-1"></div>
 
-					<div ref="square-inside-2" class="little-square-inside-2"></div>
+					<!--  SQUARES -->
 
+					<!-- Inside -->
+					<div ref="square-inside-1" class="little-square-inside-1">
+						{{ singleLetter }}
+					</div>
+
+					<div ref="square-inside-2" class="little-square-inside-2">
+						{{ singleLetter }}
+					</div>
+
+					<!-- Outside -->
 					<div 
 						class="little-square-outside-1"
-						@click="letterClickHandler"
+						:class="{ 'is-active': currentKey === 'transparency' }"
+						@mouseenter="letterEventHandler"
 						data-text="transparency">T</div>
 
 					<div 
 						class="little-square-outside-2"
-						@click="letterClickHandler"
+						:class="{ 'is-active': currentKey === 'advocacy' }"
+						@mouseenter="letterEventHandler"
 						data-text="advocacy">A</div>
 
 					<div 
 						class="little-square-outside-3"
-						@click="letterClickHandler"
+						:class="{ 'is-active': currentKey === 'insightfullness' }"
+						@mouseenter="letterEventHandler"
 						data-text="insightfullness">I</div>
 
 					<div 
 						class="little-square-outside-4"
-						@click="letterClickHandler"
+						:class="{ 'is-active': currentKey === 'accountability' }"
+						@mouseenter="letterEventHandler"
 						data-text="accountability">A</div>
 
 					<div 
@@ -92,18 +110,25 @@
 					insightfullness: "insightfullnessss Our mission is no longer to make people dream, but to lead them to an informed consent.",
 					accountability: "accountabilityyy Our mission is no longer to make people dream, but to lead them to an informed consent."
 				},
-				currentKey: ""
+				currentKey: "",
+				singleLetter: ""
 			}
 		},
-		mounted(){
-			// 
+
+		watch: {
+
+			currentKey( newVal ){
+
+				this.singleLetter = newVal.substring(0,1);
+
+			}
+
 		},
 
 		methods: {
 
-			letterClickHandler( event ){
+			letterEventHandler( event ){
 
-				// console.log("a letter has been clicked : ", event.target.dataset.text);
 				this.currentKey = event.target.dataset.text;
 
 			}
@@ -122,7 +147,7 @@
 		// $innerSize: 700px;
 
 		// only css property (which can be override with an inline-style)
-		$bigSquareSize: 500px;
+		$bigSquareSize: 40vh;
 
 		// all relatives variables
 		$littleSquareSize: 10%;
@@ -137,6 +162,9 @@
 		$calcDecay2: calc(50% - ($littleSquareSize / 2));
 
 		$borderColorWhiteFaded: rgba(255,255,255, 0.4);
+
+		$delayTransition1: .3s;
+		$delayTransition2: .8s;
 
 
 		&-container {
@@ -171,6 +199,7 @@
 			.big-square {
 				position: relative;
 				border: solid 1px $colorRed;
+				font-size: 20px;
 
 				width: $bigSquareSize;
 				height: $bigSquareSize;
@@ -197,6 +226,14 @@
 				width: 100%;
 				text-align: center;
 				cursor: pointer;
+
+				will-change: color;
+
+				transition: color $delayTransition1;
+
+				&.is-active {
+					color: $colorRed;
+				}
 
 				&[class*="-1"]{
 					top: $calcWordingMargin;
@@ -226,7 +263,7 @@
 
 			.wording-description {
 				width: 60%;
-				font-size: 20px;
+				font-size: 1em;
 				line-height: 30px;
 				color: $colorWhite;
 				transform: rotate(-45deg);
@@ -266,6 +303,16 @@
 			*[class^="little-square-outside"] {
 				position: absolute;
 				cursor: pointer;
+
+				will-change: color, border-color;
+
+				transition: color $delayTransition1,
+							border-color $delayTransition2;
+
+				&.is-active {
+					color: $colorRed;
+					border-color: $colorRed;
+				}
 
 				&[class*="-1"] {
 					top: $calcDecay1;
