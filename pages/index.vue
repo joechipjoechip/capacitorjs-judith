@@ -99,13 +99,11 @@
 						hookCustomPosition
 					});
 
-
 				} else {
 
 					$nuxt.$emit("hookFolio", { 
 						pleaseHook: false
 					});
-
 
 				}
 
