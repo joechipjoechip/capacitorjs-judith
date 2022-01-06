@@ -10,7 +10,7 @@
 				<div class="big-square">
 
 					<!-- WORDINGS -->
-					<div v-for="(notion, index) in notions" :key="notion" 
+					<div v-for="(notion, index, id) in notions" :key="id" 
 						:class="[
 							'wording-' + (index + 1), 
 							{ 'is-active': currentKey === notion }
@@ -29,13 +29,13 @@
 
 					<!--  SQUARES -->
 					<!-- Inside -->
-					<div v-for="index in 2" 
+					<div v-for="index in 2" :key="index"
 						:class="['little-square-inside-' + index]">
 						{{ currentKey ? currentKey.substring(0, 1) : "" }}
 					</div>
 
 					<!-- Outside -->
-					<div v-for="(notion, index) in notions" :key="notion" 
+					<div v-for="(notion, index, id) in notions" :key="id" 
 						:class="[
 							'little-square-outside-' + (index + 1), 
 							{ 'is-active': currentKey === notion }
