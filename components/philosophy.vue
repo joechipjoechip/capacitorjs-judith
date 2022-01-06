@@ -7,75 +7,43 @@
 
 			<div class="philosophy-inner">
 
-				<div ref="big-square" class="big-square">
+				<div class="big-square">
 
 					<!-- WORDINGS -->
-					<div 
-						class="wording-1" 
-						:class="{ 'is-active': currentKey === 'transparency' }"
+					<div v-for="(notion, index) in notions" :key="notion" 
+						:class="[
+							'wording-' + (index + 1), 
+							{ 'is-active': currentKey === notion }
+						]"
 						@mouseenter="letterEventHandler"
-						data-text="transparency">Transparency</div>
-
-					<div 
-						class="wording-2" 
-						:class="{ 'is-active': currentKey === 'advocacy' }"
-						@mouseenter="letterEventHandler"
-						data-text="advocacy">Advocacy</div>
-
-					<div 
-						class="wording-3" 
-						:class="{ 'is-active': currentKey === 'insightfullness' }"
-						@mouseenter="letterEventHandler"
-						data-text="insightfullness">Insightfullness</div>
-
-					<div 
-						class="wording-4" 
-						:class="{ 'is-active': currentKey === 'accountability' }"
-						@mouseenter="letterEventHandler"
-						data-text="accountability">Accountability</div>
-
-
-					<!--  SQUARES -->
-
-					<!-- Inside -->
-					<div ref="square-inside-1" class="little-square-inside-1">
-						{{ singleLetter }}
+						:data-text="notion"
+					>
+						{{notion}}
 					</div>
-
-					<div ref="square-inside-2" class="little-square-inside-2">
-						{{ singleLetter }}
-					</div>
-
-					<!-- Outside -->
-					<div 
-						class="little-square-outside-1"
-						:class="{ 'is-active': currentKey === 'transparency' }"
-						@mouseenter="letterEventHandler"
-						data-text="transparency">T</div>
-
-					<div 
-						class="little-square-outside-2"
-						:class="{ 'is-active': currentKey === 'advocacy' }"
-						@mouseenter="letterEventHandler"
-						data-text="advocacy">A</div>
-
-					<div 
-						class="little-square-outside-3"
-						:class="{ 'is-active': currentKey === 'insightfullness' }"
-						@mouseenter="letterEventHandler"
-						data-text="insightfullness">I</div>
-
-					<div 
-						class="little-square-outside-4"
-						:class="{ 'is-active': currentKey === 'accountability' }"
-						@mouseenter="letterEventHandler"
-						data-text="accountability">A</div>
 
 					<div 
 						class="wording-description"
-						ref="wording-description" 
 						v-if="descriptionText[currentKey]">
 						{{ descriptionText[currentKey] }}
+					</div>
+
+					<!--  SQUARES -->
+					<!-- Inside -->
+					<div v-for="index in 2" 
+						:class="['little-square-inside-' + index]">
+						{{ currentKey ? currentKey.substring(0, 1) : "" }}
+					</div>
+
+					<!-- Outside -->
+					<div v-for="(notion, index) in notions" :key="notion" 
+						:class="[
+							'little-square-outside-' + (index + 1), 
+							{ 'is-active': currentKey === notion }
+						]"
+						@mouseenter="letterEventHandler"
+						:data-text="notion"
+					>
+						{{ notion.substring(0,1) }}
 					</div>
 
 				</div>
@@ -110,19 +78,9 @@
 					insightfullness: "insightfullnessss Our mission is no longer to make people dream, but to lead them to an informed consent.",
 					accountability: "accountabilityyy Our mission is no longer to make people dream, but to lead them to an informed consent."
 				},
-				currentKey: "",
-				singleLetter: ""
+				notions: ["transparency", "advocacy", "insightfullness", "accountability"],
+				currentKey: ""
 			}
-		},
-
-		watch: {
-
-			currentKey( newVal ){
-
-				this.singleLetter = newVal.substring(0,1);
-
-			}
-
 		},
 
 		methods: {
