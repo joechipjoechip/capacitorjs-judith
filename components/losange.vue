@@ -1,10 +1,10 @@
 <template>
 
-	<div ref="losangesContainer" class="losanges-container">
+	<div ref="losangesContainer" class="losanges-container anim-colors">
 
-		<div ref="losangeExt" class="losange-ext anim-shadow">
+		<div ref="losangeExt" class="losange-ext">
 
-			<div ref="losangeIn" class="losange-in"></div>
+			<div ref="losangeIn" class="losange-in anim-shadow"></div>
 
 			<h3 ref="losangeText" class="losange-in-text">
 
@@ -62,13 +62,6 @@
 	
 				border-top: solid 1px var(--color-primary);
 				border-left: solid 1px var(--color-primary);
-
-				box-shadow: 0px 0px 10vh transparent inset;
-
-				// animation: animLosangeExt 3s alternate-reverse infinite;
-				// box-shadow: 0px 0px 10vh color.scale(var(--color-primary), $alpha: -20%) inset;
-				box-shadow: 0px 0px 10vh var(--color-primary) inset;
-				// box-sizing: content-box;
 			}
 
 			&-in {
@@ -83,13 +76,14 @@
 				max-width: 400px;
 				max-height: 400px;
 	
-				border: solid 1px var(--color-primary);
+				border: solid 1px currentColor;
 
 				&-text {
 					position: absolute;
 					display: flex;
 					justify-content: space-between;
 					width: 80vw;
+					color: var(--color-white);
 
 					max-width: $columnMaxWith;
 					text-transform: uppercase;

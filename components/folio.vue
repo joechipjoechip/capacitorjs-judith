@@ -15,7 +15,10 @@
 					<p class="description">Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
 				</div>
 
-				<picture :class="'picture-num-' + index">
+				<picture :class="[
+					'picture-num-' + index,
+					'anim-colors'
+				]">
 
 					<!-- high res -->
 					<source 
@@ -191,7 +194,7 @@
 					*[class^="picture"] {
 						opacity: 1;
 						border-radius: 999px;
-						box-shadow: 0 5px 0 rgba(188, 67, 66, 1);
+						box-shadow: 0 5px 0 currentColor;
 					}
 					
 				}
