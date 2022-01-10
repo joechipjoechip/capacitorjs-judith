@@ -239,15 +239,11 @@
 			.description {
 				text-align: center;
 				color: var(--color-white);
-
-				&-wrapper {
-					font-size: 1.8vh;
-					line-height: 30px;
-					color: var(--color-white);
-					text-transform: none;
-				}
+				font-size: 1.5vh;
+				line-height: 3vh;
 
 				&-container {
+					transform-origin: center;
 					transform: rotate(-45deg);
 					position: absolute;
 					width: 50%;
@@ -255,6 +251,17 @@
 					top: 25%;
 					left: 25%;
 				}
+
+				&-wrapper {
+					width: 100%;
+					height: 100%;
+
+					font-size: 1.8vh;
+					line-height: 30px;
+					color: var(--color-white);
+					text-transform: none;
+				}
+
 
 			}
 
@@ -330,11 +337,26 @@
 
 	.transition-description-enter-active, 
 	.transition-description-leave-active {
+		// top: -20vh;
+		// position: absolute;
 
 		transform: translateY(0);
 		opacity: 1;
 
 		will-change: transform, opacity;
+
+
+	}
+
+	.transition-description-enter-active {
+
+		transition: 
+			transform 1.35s,
+			opacity 2.5s;
+
+	} 
+
+	.transition-description-leave-active {
 
 		transition: 
 			transform .85s,
