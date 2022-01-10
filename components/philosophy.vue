@@ -127,7 +127,6 @@
 
 		&-container {
 			display: block;
-			position: relative;
 
 			margin-top: 150px;
 			margin-bottom: 550px;
@@ -293,8 +292,6 @@
 				}
 
 			}
-
-			
 
 		}
 
