@@ -181,6 +181,10 @@
 
 				*[class^="picture"] {
 					opacity: 0.45;
+					border-top-left-radius: 0px;
+					border-top-right-radius: 0px;
+					border-bottom-right-radius: 0px;
+					border-bottom-left-radius: 0px;
 				}
 
 				&:hover {
@@ -192,7 +196,10 @@
 
 					*[class^="picture"] {
 						opacity: 1;
-						border-radius: 999px;
+						border-top-left-radius: 999px;
+						border-top-right-radius: 999px;
+						border-bottom-right-radius: 999px;
+						border-bottom-left-radius: 999px;
 						box-shadow: 0 5px 0 currentColor;
 					}
 					
@@ -287,13 +294,22 @@
 				overflow: hidden;
 				box-shadow: 0 -5px 5px rgba(0,0,0,0);
 
-				will-change: opacity, border-radius, box-shadow;
+				will-change: 
+					opacity, 
+					border-top-left-radius,
+					border-top-right-radius,
+					border-bottom-right-radius,
+					border-bottom-left-radius,
+					box-shadow;
 
 				transition: opacity .8s, 
-							border-radius 3s, 
-							box-shadow 6s;
+							border-top-left-radius 4s, 
+							border-top-right-radius 3s, 
+							border-bottom-right-radius 4s, 
+							border-bottom-left-radius 2s, 
+							box-shadow 2s;
 
-				transition-timing-function: cubic-bezier(.12,.98,.78,1);
+				// transition-timing-function: cubic-bezier(.12,.98,.78,1);
 
 				img {
 					width: 100%;
