@@ -32,6 +32,7 @@
 			JudithLogo
 		}
 	}
+	
 </script>
 
 <style lang="scss" scoped>
@@ -74,7 +75,7 @@
 					&.active {
 
 						a {
-							color: var(--color-primary);
+							color: currentColor;
 						}
 
 					}

@@ -60,8 +60,8 @@
 				transform: rotate(45deg);
 				margin-top: 390px;
 	
-				border-top: solid 1px var(--color-primary);
-				border-left: solid 1px var(--color-primary);
+				border-top: solid 1px currentColor;
+				border-left: solid 1px currentColor;
 			}
 
 			&-in {
