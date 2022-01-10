@@ -4,6 +4,7 @@
 			'margin-top': cssDecayValue
 		}"
 	>
+		&nbsp;
 	</div>
 </template>
 
