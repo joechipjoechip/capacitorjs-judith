@@ -81,20 +81,20 @@
 
 		0% {
 			box-shadow: 
-				0 0 ($blurSize / 10) 5px transparent inset,
+				0 0 math.div($blurSize, 10) 5px transparent inset,
 				0px 0px $blurSize 0px transparent;
 		}
 
 		30% {
 			box-shadow: 
 				0px 0px $blurSize 0 currentColor inset,
-				0px 0px $blurSize ($blurSize / 2) currentColor;
+				0px 0px $blurSize math.div($blurSize, 2) currentColor;
 		}
 
 		100% {
 			box-shadow: 
 				0px 0px $blurSize 0 transparent inset,
-				0 0 $blurSize ($blurSize / 2) transparent;
+				0 0 $blurSize math.div($blurSize, 2) transparent;
 		}
 
 	}
