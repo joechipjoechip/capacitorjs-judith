@@ -240,16 +240,16 @@
 				text-align: center;
 				color: var(--color-white);
 				font-size: 1.5vh;
-				line-height: 3vh;
+				line-height: 1.7em;
 
 				&-container {
 					transform-origin: center;
 					transform: rotate(-45deg);
 					position: absolute;
-					width: 50%;
-					height: 50%;
-					top: 25%;
-					left: 25%;
+					width: 70%;
+					height: 70%;
+					top: 30%;
+					left: 30%;
 				}
 
 				&-wrapper {
