@@ -7,7 +7,7 @@
 
 			<div class="philosophy-inner">
 
-				<div class="big-square">
+				<div class="big-square anim-shadow">
 
 					<!-- WORDINGS -->
 					<div v-for="(notion, index, id) in notions" :key="id" 
@@ -21,16 +21,34 @@
 						{{notion}}
 					</div>
 
-					<div 
-						class="wording-description"
-						v-if="descriptionText[currentKey]">
-						{{ descriptionText[currentKey] }}
+
+					<div class="description-wrapper">
+
+						<div 
+							v-for="(notion, index, id) in  notions" :key="id"
+							class="description-container">
+
+							<transition name="transition-description">
+
+								<div v-if="notion === currentKey"
+									class="description">
+									{{ descriptionText[currentKey] }}
+								</div>
+
+							</transition>
+							
+						</div>
+
 					</div>
+
+					
 
 					<!--  SQUARES -->
 					<!-- Inside -->
 					<div v-for="index in 2" :key="index"
-						:class="['little-square-inside-' + index]">
+						:class="[
+							'little-square-inside-' + index
+						]">
 						{{ currentKey ? currentKey.substring(0, 1) : "" }}
 					</div>
 
@@ -168,6 +186,7 @@
 			}
 
 			// font styles
+			.description,
 			*[class^="wording"],
 			*[class^="little-square"] {
 				font-family: "AktivGrotesk";
@@ -177,7 +196,7 @@
 				color: $borderColorWhiteFaded;
 			}
 
-			*[class^="wording"] {
+			*[class^="wording"]{
 				position: absolute;
 				width: 100%;
 				text-align: center;
@@ -217,13 +236,26 @@
 
 			}
 
-			.wording-description {
-				width: 60%;
-				font-size: 1em;
-				line-height: 30px;
+			.description {
+				text-align: center;
 				color: var(--color-white);
-				transform: rotate(-45deg);
-				text-transform: none;
+
+				&-wrapper {
+					font-size: 1.8vh;
+					line-height: 30px;
+					color: var(--color-white);
+					text-transform: none;
+				}
+
+				&-container {
+					transform: rotate(-45deg);
+					position: absolute;
+					width: 50%;
+					height: 50%;
+					top: 25%;
+					left: 25%;
+				}
+
 			}
 
 			*[class^="little-square"] {
@@ -293,6 +325,34 @@
 			}
 
 		}
+
+	}
+
+	.transition-description-enter-active, 
+	.transition-description-leave-active {
+
+		transform: translateY(0);
+		opacity: 1;
+
+		will-change: transform, opacity;
+
+		transition: 
+			transform .85s,
+			opacity .45s;
+
+	}
+
+	.transition-description-enter, 
+	.transition-description-leave-to {
+
+		transform: translateY(-50%);
+		opacity: 0;
+
+	}
+
+	.transition-description-leave-to {
+
+		transform: translateY(50%);
 
 	}
 
