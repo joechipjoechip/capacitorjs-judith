@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="anim-colors">
 		<navigation />
 		<Nuxt />
 	</div>

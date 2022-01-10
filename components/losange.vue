@@ -1,6 +1,6 @@
 <template>
 
-	<div ref="losangesContainer" class="losanges-container anim-colors">
+	<div ref="losangesContainer" class="losanges-container">
 
 		<div ref="losangeExt" class="losange-ext">
 

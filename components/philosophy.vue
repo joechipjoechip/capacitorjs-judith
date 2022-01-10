@@ -122,8 +122,7 @@
 		$borderColorWhiteFaded: rgba(255,255,255, 0.4);
 
 		$delayTransition1: .3s;
-		$delayTransition2: .8s;
-
+		$delayTransition2: .5s;
 
 		&-container {
 			display: block;
@@ -155,7 +154,7 @@
 
 			.big-square {
 				position: relative;
-				border: solid 1px var(--color-primary);
+				border: solid 1px currentColor;
 				font-size: 20px;
 
 				width: $bigSquareSize;
@@ -189,7 +188,7 @@
 				transition: color $delayTransition1;
 
 				&.is-active {
-					color: var(--color-primary);
+					color: currentColor;
 				}
 
 				&[class*="-1"]{
@@ -242,8 +241,8 @@
 
 			*[class^="little-square-inside"] {
 				position: absolute;
-				border-color: var(--color-primary);
-				color: var(--color-primary);
+				border-color: currentColor;
+				color: currentColor;
 
 				&[class*="-1"] {
 					top: $calcDecayInside;
@@ -267,8 +266,8 @@
 							border-color $delayTransition2;
 
 				&.is-active {
-					color: var(--color-primary);
-					border-color: var(--color-primary);
+					color: currentColor;
+					border-color: currentColor;
 				}
 
 				&[class*="-1"] {

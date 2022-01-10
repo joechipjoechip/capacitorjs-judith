@@ -16,8 +16,7 @@
 				</div>
 
 				<picture :class="[
-					'picture-num-' + index,
-					'anim-colors'
+					'picture-num-' + index
 				]">
 
 					<!-- high res -->
@@ -229,6 +228,7 @@
 				z-index: 20;
 				position: absolute;
 				width: 264px;
+				color: var(--color-white);
 
 				will-change: opacity, transform;
 				transition: opacity .3s,
