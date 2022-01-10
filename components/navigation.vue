@@ -40,7 +40,7 @@
 
 		z-index: 500;
 		position: fixed;
-		background-color: $colorBlack;
+		background-color: var(--color-bg);
 		width: 100%;
 		height: $headerHeight;
 		top: 0;
@@ -74,7 +74,7 @@
 					&.active {
 
 						a {
-							color: $colorRed;
+							color: var(--color-primary);
 						}
 
 					}
@@ -85,7 +85,7 @@
 						font-weight: 300;
 						letter-spacing: 0.32px;
 
-						color: $colorWhite;
+						color: var(--color-white);
 						text-decoration: none;
 						font-size: 16px;
 					}

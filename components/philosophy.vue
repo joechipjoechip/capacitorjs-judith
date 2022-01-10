@@ -155,7 +155,7 @@
 
 			.big-square {
 				position: relative;
-				border: solid 1px $colorRed;
+				border: solid 1px var(--color-primary);
 				font-size: 20px;
 
 				width: $bigSquareSize;
@@ -189,7 +189,7 @@
 				transition: color $delayTransition1;
 
 				&.is-active {
-					color: $colorRed;
+					color: var(--color-primary);
 				}
 
 				&[class*="-1"]{
@@ -222,7 +222,7 @@
 				width: 60%;
 				font-size: 1em;
 				line-height: 30px;
-				color: $colorWhite;
+				color: var(--color-white);
 				transform: rotate(-45deg);
 				text-transform: none;
 			}
@@ -242,8 +242,8 @@
 
 			*[class^="little-square-inside"] {
 				position: absolute;
-				border-color: $colorRed;
-				color: $colorRed;
+				border-color: var(--color-primary);
+				color: var(--color-primary);
 
 				&[class*="-1"] {
 					top: $calcDecayInside;
@@ -267,8 +267,8 @@
 							border-color $delayTransition2;
 
 				&.is-active {
-					color: $colorRed;
-					border-color: $colorRed;
+					color: var(--color-primary);
+					border-color: var(--color-primary);
 				}
 
 				&[class*="-1"] {

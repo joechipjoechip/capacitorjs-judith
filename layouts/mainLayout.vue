@@ -24,8 +24,20 @@
 	// (fonts, mq, etc)
 
 	body {
-		background-color: $colorBlack;
-		color: $colorWhite;
+		background-color: var(--color-bg);
+		color: var(--color-white);
+	}
+
+	:root {
+
+		// colors
+		--color-bg: #0f0f10;
+		--color-white: #fff;
+
+		--color-primary: #bc4342;
+		--color-secondary: #F6FF1A;
+		--color-ternary: #5942BC;
+
 	}
 
 

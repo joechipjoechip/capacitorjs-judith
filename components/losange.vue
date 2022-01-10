@@ -2,7 +2,7 @@
 
 	<div ref="losangesContainer" class="losanges-container">
 
-		<div ref="losangeExt" class="losange-ext">
+		<div ref="losangeExt" class="losange-ext anim-shadow">
 
 			<div ref="losangeIn" class="losange-in"></div>
 
@@ -48,19 +48,27 @@
 		justify-content: center;
 		width: 100%;
 		top: 70vh;
-		overflow: hidden;
+		// overflow: hidden;
 
 		.losange {
 
 			&-ext {
+
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				transform: rotate(45deg);
 				margin-top: 390px;
 	
-				border-top: solid 1px $colorRed;
-				border-left: solid 1px $colorRed;
+				border-top: solid 1px var(--color-primary);
+				border-left: solid 1px var(--color-primary);
+
+				box-shadow: 0px 0px 10vh transparent inset;
+
+				// animation: animLosangeExt 3s alternate-reverse infinite;
+				// box-shadow: 0px 0px 10vh color.scale(var(--color-primary), $alpha: -20%) inset;
+				box-shadow: 0px 0px 10vh var(--color-primary) inset;
+				// box-sizing: content-box;
 			}
 
 			&-in {
@@ -75,7 +83,7 @@
 				max-width: 400px;
 				max-height: 400px;
 	
-				border: solid 1px $colorRed;
+				border: solid 1px var(--color-primary);
 
 				&-text {
 					position: absolute;

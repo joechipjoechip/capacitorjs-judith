@@ -28,7 +28,7 @@
 		* {
 			font-family: "PresicavRg";
 			font-size: 18px;
-			color: $colorWhite;
+			color: var(--color-white);
 			display: inline-block;
 			text-transform: uppercase;
 			line-height: 22px;
@@ -45,7 +45,7 @@
 				content: "";
 				display: block;
 				height: 1px;
-				background-color: $colorWhite;
+				background-color: var(--color-white);
 				width: 80%;
 				margin: 0 auto;
 				margin-top: 13px;
