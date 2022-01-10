@@ -37,7 +37,7 @@
 
 	body {
 		background-color: var(--color-bg);
-		color: var(--color-white);
+		// color: var(--color-white);
 	}
 
 	.anim {
@@ -54,6 +54,22 @@
 
 			animation: anim-colors-keyframes 4s infinite;
 
+		}
+
+	}
+
+	@keyframes anim-colors-keyframes {
+
+		0%, 100% {
+			color: var(--color-primary);
+		}
+
+		33% {
+			color: var(--color-secondary);
+		}
+
+		66% {
+			color: var(--color-ternary);
 		}
 
 	}
@@ -83,21 +99,7 @@
 
 	}
 
-	@keyframes anim-colors-keyframes {
-
-		0%, 100% {
-			color: var(--color-primary);
-		}
-
-		33% {
-			color: var(--color-secondary);
-		}
-
-		66% {
-			color: var(--color-ternary);
-		}
-
-	}
+	
 
 
 </style>
