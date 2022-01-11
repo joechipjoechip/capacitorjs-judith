@@ -155,8 +155,8 @@
 						0,
 						10deg) 
 						translate3d(
-							${this.mousePos.x * 450}px,
-							${this.mousePos.y * 250}px,
+							${this.mousePos.x * 50}px,
+							${this.mousePos.y * 20}px,
 							150px
 						)`;
 
