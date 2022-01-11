@@ -99,6 +99,50 @@
 
 	}
 
+	@keyframes anim-particles-1 {
+
+		$distance: 40px;
+
+		0%, 
+		100% {
+			transform: translate3d($distance, math.div($distance, 2), 0) rotate(1180deg) scale(0.6);
+		}
+
+		30%,
+		75% {
+			transform: translate3d($distance * -1, math.div($distance, -1.5), 0) rotate(80deg) scale(0.8);
+		}
+
+		20%,
+		50%,
+		90% {
+			transform: translate3d(0, 0, 0);
+		}
+
+	}
+
+	@keyframes anim-particles-2 {
+
+		$distance: 80px;
+
+		0%, 
+		100% {
+			transform: translate3d($distance * -2, math.div($distance, -1.5), 0) rotate(-580deg) scale(1.3);
+		}
+
+		30%,
+		75% {
+			transform: translate3d($distance * 1.4, math.div($distance, 1.8), 0) rotate(200deg) scale(0.5);
+		}
+
+		20%,
+		50%,
+		90% {
+			transform: translate3d(0, 0, 0);
+		}
+
+	}
+
 	
 
 

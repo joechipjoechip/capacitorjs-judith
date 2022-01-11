@@ -11,7 +11,15 @@
 				'transform': transformStringParticles
 			}"
 		>
-			<span v-for="index of 7" :class="'particle-' + index"></span>
+
+			<span 
+				v-for="(index, id) of 7" :key="id"
+				:class="[
+					'particle-' + index,
+					'particle-anim-' + (index % 2 === 0 ? '2' : '1')
+				]"
+			></span>
+
 		</div>
 
 		<div ref="folioContainer" class="folio-container">
@@ -345,10 +353,10 @@
 					box-shadow;
 
 				transition: opacity .8s, 
-							border-top-left-radius $borderTransitionDuration * 1.7 + s, 
-							border-top-right-radius $borderTransitionDuration / 1.7 + s, 
-							border-bottom-right-radius $borderTransitionDuration / 1.7 + s, 
-							border-bottom-left-radius $borderTransitionDuration / 1.7 + s, 
+							border-top-left-radius calc($borderTransitionDuration * 1.7) + s, 
+							border-top-right-radius calc($borderTransitionDuration / 1.7) + s, 
+							border-bottom-right-radius calc($borderTransitionDuration / 1.7) + s, 
+							border-bottom-left-radius calc($borderTransitionDuration / 1.7) + s, 
 							box-shadow 2s;
 
 				// transition-timing-function: cubic-bezier(.12,.98,.78,1);
@@ -404,10 +412,25 @@
 				width: 10px;
 				height: 10px;
 
+				animation-iteration-count: infinite;
+
+
 				transform-origin: center center;
 				transform: rotate(45deg);
 
 				background-color: currentColor;
+
+				&.particle-anim {
+
+					&-1{
+						animation-name: anim-particles-1;
+					}
+
+					&-2{
+						animation-name: anim-particles-2;
+					}
+
+				}
 			}
 
 			.particle {
@@ -415,6 +438,8 @@
 				&-1 {
 					top: 13%;
 					left: 89%;
+
+					animation-duration: 25s;
 				}
 
 				&-2 {
@@ -423,11 +448,15 @@
 
 					width: 15px;
 					height: 15px;
+
+					animation-duration: 20s;
 				}
 
 				&-3 {
 					top: 26%;
 					left: 12%;
+
+					animation-duration: 45s;
 				}
 
 				&-4 {
@@ -436,16 +465,22 @@
 
 					width: 7px;
 					height: 7px;
+
+					animation-duration: 15s;
 				}
 
 				&-5 {
 					top: 68%;
 					left: 90%;
+
+					animation-duration: 20s;
 				}
 
 				&-6 {
 					top: 82%;
 					left: 40%;
+
+					animation-duration: 18s;
 				}
 
 				&-6 {
@@ -454,6 +489,8 @@
 
 					width: 7px;
 					height: 7px;
+
+					animation-duration: 24s;
 				}
 
 				&-7 {
@@ -462,6 +499,8 @@
 
 					width: 10px;
 					height: 10px;
+
+					animation-duration: 32s;
 				}
 
 				&-2,
