@@ -2,7 +2,7 @@
 	<div class="folio-wrapper" :class="{ 'isActive': isActive }" 
 		:style="{
 			'top': topCssString,
-			'transform': rotateCssString
+			'transform': transformString
 		}"
 	>
 
@@ -74,7 +74,7 @@
 				isActive: false,
 				topCssString: "",
 				ratioTransform: 0.05,
-				rotateCssString: `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg)`
+				transformString: `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`
 			}
 		},
 
@@ -121,17 +121,22 @@
 
 					this.$parent.active3d = true;
 
-					this.rotateCssString =  `rotate3d(
+					this.transformString =  `rotate3d(
 						${(this.mousePos.y) * this.ratioTransform * 2},
 						${(this.mousePos.x) * this.ratioTransform * 2}, 
-						${this.mousePos.x * this.ratioTransform * -0.5}, 
-						10deg)`;
+						0,
+						10deg) 
+						translate3d(
+							${this.mousePos.x * 250}px,
+							${this.mousePos.y * 150}px,
+							0
+						)`;
 
 				} else {
 
 					this.$parent.active3d = false;
 
-					this.rotateCssString =  "rotate3d(0, 0, 0, 45deg)";
+					this.transformString =  "rotate3d(0, 0, 0, 45deg)";
 
 				}
 
@@ -148,6 +153,7 @@
 	$firstPictureWidth: 536px;
 	$folioWidth: 810px;
 	$innerMargin: calc(($folioWidth - $firstPictureWidth)/2);
+	$borderTransitionDuration: 40;
 
 	.folio-wrapper {
 		position: fixed;
@@ -303,10 +309,10 @@
 					box-shadow;
 
 				transition: opacity .8s, 
-							border-top-left-radius 4s, 
-							border-top-right-radius 3s, 
-							border-bottom-right-radius 4s, 
-							border-bottom-left-radius 2s, 
+							border-top-left-radius $borderTransitionDuration * 1.7 + s, 
+							border-top-right-radius $borderTransitionDuration / 1.7 + s, 
+							border-bottom-right-radius $borderTransitionDuration / 1.7 + s, 
+							border-bottom-left-radius $borderTransitionDuration / 1.7 + s, 
 							box-shadow 2s;
 
 				// transition-timing-function: cubic-bezier(.12,.98,.78,1);

@@ -40,6 +40,7 @@
 <style lang="scss" scoped>
 
 	$fontSize: 31px;
+	$borderSize: 2px;
 
 	.losanges-container {
 		position: absolute;
@@ -60,8 +61,8 @@
 				transform: rotate(45deg);
 				margin-top: 390px;
 	
-				border-top: solid 1px currentColor;
-				border-left: solid 1px currentColor;
+				border-top: solid $borderSize currentColor;
+				border-left: solid $borderSize currentColor;
 			}
 
 			&-in {
@@ -76,7 +77,7 @@
 				max-width: 400px;
 				max-height: 400px;
 	
-				border: solid 1px currentColor;
+				border: solid $borderSize currentColor;
 
 				&-text {
 					position: absolute;
