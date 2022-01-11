@@ -6,6 +6,14 @@
 		}"
 	>
 
+		<div class="particles-container"
+			:style="{
+				'transform': transformStringParticles
+			}"
+		>
+			<span v-for="index of 7" :class="'particle-' + index"></span>
+		</div>
+
 		<div ref="folioContainer" class="folio-container">
 
 			<div v-for="index of 4" :class="'item item-num-' + index">
@@ -74,7 +82,8 @@
 				isActive: false,
 				topCssString: "",
 				ratioTransform: 0.05,
-				transformString: `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`
+				transformString: `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`,
+				transformStringParticles: `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`
 			}
 		},
 
@@ -121,7 +130,7 @@
 
 					this.$parent.active3d = true;
 
-					this.transformString =  `rotate3d(
+					this.transformString = `rotate3d(
 						${(this.mousePos.y) * this.ratioTransform * 2},
 						${(this.mousePos.x) * this.ratioTransform * 2}, 
 						0,
@@ -132,11 +141,24 @@
 							0
 						)`;
 
+					this.transformStringParticles = `rotate3d(
+						${(this.mousePos.y + 0.5) * this.ratioTransform * 1.5},
+						${(this.mousePos.x + 0.5) * this.ratioTransform * 1.5}, 
+						0,
+						10deg) 
+						translate3d(
+							${this.mousePos.x * 450}px,
+							${this.mousePos.y * 250}px,
+							150px
+						)`;
+
 				} else {
 
 					this.$parent.active3d = false;
 
-					this.transformString =  "rotate3d(0, 0, 0, 45deg)";
+					this.transformString =  `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`;
+
+					this.transformStringParticles =  `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`;
 
 				}
 
@@ -160,7 +182,13 @@
 		display: block;
 		width: 100%;
 		height: 1036px;
+
+		max-width: 800px;
+		margin: 0 auto;
+
+		left: calc((100% - 800px)/2);
 		top: calc(80vh);
+
 		transform-origin: center center;
 
 		will-change: transform;
@@ -168,9 +196,17 @@
 
 		&.isActive {
 			position: relative;
+			left: unset;
+
+			.particles-container {
+				opacity: 1;
+				top: 0;
+			}
+
 		}
 
 		.folio-container {
+			z-index: 5;
 			position: relative;
 			max-width: $folioWidth;
 			display: block;
@@ -346,6 +382,98 @@
 
 		}
 
+		.particles-container {
+			pointer-events: none;
+			z-index: 10;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: -30vh;
+
+			opacity: 0;
+
+			will-change: opacity, top;
+
+			transition: 
+				opacity 3s,
+				top 2s;
+
+			*[class^="particle"] {
+				display: block;
+				position: absolute;
+				width: 10px;
+				height: 10px;
+
+				transform-origin: center center;
+				transform: rotate(45deg);
+
+				background-color: currentColor;
+			}
+
+			.particle {
+
+				&-1 {
+					top: 13%;
+					left: 89%;
+				}
+
+				&-2 {
+					top: 27%;
+					left: 75%;
+
+					width: 15px;
+					height: 15px;
+				}
+
+				&-3 {
+					top: 26%;
+					left: 12%;
+				}
+
+				&-4 {
+					top: 47%;
+					left: 62%;
+
+					width: 7px;
+					height: 7px;
+				}
+
+				&-5 {
+					top: 68%;
+					left: 90%;
+				}
+
+				&-6 {
+					top: 82%;
+					left: 40%;
+				}
+
+				&-6 {
+					top: 84%;
+					left: 18%;
+
+					width: 7px;
+					height: 7px;
+				}
+
+				&-7 {
+					top: 83.5%;
+					left: 24%;
+
+					width: 10px;
+					height: 10px;
+				}
+
+				&-2,
+				&-7 {
+					border: solid 2px currentColor;
+					background-color: transparent;
+				}
+
+			}
+
+		}
 
 	}
+
 </style>
