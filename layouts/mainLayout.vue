@@ -105,17 +105,20 @@
 
 		0%, 
 		100% {
+			filter: blur(5px);
 			transform: translate3d($distance, math.div($distance, 2), 0) rotate(1180deg) scale(0.6);
 		}
 
 		30%,
 		75% {
+			filter: blur(0);
 			transform: translate3d($distance * -1, math.div($distance, -1.5), 0) rotate(80deg) scale(0.8);
 		}
 
 		20%,
 		50%,
 		90% {
+			filter: blur(2px);
 			transform: translate3d(0, 0, 0);
 		}
 
@@ -127,17 +130,20 @@
 
 		0%, 
 		100% {
+			filter: blur(5px);
 			transform: translate3d($distance * -2, math.div($distance, -1.5), 0) rotate(-580deg) scale(1.3);
 		}
 
 		30%,
 		75% {
+			filter: blur(0);
 			transform: translate3d($distance * 1.4, math.div($distance, 1.8), 0) rotate(200deg) scale(0.5);
 		}
 
 		20%,
 		50%,
 		90% {
+			filter: blur(2px);
 			transform: translate3d(0, 0, 0);
 		}
 
