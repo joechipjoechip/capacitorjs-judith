@@ -59,7 +59,8 @@
 					<div v-for="(notion, index, id) in notions" :key="id" 
 						:class="[
 							'little-square-outside-' + (index + 1), 
-							{ 'is-active': currentKey === notion }
+							{ 'is-active': currentKey === notion },
+							`${currentKey === notion ? currentBorderClass : ''}`
 						]"
 						@mouseenter="letterEventHandler"
 						:data-text="notion"
@@ -115,7 +116,7 @@
 
 			currentKey( newVal ){
 
-				this.currentBorderClass = `big-square-active-border-${this.positions[newVal]}`;
+				this.currentBorderClass = `active-border-${this.positions[newVal]}`;
 
 			}
 
@@ -162,8 +163,11 @@
 		$delayTransition1: .3s;
 		$delayTransition2: .5s;
 
-		$activeBorderMainSize: 10px;
+		$activeBorderMainSize: 12px;
 		$activeBorderSecondSize: 5px;
+
+		$activeBorderMainSizeOutside: 6px;
+		$activeBorderSecondSizeOutside: 3px;
 
 		&-container {
 			display: block;
@@ -213,7 +217,7 @@
 
 				transition: border-width .7s;
 
-				&-active-border {
+				&.active-border {
 
 					&-top {
 						border-top-width: $activeBorderMainSize;
@@ -351,14 +355,39 @@
 				position: absolute;
 				cursor: pointer;
 
-				will-change: color, border-color;
+				will-change: color, border-color, border-width;
 
 				transition: color $delayTransition1,
-							border-color $delayTransition2;
+							border-color $delayTransition2,
+							border-width .7s;
 
 				&.is-active {
 					color: currentColor;
 					border-color: currentColor;
+				}
+
+				&.active-border {
+
+					&-top {
+						border-top-width: $activeBorderMainSizeOutside;
+						border-right-width: $activeBorderSecondSizeOutside;
+					}
+
+					&-right {
+						border-right-width: $activeBorderMainSizeOutside;
+						border-bottom-width: $activeBorderSecondSizeOutside;
+					}
+
+					&-bottom {
+						border-bottom-width: $activeBorderMainSizeOutside;
+						border-left-width: $activeBorderSecondSizeOutside;
+					}
+
+					&-left {
+						border-left-width: $activeBorderMainSizeOutside;
+						border-top-width: $activeBorderSecondSizeOutside;
+					}
+
 				}
 
 				&[class*="-1"] {
