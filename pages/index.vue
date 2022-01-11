@@ -56,8 +56,8 @@
 		data(){
 			return {
 				mousePos: {
-					x: window.innerWidth / 2,
-					y: window.innerHeight / 2
+					x: 0,
+					y: 0
 				},
 				active3d: false,
 				hookedDisplayed: false
