@@ -1,3 +1,5 @@
+Node version : 13.14.0
+
 # frontend
 
 ## Build Setup
