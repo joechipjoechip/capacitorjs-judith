@@ -48,7 +48,8 @@ export default {
       "./assets/style/sass-modules.scss",
       "./assets/style/resets.scss",
       "./assets/style/variables.scss",
-      "./assets/style/fontsloader.scss"
+      "./assets/style/fontsloader.scss",
+      "./assets/style/animations.scss"
     ]
   },
 
