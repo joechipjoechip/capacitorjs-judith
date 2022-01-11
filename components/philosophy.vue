@@ -7,7 +7,10 @@
 
 			<div class="philosophy-inner">
 
-				<div class="big-square anim-shadow">
+				<div :class="[
+						'big-square anim-shadow',
+						currentBorderClass
+					]">
 
 					<!-- WORDINGS -->
 					<div v-for="(notion, index, id) in notions" :key="id" 
@@ -97,8 +100,25 @@
 					accountability: "accountabilityyy Our mission is no longer to make people dream, but to lead them to an informed consent."
 				},
 				notions: ["transparency", "advocacy", "insightfullness", "accountability"],
-				currentKey: ""
+				positions: {
+					transparency: "top",
+					advocacy: "left",
+					insightfullness: "bottom",
+					accountability: "right"
+				},
+				currentKey: "",
+				currentBorderClass: ""
 			}
+		},
+
+		watch: {
+
+			currentKey( newVal ){
+
+				this.currentBorderClass = `big-square-active-border-${this.positions[newVal]}`;
+
+			}
+
 		},
 
 		methods: {
@@ -142,6 +162,9 @@
 		$delayTransition1: .3s;
 		$delayTransition2: .5s;
 
+		$activeBorderMainSize: 10px;
+		$activeBorderSecondSize: 5px;
+
 		&-container {
 			display: block;
 
@@ -164,6 +187,7 @@
 			// width: $innerSize;
 			// height: $innerSize;
 			margin: 25% auto;
+			box-sizing: border-box;
 
 			transform-origin: center;
 			transform: rotate(45deg);
@@ -178,11 +202,39 @@
 				width: $bigSquareSize;
 				height: $bigSquareSize;
 				margin: 0 auto;
+				box-sizing: border-box;
 
 				display: flex;
 				flex-flow: column nowrap;
 				justify-content: center;
 				align-items: center;
+
+				will-change: border-width;
+
+				transition: border-width .7s;
+
+				&-active-border {
+
+					&-top {
+						border-top-width: $activeBorderMainSize;
+						border-right-width: $activeBorderSecondSize;
+					}
+
+					&-right {
+						border-right-width: $activeBorderMainSize;
+						border-bottom-width: $activeBorderSecondSize;
+					}
+
+					&-bottom {
+						border-bottom-width: $activeBorderMainSize;
+						border-left-width: $activeBorderSecondSize;
+					}
+
+					&-left {
+						border-left-width: $activeBorderMainSize;
+						border-top-width: $activeBorderSecondSize;
+					}
+				}
 			}
 
 			// font styles
