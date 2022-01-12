@@ -183,7 +183,7 @@
 	$firstPictureWidth: 536px;
 	$folioWidth: 810px;
 	$innerMargin: calc(($folioWidth - $firstPictureWidth)/2);
-	$borderTransitionDuration: 40;
+	$borderTransitionDuration: 5;
 
 	.folio-wrapper {
 		position: fixed;
@@ -224,20 +224,8 @@
 			*[class^="item"] {
 				position: absolute;
 
-				*[class^="wording"] {
-					opacity: 0;
-					transform: translateY(-10px);
-				}
-
-				*[class^="picture"] {
-					opacity: 0.45;
-					border-top-left-radius: 0px;
-					border-top-right-radius: 0px;
-					border-bottom-right-radius: 0px;
-					border-bottom-left-radius: 0px;
-				}
-
 				&:hover {
+					z-index: 15;
 
 					*[class^="wording"] {
 						opacity: 1;
@@ -245,12 +233,17 @@
 					}
 
 					*[class^="picture"] {
+
 						opacity: 1;
-						border-top-left-radius: 999px;
-						border-top-right-radius: 999px;
-						border-bottom-right-radius: 999px;
-						border-bottom-left-radius: 999px;
+						border-top-left-radius: 30px;
+						border-top-right-radius: 30px;
+						border-bottom-right-radius: 30px;
+						border-bottom-left-radius: 30px;
+
 						box-shadow: 0 5px 0 currentColor;
+
+						transform: scale(1.05);
+
 					}
 					
 				}
@@ -285,7 +278,11 @@
 				z-index: 20;
 				position: absolute;
 				width: 264px;
+
 				color: var(--color-white);
+
+				opacity: 0;
+				transform: translateY(-10px);
 
 				will-change: opacity, transform;
 				transition: opacity .3s,
@@ -342,6 +339,15 @@
 				z-index: 10;
 				display: block;
 				overflow: hidden;
+
+				opacity: 0.4;
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+
+				transform: scale(1);
+
 				box-shadow: 0 -5px 5px rgba(0,0,0,0);
 
 				will-change: 
@@ -350,14 +356,16 @@
 					border-top-right-radius,
 					border-bottom-right-radius,
 					border-bottom-left-radius,
-					box-shadow;
+					box-shadow
+					transform;
 
 				transition: opacity .8s, 
-							border-top-left-radius calc($borderTransitionDuration * 1.7) + s, 
+							border-top-left-radius calc($borderTransitionDuration * 3.7) + s, 
 							border-top-right-radius calc($borderTransitionDuration / 1.7) + s, 
 							border-bottom-right-radius calc($borderTransitionDuration / 1.7) + s, 
 							border-bottom-left-radius calc($borderTransitionDuration / 1.7) + s, 
-							box-shadow 2s;
+							box-shadow 2s,
+							transform .7s;
 
 				// transition-timing-function: cubic-bezier(.12,.98,.78,1);
 
