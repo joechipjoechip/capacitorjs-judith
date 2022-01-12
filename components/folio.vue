@@ -134,9 +134,9 @@
 
 			setRotate(){
 
-				if( this.isActive ){
+				this.$parent.active3d = this.isActive;
 
-					this.$parent.active3d = true;
+				if( this.isActive ){
 
 					this.transformString = `rotate3d(
 						${(this.mousePos.y) * this.ratioTransform * 2},
@@ -162,8 +162,6 @@
 
 				} else {
 
-					this.$parent.active3d = false;
-
 					this.transformString =  `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`;
 
 					this.transformStringParticles =  `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`;
@@ -184,6 +182,7 @@
 	$folioWidth: 810px;
 	$innerMargin: calc(($folioWidth - $firstPictureWidth)/2);
 	$borderTransitionDuration: 5;
+	$pictureAfterTransitionDuration: 0.3;
 
 	.folio-wrapper {
 		position: fixed;
@@ -219,7 +218,6 @@
 			max-width: $folioWidth;
 			display: block;
 			margin: 0 auto;
-			// height: 1040px;
 
 			*[class^="item"] {
 				position: absolute;
@@ -241,11 +239,15 @@
 						border-bottom-right-radius: 30px;
 						border-bottom-left-radius: 30px;
 
-						// box-shadow: 0 10px 0 currentColor;
 						box-shadow: 
 							0 10px 0 currentColor, 
 							-10px -30px 190px currentColor, 
 							10px -30px 190px currentColor;
+
+						&::after {
+							opacity: 0;
+							top: 0;
+						}
 
 						transform: scale(1.03);
 
@@ -274,6 +276,87 @@
 						top: 536px;
 						right: $innerMargin;
 					}
+
+				}
+
+			}
+
+			*[class^="picture"] {
+				z-index: 10;
+				display: block;
+				overflow: hidden;
+
+				opacity: 0.4;
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+
+				transform: scale(1);
+
+				box-shadow: 0 -5px 5px rgba(0,0,0,0);
+
+				will-change: 
+					opacity, 
+					border-top-left-radius,
+					border-top-right-radius,
+					border-bottom-right-radius,
+					border-bottom-left-radius,
+					box-shadow
+					transform;
+
+				transition: opacity .8s, 
+							border-top-left-radius calc($borderTransitionDuration * 3.7) + s, 
+							border-top-right-radius calc($borderTransitionDuration / 1.7) + s, 
+							border-bottom-right-radius calc($borderTransitionDuration / 1.7) + s, 
+							border-bottom-left-radius calc($borderTransitionDuration / 1.7) + s, 
+							box-shadow 2s,
+							transform .7s;
+
+				// transition-timing-function: cubic-bezier(.12,.98,.78,1);
+
+				&::after {
+					content: "";
+					position: absolute;
+					width: 100%;
+					// height: 0;
+					top: 100%;
+					bottom: 0;
+					left: 0;
+					opacity: 1;
+
+					will-change: top, opacity;
+
+					transition: 
+						top ($pictureAfterTransitionDuration + s),
+						opacity ($pictureAfterTransitionDuration * 3.5) + s (($pictureAfterTransitionDuration / 2) + s);
+
+					background-color: currentColor;
+					// background-color: rgba(255,0,0,0.5);
+				}
+
+				img {
+					width: 100%;
+				}
+
+				&.picture-num {
+
+					&-1 {
+						width: $firstPictureWidth;
+					}
+
+					&-2 {
+						width: 260px;
+					}
+
+					&-3 {
+						width: 260px;
+					}
+
+					&-4 {
+						width: 400px;
+					}
+
 
 				}
 
@@ -335,67 +418,6 @@
 						top: 200px;
 						right: -210px;
 					}
-
-				}
-
-			}
-
-			*[class^="picture"] {
-				z-index: 10;
-				display: block;
-				overflow: hidden;
-
-				opacity: 0.4;
-				border-top-left-radius: 0px;
-				border-top-right-radius: 0px;
-				border-bottom-right-radius: 0px;
-				border-bottom-left-radius: 0px;
-
-				transform: scale(1);
-
-				box-shadow: 0 -5px 5px rgba(0,0,0,0);
-
-				will-change: 
-					opacity, 
-					border-top-left-radius,
-					border-top-right-radius,
-					border-bottom-right-radius,
-					border-bottom-left-radius,
-					box-shadow
-					transform;
-
-				transition: opacity .8s, 
-							border-top-left-radius calc($borderTransitionDuration * 3.7) + s, 
-							border-top-right-radius calc($borderTransitionDuration / 1.7) + s, 
-							border-bottom-right-radius calc($borderTransitionDuration / 1.7) + s, 
-							border-bottom-left-radius calc($borderTransitionDuration / 1.7) + s, 
-							box-shadow 2s,
-							transform .7s;
-
-				// transition-timing-function: cubic-bezier(.12,.98,.78,1);
-
-				img {
-					width: 100%;
-				}
-
-				&.picture-num {
-
-					&-1 {
-						width: $firstPictureWidth;
-					}
-
-					&-2 {
-						width: 260px;
-					}
-
-					&-3 {
-						width: 260px;
-					}
-
-					&-4 {
-						width: 400px;
-					}
-
 
 				}
 
