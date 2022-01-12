@@ -131,7 +131,7 @@
 		// padding-top: $headerHeight;
 
 		&.active3d {
-			perspective: 4000px;
+			perspective: 3000px;
 		}
 
 		.hooked-content {
