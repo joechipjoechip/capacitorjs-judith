@@ -34,6 +34,10 @@
 		--color-secondary: #1aff8d;
 		--color-ternary: #5942BC;
 
+		// some widths
+		--width-folio: 810px;
+		--width-folio-ref-picture: 536px;
+
 	}
 
 	body {
