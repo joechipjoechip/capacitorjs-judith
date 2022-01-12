@@ -232,10 +232,7 @@
 					*[class^="picture"] {
 
 						opacity: 1;
-						border-top-left-radius: 30px;
-						border-top-right-radius: 30px;
-						border-bottom-right-radius: 30px;
-						border-bottom-left-radius: 30px;
+						border-radius: 0 30px 90px 30px;
 
 						box-shadow: 
 							0 10px 0 currentColor, 
@@ -284,10 +281,7 @@
 				overflow: hidden;
 
 				opacity: 0.4;
-				border-top-left-radius: 0px;
-				border-top-right-radius: 0px;
-				border-bottom-right-radius: 0px;
-				border-bottom-left-radius: 0px;
+				border-radius: 0px;
 
 				transform: scale(1);
 
@@ -295,18 +289,12 @@
 
 				will-change: 
 					opacity, 
-					border-top-left-radius,
-					border-top-right-radius,
-					border-bottom-right-radius,
-					border-bottom-left-radius,
+					border-radius,
 					box-shadow
 					transform;
 
 				transition: opacity .8s, 
-							border-top-left-radius calc($borderTransitionDuration / 1.7) $borderTransitionDuration, 
-							border-top-right-radius calc($borderTransitionDuration / 1.7), 
-							border-bottom-right-radius calc($borderTransitionDuration / 1.7), 
-							border-bottom-left-radius calc($borderTransitionDuration / 1.7), 
+							border-radius calc($borderTransitionDuration / 1.7),
 							box-shadow 2s,
 							transform .7s;
 
