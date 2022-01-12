@@ -28,6 +28,8 @@
 		// colors
 		--color-bg: #0f0f10;
 		--color-white: #fff;
+		// --color-bg: ##FFF;
+		// --color-white: #0f0f0f;
 
 		--color-primary: #bc4342;
 		// --color-secondary: #F6FF1A;
