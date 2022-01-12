@@ -30,7 +30,8 @@
 		--color-white: #fff;
 
 		--color-primary: #bc4342;
-		--color-secondary: #F6FF1A;
+		// --color-secondary: #F6FF1A;
+		--color-secondary: #1aff8d;
 		--color-ternary: #5942BC;
 
 	}
