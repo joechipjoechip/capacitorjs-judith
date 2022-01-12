@@ -178,9 +178,7 @@
 
 <style lang="scss" scoped>
 
-	$firstPictureWidth: 536px;
-	$folioWidth: 810px;
-	$innerMargin: calc(($folioWidth - $firstPictureWidth)/2);
+	$innerMargin: calc((var(--width-folio) - var(--width-folio-ref-picture))/2);
 	$borderTransitionDuration: 5s;
 	$pictureAfterTransitionDuration: 0.3s;
 
@@ -188,9 +186,9 @@
 		position: fixed;
 		display: block;
 		width: 100%;
+		max-width: var(--width-folio);
 		height: 1036px;
 
-		max-width: 800px;
 		margin: 0 auto;
 
 		left: calc((100% - 800px)/2);
@@ -215,7 +213,7 @@
 		.folio-container {
 			z-index: 5;
 			position: relative;
-			max-width: $folioWidth;
+			width: var(--width-folio);
 			display: block;
 			margin: 0 auto;
 
@@ -339,7 +337,7 @@
 				&.picture-num {
 
 					&-1 {
-						width: $firstPictureWidth;
+						width: var(--width-folio-ref-picture);
 					}
 
 					&-2 {
