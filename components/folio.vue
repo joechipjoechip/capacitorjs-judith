@@ -234,7 +234,7 @@
 					*[class^="picture"] {
 
 						opacity: 1;
-						border-top-left-radius: 0px;
+						border-top-left-radius: 30px;
 						border-top-right-radius: 30px;
 						border-bottom-right-radius: 30px;
 						border-bottom-left-radius: 30px;
@@ -306,7 +306,7 @@
 					transform;
 
 				transition: opacity .8s, 
-							border-top-left-radius calc($borderTransitionDuration * 3.7) + s, 
+							border-top-left-radius calc($borderTransitionDuration / 1.7) + s $borderTransitionDuration + s, 
 							border-top-right-radius calc($borderTransitionDuration / 1.7) + s, 
 							border-bottom-right-radius calc($borderTransitionDuration / 1.7) + s, 
 							border-bottom-left-radius calc($borderTransitionDuration / 1.7) + s, 
@@ -319,7 +319,6 @@
 					content: "";
 					position: absolute;
 					width: 100%;
-					// height: 0;
 					top: 100%;
 					bottom: 0;
 					left: 0;
@@ -332,7 +331,6 @@
 						opacity ($pictureAfterTransitionDuration * 3.5) + s (calc($pictureAfterTransitionDuration / 2) + s);
 
 					background-color: currentColor;
-					// background-color: rgba(255,0,0,0.5);
 				}
 
 				img {

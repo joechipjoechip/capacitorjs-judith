@@ -7,10 +7,8 @@
 
 			<div class="philosophy-inner">
 
-				<div :class="[
-						'big-square anim-shadow',
-						currentBorderClass
-					]">
+				<!-- Referential big square -->
+				<div :class="['big-square', 'anim-shadow', currentBorderClass]">
 
 					<!-- WORDINGS -->
 					<div v-for="(notion, index, id) in notions" :key="id" 
@@ -23,7 +21,6 @@
 					>
 						{{notion}}
 					</div>
-
 
 					<div class="description-wrapper">
 
@@ -44,7 +41,28 @@
 
 					</div>
 
-					
+					<!-- CARETS -->
+					<transition name="transition-caret-left">
+
+						<div v-if="currentKey" class="caret caret-left" @click.stop="caretClickHandler" data-way="plus">
+
+							<caret class="no-click" />
+
+						</div>
+
+					</transition>
+
+					<transition name="transition-caret-right">
+
+						<div v-if="currentKey" class="caret caret-right" @click.stop="caretClickHandler" data-way="minus">
+
+							<caret class="no-click" />
+
+						</div>
+
+					</transition>
+
+
 
 					<!--  SQUARES -->
 					<!-- Inside -->
@@ -74,16 +92,22 @@
 
 		</div>
 
+		<logo-j class="logo-j" />
+
 	</div>
 </template>
 
 <script>
 
 	import Title from "@/components/micro/title.vue";
+	import LogoJ from "@/assets/svg/logoJ.svg";
+	import Caret from "@/assets/svg/caret.svg";
 
 	export default {
 		components: {
-			"micro-title": Title
+			"micro-title": Title,
+			"logo-j": LogoJ,
+			"caret": Caret,
 		},
 		props: {
 			mainTitle: {
@@ -128,6 +152,35 @@
 
 				this.currentKey = event.target.dataset.text;
 
+			},
+
+			caretClickHandler( event ){
+
+				
+				const currentIndex = this.notions.indexOf(this.currentKey);
+
+				let newIndex;
+
+				if( event.target.dataset.way === "plus" ){
+					
+					newIndex = currentIndex + 1;
+
+					if( newIndex > this.notions.length - 1 ) {
+						newIndex = 0;
+					}
+
+				} else {
+					
+					newIndex = currentIndex - 1;
+
+					if( newIndex < 0 ){
+						newIndex = this.notions.length - 1;
+					}
+
+				}
+
+				this.currentKey = this.notions[newIndex];
+
 			}
 
 		}
@@ -140,16 +193,14 @@
 
 
 	.philosophy {
-		
-		// $innerSize: 700px;
 
 		// only css property (which can be override with an inline-style)
-		$bigSquareSize: 40vh;
+		$bigSquareSize: 38vh;
 
 		// all relatives variables
 		$littleSquareSize: 10%;
 	
-		$wordingFontSize: 18px;
+		$wordingFontSize: 1.8vh;
 		$wordingDecay: 40px;
 		$calcWordingMargin: calc($wordingFontSize * -1 - $wordingDecay);
 	
@@ -175,6 +226,11 @@
 			margin-top: 150px;
 			margin-bottom: 550px;
 
+			.logo-j {
+				display: block;
+				margin: 0 auto;
+			}
+
 		}
 
 		&-wrapper {
@@ -190,7 +246,7 @@
 
 			// width: $innerSize;
 			// height: $innerSize;
-			margin: 25% auto;
+			margin: 20vh auto 15vh auto;
 			box-sizing: border-box;
 
 			transform-origin: center;
@@ -239,6 +295,7 @@
 						border-top-width: $activeBorderSecondSize;
 					}
 				}
+
 			}
 
 			// font styles
@@ -416,47 +473,166 @@
 
 	}
 
-	.transition-description-enter-active, 
-	.transition-description-leave-active {
-		// top: -20vh;
-		// position: absolute;
+	// CARET
+	.caret {
+		$caretSize: 42px;
 
-		transform: translateY(0);
-		opacity: 1;
+		position: absolute;
+		width: $caretSize;
+		height: $caretSize;
+		cursor: pointer;
 
-		will-change: transform, opacity;
+		svg {
+			width: $caretSize;
+			height: $caretSize;
+		}
 
+		&-left {
+			bottom: 0;
+			left: 0;
+			transform: rotate(-45deg);
+		}
 
-	}
+		&-right {
+			top: 0;
+			right: 0;
+			transform: rotate(-225deg);
+		}
 
-	.transition-description-enter-active {
-
-		transition: 
-			transform 1.35s,
-			opacity 2.5s;
-
-	} 
-
-	.transition-description-leave-active {
-
-		transition: 
-			transform .85s,
-			opacity .45s;
-
-	}
-
-	.transition-description-enter, 
-	.transition-description-leave-to {
-
-		transform: translateY(-50%);
-		opacity: 0;
+		.no-click {
+			pointer-events: none;
+		}
 
 	}
 
-	.transition-description-leave-to {
+	// TRANSITIONS : 
 
-		transform: translateY(50%);
+	// Descriptions
+	.transition {
+
+		$caretDuration: 1.7s;
+
+		&-description {
+	
+			&-enter-active, 
+			&-leave-active {
+				// top: -20vh;
+				// position: absolute;
+		
+				transform: translateY(0);
+				opacity: 1;
+		
+				will-change: transform, opacity;
+		
+		
+			}
+		
+			&-enter-active {
+		
+				transition: 
+					transform 1.35s,
+					opacity 2.5s;
+		
+			} 
+		
+			&-leave-active {
+		
+				transition: 
+					transform .85s,
+					opacity .45s;
+		
+			}
+		
+			&-enter, 
+			&-leave-to {
+		
+				transform: translateY(-50%);
+				opacity: 0;
+		
+			}
+		
+			&-leave-to {
+		
+				transform: translateY(50%);
+		
+			}
+	
+		}
+
+		&-caret {
+
+			&-left {
+
+				&-enter-active, 
+				&-leave-active {
+			
+					left: 0;
+					bottom: 0;
+					opacity: 1;
+			
+					will-change: left, opacity;
+			
+			
+				}
+			
+				&-enter-active {
+			
+					transition: 
+						left $caretDuration,
+						bottom $caretDuration,
+						opacity calc($caretDuration / 2);
+			
+				} 
+			
+				&-enter, 
+				&-leave-to {
+			
+					left: 15%;
+					bottom: 15%;
+					opacity: 0;
+			
+				}
+
+			}
+
+			&-right {
+
+				&-enter-active, 
+				&-leave-active {
+			
+					right: 0;
+					top: 0;
+					opacity: 1;
+			
+					will-change: right, opacity;
+			
+			
+				}
+			
+				&-enter-active {
+			
+					transition: 
+						right $caretDuration,
+						top $caretDuration,
+						opacity calc($caretDuration / 2);
+			
+				} 
+			
+				&-enter, 
+				&-leave-to {
+			
+					right: 15%;
+					top: 15%;
+					opacity: 0;
+			
+				}
+
+			}
+		
+		}
 
 	}
+	
+
 
 </style>
