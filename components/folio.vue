@@ -90,8 +90,8 @@
 				isActive: false,
 				topCssString: "",
 				ratioTransform: 0.05,
-				transformString: `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`,
-				transformStringParticles: `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`
+				transformString: `rotate3d(${this.mousePos.x}px, ${this.mousePos.y}px, 0, 0deg) translate3d(0,0,0)`,
+				transformStringParticles: `rotate3d(${this.mousePos.x}px, ${this.mousePos.y}px, 0, 0deg) translate3d(0,0,0)`
 			}
 		},
 
@@ -139,7 +139,7 @@
 				if( this.isActive ){
 
 					this.transformString = `rotate3d(
-						${(this.mousePos.y) * this.ratioTransform * 2},
+						${(this.mousePos.y) * this.ratioTransform * 0.5},
 						${(this.mousePos.x) * this.ratioTransform * 2}, 
 						0,
 						10deg) 
@@ -164,7 +164,7 @@
 
 					this.transformString =  `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`;
 
-					this.transformStringParticles =  `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`;
+					this.transformStringParticles =  `rotate3d(${this.mousePos.x}px, ${this.mousePos.y}px, 0, 0deg) translate3d(0,0,0)`;
 
 				}
 
@@ -181,8 +181,8 @@
 	$firstPictureWidth: 536px;
 	$folioWidth: 810px;
 	$innerMargin: calc(($folioWidth - $firstPictureWidth)/2);
-	$borderTransitionDuration: 5;
-	$pictureAfterTransitionDuration: 0.3;
+	$borderTransitionDuration: 5s;
+	$pictureAfterTransitionDuration: 0.3s;
 
 	.folio-wrapper {
 		position: fixed;
@@ -241,8 +241,7 @@
 
 						box-shadow: 
 							0 10px 0 currentColor, 
-							-10px -30px 190px currentColor, 
-							10px -30px 190px currentColor;
+							0 -30px 150px 10px currentColor;
 
 						&::after {
 							opacity: 0;
@@ -306,10 +305,10 @@
 					transform;
 
 				transition: opacity .8s, 
-							border-top-left-radius calc($borderTransitionDuration / 1.7) + s $borderTransitionDuration + s, 
-							border-top-right-radius calc($borderTransitionDuration / 1.7) + s, 
-							border-bottom-right-radius calc($borderTransitionDuration / 1.7) + s, 
-							border-bottom-left-radius calc($borderTransitionDuration / 1.7) + s, 
+							border-top-left-radius calc($borderTransitionDuration / 1.7) $borderTransitionDuration, 
+							border-top-right-radius calc($borderTransitionDuration / 1.7), 
+							border-bottom-right-radius calc($borderTransitionDuration / 1.7), 
+							border-bottom-left-radius calc($borderTransitionDuration / 1.7), 
 							box-shadow 2s,
 							transform .7s;
 
@@ -327,8 +326,8 @@
 					will-change: top, opacity;
 
 					transition: 
-						top ($pictureAfterTransitionDuration + s),
-						opacity ($pictureAfterTransitionDuration * 3.5) + s (calc($pictureAfterTransitionDuration / 2) + s);
+						top $pictureAfterTransitionDuration,
+						opacity calc($pictureAfterTransitionDuration * 3.5) calc($pictureAfterTransitionDuration / 2);
 
 					background-color: currentColor;
 				}
