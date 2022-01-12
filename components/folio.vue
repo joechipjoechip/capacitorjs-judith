@@ -329,7 +329,7 @@
 
 					transition: 
 						top ($pictureAfterTransitionDuration + s),
-						opacity ($pictureAfterTransitionDuration * 3.5) + s (($pictureAfterTransitionDuration / 2) + s);
+						opacity ($pictureAfterTransitionDuration * 3.5) + s (calc($pictureAfterTransitionDuration / 2) + s);
 
 					background-color: currentColor;
 					// background-color: rgba(255,0,0,0.5);
