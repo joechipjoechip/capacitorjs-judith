@@ -223,6 +223,7 @@
 
 			*[class^="item"] {
 				position: absolute;
+				line-height: 0;
 
 				&:hover {
 					z-index: 15;
@@ -235,14 +236,18 @@
 					*[class^="picture"] {
 
 						opacity: 1;
-						border-top-left-radius: 30px;
+						border-top-left-radius: 0px;
 						border-top-right-radius: 30px;
 						border-bottom-right-radius: 30px;
 						border-bottom-left-radius: 30px;
 
-						box-shadow: 0 5px 0 currentColor;
+						// box-shadow: 0 10px 0 currentColor;
+						box-shadow: 
+							0 10px 0 currentColor, 
+							-10px -30px 190px currentColor, 
+							10px -30px 190px currentColor;
 
-						transform: scale(1.05);
+						transform: scale(1.03);
 
 					}
 					
