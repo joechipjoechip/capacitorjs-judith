@@ -224,7 +224,7 @@
 			display: block;
 
 			margin-top: 150px;
-			margin-bottom: 550px;
+			margin-bottom: 200px;
 
 			.logo-j {
 				display: block;
@@ -504,135 +504,6 @@
 		}
 
 	}
-
-	// TRANSITIONS : 
-
-	// Descriptions
-	.transition {
-
-		$caretDuration: 1.7s;
-
-		&-description {
-	
-			&-enter-active, 
-			&-leave-active {
-				// top: -20vh;
-				// position: absolute;
-		
-				transform: translateY(0);
-				opacity: 1;
-		
-				will-change: transform, opacity;
-		
-		
-			}
-		
-			&-enter-active {
-		
-				transition: 
-					transform 1.35s,
-					opacity 2.5s;
-		
-			} 
-		
-			&-leave-active {
-		
-				transition: 
-					transform .85s,
-					opacity .45s;
-		
-			}
-		
-			&-enter, 
-			&-leave-to {
-		
-				transform: translateY(-50%);
-				opacity: 0;
-		
-			}
-		
-			&-leave-to {
-		
-				transform: translateY(50%);
-		
-			}
-	
-		}
-
-		&-caret {
-
-			&-left {
-
-				&-enter-active, 
-				&-leave-active {
-			
-					left: 0;
-					bottom: 0;
-					opacity: 1;
-			
-					will-change: left, opacity;
-			
-			
-				}
-			
-				&-enter-active {
-			
-					transition: 
-						left $caretDuration,
-						bottom $caretDuration,
-						opacity calc($caretDuration / 2);
-			
-				} 
-			
-				&-enter, 
-				&-leave-to {
-			
-					left: 15%;
-					bottom: 15%;
-					opacity: 0;
-			
-				}
-
-			}
-
-			&-right {
-
-				&-enter-active, 
-				&-leave-active {
-			
-					right: 0;
-					top: 0;
-					opacity: 1;
-			
-					will-change: right, opacity;
-			
-			
-				}
-			
-				&-enter-active {
-			
-					transition: 
-						right $caretDuration,
-						top $caretDuration,
-						opacity calc($caretDuration / 2);
-			
-				} 
-			
-				&-enter, 
-				&-leave-to {
-			
-					right: 15%;
-					top: 15%;
-					opacity: 0;
-			
-				}
-
-			}
-		
-		}
-
-	}
-	
 
 
 </style>
