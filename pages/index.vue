@@ -27,6 +27,12 @@
 				main-title="our philosophy"
 			/>
 
+			<ethic
+				ref="ethic"
+				main-title="Collaborative ethic"
+				sub-title="We not only care about who we are working for"
+			/>
+
 		</div>
 
 
@@ -41,6 +47,7 @@
 	import Losange from '@/components/losange.vue';
 	import Edge from '@/components/edge.vue';
 	import Philosophy from '@/components/philosophy.vue';
+	import Ethic from '@/components/ethic.vue';
 
 	export default {
 
@@ -50,7 +57,8 @@
 			"folio": Folio,
 			"losange": Losange,
 			"edge": Edge,
-			"philosophy": Philosophy
+			"philosophy": Philosophy,
+			"ethic": Ethic
 		},
 
 		data(){
