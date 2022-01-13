@@ -39,6 +39,7 @@
 		// some widths
 		--width-folio: 810px;
 		--width-folio-ref-picture: 536px;
+		--width-carousel-text: 260px;
 
 	}
 
