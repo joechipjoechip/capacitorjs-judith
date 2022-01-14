@@ -487,13 +487,13 @@
 			height: $caretSize;
 		}
 
-		&-left {
+		&-left:not([class*="transition"]) {
 			bottom: 0;
 			left: 0;
 			transform: rotate(-45deg);
 		}
 
-		&-right {
+		&-right:not([class*="transition"]) {
 			top: 0;
 			right: 0;
 			transform: rotate(-225deg);
