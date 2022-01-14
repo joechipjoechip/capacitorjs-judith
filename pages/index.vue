@@ -143,13 +143,11 @@
 		}
 
 		.hooked-content {
+			// display: none;
 			opacity: 0;
 
-			will-change: opacity;
-
-			transition: opacity .01s;
-
 			&.hooked-displayed {
+				// display: block;
 				opacity: 1;
 			}
 
