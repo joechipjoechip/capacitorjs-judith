@@ -53,9 +53,7 @@
 
 						<h4 class="section-title">
 
-							<span 
-								v-for="(word, index, id) in item.section.split(' ')" :key="id"
-							>
+							<span v-for="(word, index, id) in item.section.split(' ')" :key="id">
 								{{ word }}
 							</span>
 
@@ -93,7 +91,6 @@
 
 			sectionClickHandler( event ){
 
-				console.log("event.target : ", event.target.dataset.key);
 				this.currentKey = event.target.dataset.key;
 
 			}
