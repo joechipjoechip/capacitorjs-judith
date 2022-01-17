@@ -75,7 +75,7 @@
 					&.active {
 
 						a {
-							color: currentColor;
+							color: var(--color-primary);
 						}
 
 					}

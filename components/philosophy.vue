@@ -8,7 +8,7 @@
 			<div class="philosophy-inner">
 
 				<!-- Referential big square -->
-				<div :class="['big-square', 'anim-shadow', currentBorderClass]">
+				<div :class="['big-square']">
 
 					<!-- WORDINGS -->
 					<div v-for="(notion, index, id) in notions" :key="id" 
@@ -77,8 +77,7 @@
 					<div v-for="(notion, index, id) in notions" :key="id" 
 						:class="[
 							'little-square-outside-' + (index + 1), 
-							{ 'is-active': currentKey === notion },
-							`${currentKey === notion ? currentBorderClass : ''}`
+							{ 'is-active': currentKey === notion }
 						]"
 						@mouseenter="letterEventHandler"
 						:data-text="notion"
@@ -131,19 +130,8 @@
 					insightfullness: "bottom",
 					accountability: "right"
 				},
-				currentKey: "",
-				currentBorderClass: ""
+				currentKey: ""
 			}
-		},
-
-		watch: {
-
-			currentKey( newVal ){
-
-				this.currentBorderClass = `active-border-${this.positions[newVal]}`;
-
-			}
-
 		},
 
 		methods: {
@@ -256,7 +244,7 @@
 
 			.big-square {
 				position: relative;
-				border: solid 1px currentColor;
+				border: solid 1px var(--color-primary);
 				font-size: 20px;
 
 				width: $bigSquareSize;
@@ -320,7 +308,7 @@
 				transition: color $delayTransition1;
 
 				&.is-active {
-					color: currentColor;
+					color: var(--color-primary);
 				}
 
 				&[class*="-1"]{
@@ -393,8 +381,8 @@
 
 			*[class^="little-square-inside"] {
 				position: absolute;
-				border-color: currentColor;
-				color: currentColor;
+				border-color: var(--color-primary);
+				color: var(--color-primary);
 
 				&[class*="-1"] {
 					top: $calcDecayInside;
@@ -419,8 +407,8 @@
 							border-width .7s;
 
 				&.is-active {
-					color: currentColor;
-					border-color: currentColor;
+					color: var(--color-primary);
+					border-color: var(--color-primary);
 				}
 
 				&.active-border {
@@ -476,6 +464,7 @@
 	// CARET
 	.caret {
 		$caretSize: 42px;
+		color: var(--color-primary);
 
 		position: absolute;
 		width: $caretSize;

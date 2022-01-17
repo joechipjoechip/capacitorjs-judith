@@ -103,7 +103,7 @@
 			transform-origin: center;
 
 
-			border: solid 1px currentColor;
+			border: solid 1px var(--color-primary);
 		}
 
 		&-content {
@@ -198,7 +198,7 @@
 
 				&::after {
 					top: 0 !important;
-					background-color: currentColor;
+					background-color: var(--color-primary);
 				}
 
 			}

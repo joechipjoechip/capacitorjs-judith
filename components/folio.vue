@@ -232,18 +232,11 @@
 					*[class^="picture"] {
 
 						opacity: 1;
-						border-radius: 0 30px 90px 30px;
-
-						box-shadow: 
-							0 10px 0 currentColor, 
-							0 -30px 150px 10px currentColor;
 
 						&::after {
 							opacity: 0;
 							top: 0;
 						}
-
-						transform: scale(1.03);
 
 					}
 					
@@ -283,20 +276,9 @@
 				opacity: 0.4;
 				border-radius: 0px;
 
-				transform: scale(1);
+				will-change: opacity;
 
-				box-shadow: 0 -5px 5px rgba(0,0,0,0);
-
-				will-change: 
-					opacity, 
-					border-radius,
-					box-shadow
-					transform;
-
-				transition: opacity .8s, 
-							border-radius calc($borderTransitionDuration / 1.7),
-							box-shadow 2s,
-							transform .7s;
+				transition: opacity .8s;
 
 				// transition-timing-function: cubic-bezier(.12,.98,.78,1);
 
@@ -315,7 +297,7 @@
 						top $pictureAfterTransitionDuration,
 						opacity calc($pictureAfterTransitionDuration * 3.5) calc($pictureAfterTransitionDuration / 2);
 
-					background-color: currentColor;
+					background-color: var(--color-primary);
 				}
 
 				img {
@@ -436,17 +418,17 @@
 				transform-origin: center center;
 				transform: rotate(45deg);
 
-				background-color: currentColor;
+				background-color: var(--color-primary);
 
 				&.particle-anim {
 
-					&-1{
-						animation-name: anim-particles-1;
-					}
+					// &-1{
+					// 	animation-name: anim-particles-1;
+					// }
 
-					&-2{
-						animation-name: anim-particles-2;
-					}
+					// &-2{
+					// 	animation-name: anim-particles-2;
+					// }
 
 				}
 			}
@@ -523,7 +505,7 @@
 
 				&-2,
 				&-7 {
-					border: solid 2px currentColor;
+					border: solid 2px var(--color-primary);
 					background-color: transparent;
 				}
 

@@ -4,7 +4,7 @@
 
 		<div ref="losangeExt" class="losange-ext">
 
-			<div ref="losangeIn" class="losange-in anim-shadow"></div>
+			<div ref="losangeIn" class="losange-in"></div>
 
 			<h3 ref="losangeText" class="losange-in-text">
 
@@ -61,8 +61,8 @@
 				transform: rotate(45deg);
 				margin-top: 390px;
 	
-				border-top: solid $borderSize currentColor;
-				border-left: solid $borderSize currentColor;
+				border-top: solid $borderSize var(--color-primary);
+				border-left: solid $borderSize var(--color-primary);
 			}
 
 			&-in {
@@ -77,7 +77,7 @@
 				max-width: 400px;
 				max-height: 400px;
 	
-				border: solid $borderSize currentColor;
+				border: solid $borderSize var(--color-primary);
 
 				&-text {
 					position: absolute;
