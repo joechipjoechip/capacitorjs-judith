@@ -4,7 +4,7 @@
 			<JudithLogo class="logo" />
 			<ul class="links">
 				<li class="link-wrapper active">
-					<nuxt-link to="">
+					<nuxt-link to="/">
 						Home
 					</nuxt-link>
 				</li>
@@ -14,7 +14,7 @@
 					</nuxt-link>
 				</li>
 				<li class="link-wrapper">
-					<nuxt-link to="">
+					<nuxt-link to="/work-with-us">
 						Work with us
 					</nuxt-link>
 				</li>
