@@ -197,7 +197,7 @@
 			&.item-active {
 
 				&::after {
-					top: 0 !important;
+					// top: 0 !important;
 					background-color: var(--color-primary);
 				}
 

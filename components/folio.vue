@@ -205,7 +205,7 @@
 
 			.particles-container {
 				opacity: 1;
-				top: 0;
+				// top: 0;
 			}
 
 		}
@@ -232,11 +232,6 @@
 					*[class^="picture"] {
 
 						opacity: 1;
-
-						&::after {
-							opacity: 0;
-							top: 0;
-						}
 
 					}
 					
@@ -281,24 +276,6 @@
 				transition: opacity .8s;
 
 				// transition-timing-function: cubic-bezier(.12,.98,.78,1);
-
-				&::after {
-					content: "";
-					position: absolute;
-					width: 100%;
-					top: 100%;
-					bottom: 0;
-					left: 0;
-					opacity: 1;
-
-					will-change: top, opacity;
-
-					transition: 
-						top $pictureAfterTransitionDuration,
-						opacity calc($pictureAfterTransitionDuration * 3.5) calc($pictureAfterTransitionDuration / 2);
-
-					background-color: var(--color-primary);
-				}
 
 				img {
 					width: 100%;
@@ -396,15 +373,14 @@
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			top: -30vh;
+			// top: -30vh;
 
 			opacity: 0;
 
 			will-change: opacity, top;
 
 			transition: 
-				opacity 3s,
-				top 2s;
+				opacity .7s;
 
 			*[class^="particle"] {
 				display: block;
@@ -412,7 +388,7 @@
 				width: 10px;
 				height: 10px;
 
-				animation-iteration-count: infinite;
+				// animation-iteration-count: infinite;
 
 
 				transform-origin: center center;
