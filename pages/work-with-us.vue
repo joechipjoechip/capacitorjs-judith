@@ -50,7 +50,17 @@
 						:data-key="item.key"
 						@click.stop="sectionClickHandler"
 					>
-						<h4>{{ item.section.replace(" ", " &nbsp; ") }}</h4>
+
+						<h4 class="section-title">
+
+							<span 
+								v-for="(word, index, id) in item.section.split(' ')" :key="id"
+							>
+								{{ word }}
+							</span>
+
+						</h4>
+
 					</li>
 
 				</ul>
@@ -122,14 +132,18 @@
 		&-description {
 
 			&-wrapper {
+				// border: solid 1px orange;
 				width: calc(100% - $sideWidth);
-				border: solid 1px orange;
 				color: var(--color-white);
 			}
 			
 			&-container {
 				// border: solid 5px rebeccapurple;
 				position: relative;
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: center;
+				align-items: center;
 			}
 
 			&-subtitle {
@@ -137,19 +151,25 @@
 				font-family: "AktivGrotesk";
 				font-weight: bold;
 				font-size: 26px;
-				line-break: 33px;
+				line-height: 33px;
 				color: currentColor;
+				max-width: 200px;
+				left: 0;
+				top: 0;
+
+				text-transform: uppercase;
 
 				height: 133px;
 			}
 
 			&-text {
 				position: absolute;
-				top: 200px;
+				top: 233px;
+				max-width: 400px;
 
 				p {
 					font-family: "AktivGrotesk";
-					font-weight: normal;
+					font-weight: 300;
 					font-size: 24px;
 					line-height: 31px;
 				}
@@ -161,8 +181,8 @@
 		&-section {
 			
 			&-container {
+				// border: solid 1px red;
 				width: $sideWidth;
-				border: solid 1px red;
 
 			}
 
@@ -182,6 +202,7 @@
 				transition: opacity $animDuration;
 
 				&::before {
+					// little square
 					content: "";
 					position: absolute;
 					display: block;
@@ -202,6 +223,7 @@
 				}
 
 				&::after {
+					// underline
 					content: "";
 					position: absolute;
 					display: block;
@@ -224,6 +246,10 @@
 					> * {
 						margin-bottom: 0;
 					}
+
+					&::after {
+						display: none;
+					}
 				}
 
 				> * {
@@ -234,6 +260,7 @@
 					line-height: 58px;
 					letter-spacing: 4.8px;
 					color: var(--color-white);
+					text-transform: capitalize;
 
 					transition: color calc($animDuration / 2);
 
@@ -249,12 +276,20 @@
 						border-color: var(--color-primary);
 					}
 
-					&::after {
-						background-color: var(--color-primary);
-					}
+					// &::after {
+					// 	background-color: var(--color-primary);
+					// }
 
 					> * {
 						color: var(--color-primary);
+					}
+
+				}
+
+				.section-title {
+
+					span {
+						display: block;
 					}
 
 				}
