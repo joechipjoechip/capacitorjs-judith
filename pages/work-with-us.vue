@@ -74,8 +74,6 @@
 
 	import wording from "@/assets/data/wording.js";
 
-	console.log("a limport : wording : ", wording);
-
 	export default {
 
 		layout: "mainLayout",
