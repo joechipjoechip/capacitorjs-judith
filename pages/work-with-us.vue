@@ -9,17 +9,17 @@
 					class="work-description-container"
 				>
 
-					<transition name="transition-description">
+					<transition name="transition-description-y-up">
 
 						<h3 v-if="currentKey === item.key"
 							class="work-description-subtitle"
 						>
 							{{ item.subtitle }}
 						</h3>
-						
+
 					</transition>
 
-					<transition name="transition-description">
+					<transition name="transition-description-y-down">
 
 						<div v-if="currentKey === item.key"
 							class="work-description-text"

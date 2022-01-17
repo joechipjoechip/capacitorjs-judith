@@ -15,7 +15,7 @@
 				v-for="(wordingObj, index, id) in wording" :key="id"
 				class="wording-content-wrapper"
 			>
-				<transition name="transition-description">
+				<transition name="transition-description-y-down">
 
 					<p 
 						v-if="currentIndex === index"

@@ -28,7 +28,7 @@
 							v-for="(notion, index, id) in  notions" :key="id"
 							class="description-container">
 
-							<transition name="transition-description">
+							<transition name="transition-description-y-down">
 
 								<div v-if="notion === currentKey"
 									class="description">

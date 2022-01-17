@@ -113,46 +113,101 @@
 
 	&-description {
 
-		&-enter-active, 
-		&-leave-active {
-	
-			transform: translateY(0);
-			opacity: 1;
-	
-			will-change: transform, opacity;
-	
-	
+		&-y {
+
+			&-down {
+
+				&-enter-active, 
+				&-leave-active {
+			
+					transform: translateY(0);
+					opacity: 1;
+			
+					will-change: transform, opacity;
+			
+			
+				}
+			
+				&-enter-active {
+			
+					transition: 
+						transform 1.35s,
+						opacity 2.5s;
+			
+				} 
+			
+				&-leave-active {
+			
+					transition: 
+						transform .85s,
+						opacity .45s;
+			
+				}
+			
+				&-enter, 
+				&-leave-to {
+			
+					transform: translateY(-50%);
+					opacity: 0;
+			
+				}
+			
+				&-leave-to {
+			
+					transform: translateY(50%);
+			
+				}
+
+			}
+
+			&-up {
+
+				&-enter-active, 
+				&-leave-active {
+			
+					transform: translateY(0);
+					opacity: 1;
+			
+					will-change: transform, opacity;
+			
+			
+				}
+			
+				&-enter-active {
+			
+					transition: 
+						transform 1.35s,
+						opacity 2.5s;
+			
+				} 
+			
+				&-leave-active {
+			
+					transition: 
+						transform .85s,
+						opacity .45s;
+			
+				}
+			
+				&-enter, 
+				&-leave-to {
+			
+					transform: translateY(50%);
+					opacity: 0;
+			
+				}
+			
+				&-leave-to {
+			
+					transform: translateY(-50%);
+			
+				}
+
+			}
+
 		}
-	
-		&-enter-active {
-	
-			transition: 
-				transform 1.35s,
-				opacity 2.5s;
-	
-		} 
-	
-		&-leave-active {
-	
-			transition: 
-				transform .85s,
-				opacity .45s;
-	
-		}
-	
-		&-enter, 
-		&-leave-to {
-	
-			transform: translateY(-50%);
-			opacity: 0;
-	
-		}
-	
-		&-leave-to {
-	
-			transform: translateY(50%);
-	
-		}
+
+		
 
 	}
 
