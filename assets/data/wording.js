@@ -37,6 +37,28 @@ export default {
 				"From a brand perspective, insightful ideas allow us to deconstruct and accompany trend shifts."
 			]
 		}
-	]
+	],
+
+	"manifesto": {
+		"punchlineOne": "Weak values are more liable than no values at all.",
+		"punchlineTwo": "This is why our integrity is not for sale.",
+		"text": {
+			"first": [
+				"We represent clients that offer alternatives and provide an impulse for change. Hence, we promote the narratives of squeaky-clean brands, social players, cultural actors and organisations, carefully chosen based on their core values.",
+				
+				"We cater to human beings not consumers by navigating trends and insights. And find ways for good ideas to echo in the heads and hearts of people."
+			],
+
+			"second": [
+				"The stories we create, are made to resonate and stay with audiences, inviting them to change perspectives.",
+	
+				"Because we believe it is more important than ever, to promote messages founded on transparency, accountability, insightfulness and advocacy.",
+	
+				"Insightful communication drives change."
+			]
+
+		}
+		
+	}
 	
 }

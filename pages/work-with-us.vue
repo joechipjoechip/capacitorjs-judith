@@ -5,19 +5,25 @@
 
 			<div class="work-description-wrapper">
 
+				<span class="work-description-wrapper-border"></span>
+
 				<div v-for="(item, index, id) in wording" :key="id"
 					class="work-description-container"
 				>
 
-					<transition name="transition-description-y-up">
+					<div class="work-description-subtitle-container">
 
-						<h3 v-if="currentKey === item.key"
-							class="work-description-subtitle"
-						>
-							{{ item.subtitle }}
-						</h3>
+						<transition name="transition-description-y-up">
 
-					</transition>
+							<h3 v-if="currentKey === item.key" 
+								class="work-description-subtitle-content"
+							>
+								{{ item.subtitle }}
+							</h3>
+							
+						</transition>
+
+					</div>
 
 					<transition name="transition-description-y-down">
 
@@ -67,16 +73,23 @@
 
 		</div>
 
+		<manifesto />
+
 	</div>
 </template>
 
 <script>
 
 	import wording from "@/assets/data/wording.js";
+	import Manifesto from "@/components/manifesto.vue";
 
 	export default {
 
 		layout: "mainLayout",
+
+		components: {
+			"manifesto": Manifesto
+		},
 
 		data(){
 			return {
@@ -103,21 +116,20 @@
 
 	.work {
 
-		$sideWidth: 673px;
+		$sideWidth: 42%;
 		$animDuration: 0.4s;
-
-
-		width: 90%;
-		max-width: $columnMaxWith;
-		margin: 0 auto;
-		margin-top: calc($headerHeight + 90px);
-		margin-bottom: calc(100px);
 
 		* {
 			color: var(--color-white);
 		}
 
 		&-wrapper {
+			width: 90%;
+			max-width: $columnMaxWith;
+			margin: 0 auto;
+			margin-top: calc($headerHeight + 90px);
+			margin-bottom: calc(100px);
+
 			display: flex;
 			flex-flow: row nowrap;
 			justify-content: space-between;
@@ -128,8 +140,19 @@
 
 			&-wrapper {
 				// border: solid 1px orange;
+				position: relative;
 				width: calc(100% - $sideWidth);
 				color: var(--color-white);
+
+				&-border {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 135px;
+					border-bottom: solid 1px rgba(255,255,255,0.4);
+				}
 			}
 			
 			&-container {
@@ -142,19 +165,29 @@
 			}
 
 			&-subtitle {
-				position: absolute;
-				font-family: "AktivGrotesk";
-				font-weight: bold;
-				font-size: 26px;
-				line-height: 33px;
-				color: currentColor;
-				max-width: 200px;
-				left: 0;
-				top: 0;
 
-				text-transform: uppercase;
+				&-container {
 
-				height: 133px;
+					position: absolute;
+					font-family: "AktivGrotesk";
+					font-weight: bold;
+					font-size: 26px;
+					line-height: 33px;
+					color: currentColor;
+					// max-width: 200px;
+					padding-right: calc(100% - 200px);
+					left: 0;
+					top: 0;
+	
+					text-transform: uppercase;
+	
+					height: 135px;
+
+				}
+
+				&-content {
+
+				}
 			}
 
 			&-text {
@@ -250,9 +283,11 @@
 				> * {
 					pointer-events: none;
 					font-family: "PresicavXl";
-					font-size: 48px;
+					// font-size: 48px;
+					font-size: 38px;
 					font-weight: normal;
-					line-height: 58px;
+					// line-height: 58px;
+					line-height: 48px;
 					letter-spacing: 4.8px;
 					color: var(--color-white);
 					text-transform: capitalize;
@@ -260,6 +295,7 @@
 					transition: color calc($animDuration / 2);
 
 					margin: 40px 0;
+					// margin: 5vh 0;
 
 				}
 
