@@ -12,31 +12,17 @@
 			:mouse-pos="mousePos"
 		/>
 
-		<div 
-			class="hooked-content"
-			:class="{'hooked-displayed': hookedDisplayed}"
-		>
+		
+		<philosophy
+			ref="philosophy"
+			main-title="our philosophy"
+		/>
 
-			<edge 
-				ref="edge" 
-				relative-ref="folio" 
-			/>
-
-			<philosophy
-				ref="philosophy"
-				main-title="our philosophy"
-			/>
-
-			<ethic
-				ref="ethic"
-				main-title="Collaborative ethic"
-				sub-title="We not only care about who we are working for"
-			/>
-
-		</div>
-
-
-
+		<ethic
+			ref="ethic"
+			main-title="Collaborative ethic"
+			sub-title="We not only care about who we are working for"
+		/>
 
 	</div>
 </template>
@@ -45,7 +31,6 @@
 
 	import Folio from "@/components/folio.vue";
 	import Losange from '@/components/losange.vue';
-	import Edge from '@/components/edge.vue';
 	import Philosophy from '@/components/philosophy.vue';
 	import Ethic from '@/components/ethic.vue';
 
@@ -56,7 +41,6 @@
 		components: {
 			"folio": Folio,
 			"losange": Losange,
-			"edge": Edge,
 			"philosophy": Philosophy,
 			"ethic": Ethic
 		},
@@ -67,13 +51,11 @@
 					x: 0,
 					y: 0
 				},
-				active3d: false,
-				hookedDisplayed: false
+				active3d: false
 			}
 		},
-		mounted(){
 
-			this.initSomeValues();
+		mounted(){
 
 			window.addEventListener("resize", this.initSomeValues);
 
@@ -82,38 +64,14 @@
 			window.addEventListener("mousemove", this.onMouseMoveHandler);
 
 		},
+
 		methods: {
-
-			initSomeValues(){
-
-				// 30vh
-				this.triggerLine = ((window.innerHeight / 100) * 30);
-
-				// 70vh
-				this.yTrigger = window.innerHeight - this.triggerLine;
-
-			},
 
 			onWheelHandler(){
 
-				const wordingBottomPosition = this.$refs.losange.$refs.losangeText.getBoundingClientRect().bottom;
+				const { top, bottom } = this.$refs.folio.$el.getBoundingClientRect();
 
-				if( wordingBottomPosition <= this.yTrigger ){
-
-					const hookCustomPosition = window.scrollY + wordingBottomPosition - this.yTrigger;
-
-					$nuxt.$emit("hookFolio", { 
-						pleaseHook: true,
-						hookCustomPosition
-					});
-
-				} else {
-
-					$nuxt.$emit("hookFolio", { 
-						pleaseHook: false
-					});
-
-				}
+				this.$refs.folio.isActive = (top <= window.innerHeight && bottom > 0);
 
 			},
 

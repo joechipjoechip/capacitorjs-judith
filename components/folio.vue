@@ -95,18 +95,21 @@
 			}
 		},
 
-		mounted(){
-			
-			// 
-			$nuxt.$on("hookFolio", this.onHookHandler);
-
-		},
-
 		watch: {
 
 			mousePos(){
 
 				this.setRotate();
+
+			},
+
+			isActive( newVal ) {
+
+				if( newVal ){
+
+					this.setRotate();
+
+				}
 
 			}
 
@@ -114,59 +117,45 @@
 
 		methods: {
 
-			onHookHandler( event ){
-
-				this.isActive = event.pleaseHook;
-
-				this.setRotate();
-
-				if( this.isActive ){
-
-					this.topCssString = `calc(80vh + ${event.hookCustomPosition}px)`;
-
-				} else {
-
-					this.topCssString = "";
-
-				}
-
-			},
-
 			setRotate(){
 
 				this.$parent.active3d = this.isActive;
 
+				const { x, y } = this.mousePos;
+
 				if( this.isActive ){
 
 					this.transformString = `rotate3d(
-						${(this.mousePos.y) * this.ratioTransform * 0.5},
-						${(this.mousePos.x) * this.ratioTransform * 2}, 
+						${y * this.ratioTransform * 0.5},
+						${x * this.ratioTransform * 2}, 
 						0,
 						10deg) 
 						translate3d(
-							${this.mousePos.x * 250}px,
-							${this.mousePos.y * 150}px,
+							${x * 250}px,
+							${y * 150}px,
 							0
 						)`;
 
 					this.transformStringParticles = `rotate3d(
-						${(this.mousePos.y + 0.5) * this.ratioTransform * 1.5},
-						${(this.mousePos.x + 0.5) * this.ratioTransform * 1.5}, 
+						${(y + 0.5) * this.ratioTransform * 1.5},
+						${(x + 0.5) * this.ratioTransform * 1.5}, 
 						0,
 						10deg) 
 						translate3d(
-							${this.mousePos.x * 50}px,
-							${this.mousePos.y * 20}px,
+							${x * 50}px,
+							${y * 20}px,
 							150px
 						)`;
 
-				} else {
+				} 
+				
+				// else {
 
-					this.transformString =  `rotate3d(${this.mousePos.x}, ${this.mousePos.y}, 0, 0deg) translate3d(0,0,0)`;
+				// 	this.transformString =  `rotate3d(${x}, ${y}, 0, 0deg) translate3d(0,0,0)`;
 
-					this.transformStringParticles =  `rotate3d(${this.mousePos.x}px, ${this.mousePos.y}px, 0, 0deg) translate3d(0,0,0)`;
+				// 	this.transformStringParticles =  `rotate3d(${x}px, ${y}px, 0, 0deg) translate3d(0,0,0)`;
 
-				}
+				// }
 
 			}
 
@@ -183,16 +172,16 @@
 	$pictureAfterTransitionDuration: 0.3s;
 
 	.folio-wrapper {
-		position: fixed;
+		position: relative;
 		display: block;
 		width: 100%;
 		max-width: var(--width-folio);
 		height: 1036px;
 
 		margin: 0 auto;
+		margin-top: 150px;
 
 		left: calc((100% - 800px)/2);
-		top: calc(80vh);
 
 		transform-origin: center center;
 

@@ -43,7 +43,7 @@
 	$borderSize: 2px;
 
 	.losanges-container {
-		position: absolute;
+		position: relative;
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: center;
