@@ -184,6 +184,7 @@
 
 		// only css property (which can be override with an inline-style)
 		$bigSquareSize: 38vh;
+		$bigSquareSizeMobile: 58vw;
 
 		// all relatives variables
 		$littleSquareSize: 10%;
@@ -260,6 +261,11 @@
 				will-change: border-width;
 
 				transition: border-width .7s;
+
+				@media #{$mobile} {
+					width: $bigSquareSizeMobile;
+					height: $bigSquareSizeMobile;
+				}
 
 				&.active-border {
 
@@ -343,6 +349,10 @@
 				font-size: 1.5vh;
 				line-height: 1.7em;
 
+				@media #{$mobile} {
+					font-size: 2.5vw;
+				}
+
 				&-container {
 					transform-origin: center;
 					transform: rotate(-45deg);
@@ -351,6 +361,12 @@
 					height: 70%;
 					top: 30%;
 					left: 30%;
+
+					@media #{$mobile} {
+						top: 25%;
+						left: 25%;
+					}
+					
 				}
 
 				&-wrapper {

@@ -44,10 +44,6 @@
 		width: 100%;
 		text-align: center;
 
-		* {
-			
-		}
-
 		.faded {
 			opacity: .3;
 		}
@@ -62,6 +58,10 @@
 			line-height: 22px;
 			letter-spacing: 7.2px;
 
+			@media #{$mobile} {
+				font-size: 15px;
+			}
+
 			&-text {
 
 				&-consistent {
@@ -74,13 +74,23 @@
 						width: 80%;
 						margin: 0 auto;
 						margin-top: 13px;
+
+						@media #{$mobile} {
+							display: none;
+						}
 					}
 
 				}
 
 				&-faded {
-					opacity: 0.3
+					opacity: 0.3;
+
+					@media #{$mobile} {
+						opacity: 0.15;
+					}
+
 				}
+
 			}
 		}
 
@@ -94,6 +104,11 @@
 				font-size: 16px;
 				text-transform: uppercase;
 				letter-spacing: normal;
+
+				@media #{$mobile} {
+					font-size: 13px;
+					margin-top: 40px;
+				}
 			}
 
 		}
