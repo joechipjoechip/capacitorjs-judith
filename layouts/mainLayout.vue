@@ -1,5 +1,5 @@
 <template>
-	<div class="anim-colors">
+	<div class="main-layout anim-colors">
 		<navigation />
 		<Nuxt />
 	</div>
@@ -46,6 +46,15 @@
 	body {
 		background-color: var(--color-bg);
 		// color: var(--color-white);
+	}
+
+	.main-layout {
+		width: 100vw;
+		overflow-x: hidden;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 
 </style>

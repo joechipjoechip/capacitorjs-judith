@@ -47,6 +47,12 @@
 		top: 0;
 		right: 0;
 
+		@media #{$mobile} {
+			right: unset;
+			left: 0;
+			width: 100vw;
+		}
+
 		nav {
 			display: block;
 			width: $navWidth;
