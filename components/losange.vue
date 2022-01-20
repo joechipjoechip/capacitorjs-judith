@@ -49,8 +49,12 @@
 		justify-content: center;
 		width: 100%;
 		top: 70vh;
-		// overflow: hidden;
 
+		@media #{$mobile} {
+			top: 0;
+			margin-top: 70vh;
+		}
+		
 		.losange {
 
 			&-ext {
@@ -63,6 +67,10 @@
 	
 				border-top: solid $borderSize var(--color-primary);
 				border-left: solid $borderSize var(--color-primary);
+
+				@media #{$mobile} {
+					margin-top: 0;
+				}
 			}
 
 			&-in {
@@ -79,6 +87,12 @@
 	
 				border: solid $borderSize var(--color-primary);
 
+				@media #{$mobile} {
+					margin: 200px;
+					max-width: 100px;
+					max-height: 100px;
+				}
+
 				&-text {
 					position: absolute;
 					display: flex;
@@ -94,6 +108,10 @@
 					font-weight: bold;
 					font-size: $fontSize;
 					letter-spacing: 124px;
+
+					@media #{$mobile} {
+						width: 95vw;
+					}
 
 					span {
 						width: $fontSize;

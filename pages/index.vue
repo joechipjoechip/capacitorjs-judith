@@ -12,7 +12,6 @@
 			:mouse-pos="mousePos"
 		/>
 
-		
 		<philosophy
 			ref="philosophy"
 			main-title="our philosophy"
