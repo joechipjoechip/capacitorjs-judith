@@ -26,11 +26,6 @@
 
 			<div v-for="index of 4" :class="'item item-num-' + index">
 
-				<div :class="'wording-num-' + index">
-					<h4 class="title">Project Name</h4>
-					<p class="description">Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-				</div>
-
 				<picture :class="[
 					'picture-num-' + index
 				]">
@@ -60,6 +55,11 @@
 					>
 
 				</picture>
+
+				<div :class="'wording-num-' + index">
+					<h4 class="title">Project Name</h4>
+					<p class="description">Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+				</div>
 
 			</div>
 
@@ -159,15 +159,7 @@
 							150px
 						)`;
 
-				} 
-				
-				// else {
-
-				// 	this.transformString =  `rotate3d(${x}, ${y}, 0, 0deg) translate3d(0,0,0)`;
-
-				// 	this.transformStringParticles =  `rotate3d(${x}px, ${y}px, 0, 0deg) translate3d(0,0,0)`;
-
-				// }
+				}
 
 			}
 
@@ -200,13 +192,16 @@
 		will-change: transform;
 		transition: transform .1s;
 
+		@media #{$mobile} {
+			height: auto;
+		}
+
 		&.isActive {
 			position: relative;
 			left: unset;
 
 			.particles-container {
 				opacity: 1;
-				// top: 0;
 			}
 
 		}
@@ -218,9 +213,19 @@
 			display: block;
 			margin: 0 auto;
 
+			@media #{$mobile} {
+				width: 100%;
+				height: auto;
+			}
+
 			*[class^="item"] {
 				position: absolute;
 				line-height: 0;
+
+				@media #{$mobile} {
+					position: relative;
+					margin-bottom: 80px;
+				}
 
 				&:hover {
 					z-index: 15;
@@ -260,6 +265,17 @@
 						right: $innerMargin;
 					}
 
+					&-1,
+					&-2,
+					&-3,
+					&-4 {
+						@media #{$mobile} {
+							top: unset;
+							left: unset;
+							right: unset;
+						}
+					}
+
 				}
 
 			}
@@ -277,6 +293,10 @@
 				transition: opacity .8s;
 
 				// transition-timing-function: cubic-bezier(.12,.98,.78,1);
+
+				@media #{$mobile} {
+					opacity: 1;
+				}
 
 				img {
 					width: 100%;
@@ -300,6 +320,15 @@
 						width: 400px;
 					}
 
+					&-1,
+					&-2,
+					&-3,
+					&-4 {
+						@media #{$mobile} {
+							width: 100%;
+						}
+					}
+
 
 				}
 
@@ -318,6 +347,13 @@
 				will-change: opacity, transform;
 				transition: opacity .3s,
 							transform .6s;
+
+				@media #{$mobile} {
+					position: relative;
+					opacity: 1;
+					transform: translateY(0);
+					padding-top: 30px;
+				}
 
 				.title {
 					text-transform: uppercase;
@@ -360,6 +396,22 @@
 					&-4 {
 						top: 200px;
 						right: -210px;
+					}
+
+					&-1,
+					&-2,
+					&-3,
+					&-4 {
+
+						@media #{$mobile} {
+							display: block;
+							width: calc(100% - ($mobileBorderSize * 2));
+							margin: 0 auto;
+							top: unset;
+							left: unset;
+							right: unset;
+						}
+
 					}
 
 				}
