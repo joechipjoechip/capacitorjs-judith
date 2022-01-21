@@ -95,6 +95,14 @@
 			}
 		},
 
+		mounted(){
+
+			this.isMobile = window.matchMedia(this.$store.state.variables.mqMobile).matches;
+
+			console.log("wsh : ", this);
+
+		},
+
 		watch: {
 
 			mousePos(){
@@ -118,6 +126,10 @@
 		methods: {
 
 			setRotate(){
+
+				if( this.$store.state.variables.isMobile ){
+					return;
+				}
 
 				this.$parent.active3d = this.isActive;
 
