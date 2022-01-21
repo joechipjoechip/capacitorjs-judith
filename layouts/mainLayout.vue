@@ -12,8 +12,28 @@
 	export default {
 		components: {
 			navigation
+		},
+
+		mounted(){
+
+			window.addEventListener("resize", this.onResizehandler);
+
+			this.onResizehandler();
+
+		},
+
+		methods: {
+			
+			onResizehandler(){
+
+				this.$store.commit("variables/updateIsMobile");
+
+			}
+
 		}
+
 	}
+
 </script>
 
 <style lang="scss">
