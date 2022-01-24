@@ -74,6 +74,7 @@
 	.manifesto {
 
 		$squareSize: 300px;
+		$squareSizeMobile: 200px;
 
 
 		background-color: var(--color-primary);
@@ -82,13 +83,14 @@
 		&-title {
 			display: block;
 			padding-top: 22px;
+
 		}
 
 		.wording {
 
 			&-container {
 				display: block;
-				width: 100%;
+				width: 90%;
 				max-width: 835px;
 				margin: 0 auto;
 				margin-top: 114px;
@@ -105,6 +107,11 @@
 							font-size: 42px;
 							line-height: 50px;
 							margin-bottom: 80px;
+
+							@media #{$mobile} {
+								font-size: 32px;
+								line-height: 40px;
+							}
 						}
 
 					}
@@ -127,6 +134,14 @@
 						transform: rotate(45deg);
 						top: calc(50% - ($squareSize / 2));
 						left: calc(50% - ($squareSize / 2));
+
+						@media #{$mobile} {
+							width: $squareSizeMobile;
+							height: $squareSizeMobile;
+							top: calc(50% - ($squareSizeMobile / 2));
+							left: calc(50% - ($squareSizeMobile / 2));
+						}
+
 					}
 
 				}
@@ -139,11 +154,19 @@
 						align-items: flex-start;
 						margin-top: 176px;
 						justify-content: space-between;
+
+						@media #{$mobile} {
+							flex-flow: column nowrap;
+						}
 					}
 
 					&-first,
 					&-second {
 						width: calc(50% - 8px);
+
+						@media #{$mobile} {
+							width: 100%;
+						}
 					}
 					&-second p:last-of-type {
 						font-weight: bold;
