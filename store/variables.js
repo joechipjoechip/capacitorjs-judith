@@ -14,10 +14,7 @@ export const mutations = {
 
 	updateIsMobile(state) {
 
-		
 		state.isMobile = window.matchMedia(state.mqMobile).matches;
-
-		console.log("mutation triggered : ", state.isMobile);
 	
 	}
 

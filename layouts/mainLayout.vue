@@ -1,7 +1,9 @@
 <template>
 	<div class="main-layout anim-colors">
 		<navigation />
-		<Nuxt />
+		<transition name="transition-page">
+			<Nuxt />
+		</transition>
 	</div>
 </template>
 

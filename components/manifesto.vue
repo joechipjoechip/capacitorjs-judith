@@ -83,7 +83,6 @@
 		&-title {
 			display: block;
 			padding-top: 22px;
-
 		}
 
 		.wording {

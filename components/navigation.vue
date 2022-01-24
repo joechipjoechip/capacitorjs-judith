@@ -4,19 +4,19 @@
 			<JudithLogo class="logo" />
 			<ul class="links">
 				<li class="link-wrapper active">
-					<nuxt-link to="/">
+					<NuxtLink to="/">
 						Home
-					</nuxt-link>
+					</NuxtLink>
 				</li>
 				<li class="link-wrapper">
-					<nuxt-link to="">
+					<NuxtLink to="">
 						Team
-					</nuxt-link>
+					</NuxtLink>
 				</li>
 				<li class="link-wrapper">
-					<nuxt-link to="/work-with-us">
+					<NuxtLink to="/work-with-us">
 						Work with us
-					</nuxt-link>
+					</NuxtLink>
 				</li>
 			</ul>
 		</nav>
