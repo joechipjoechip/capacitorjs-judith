@@ -1,5 +1,5 @@
 const mqMobile = "(max-width: 412px)";
-const mqDesktop = "(max-width: 1920px)";
+const mqDesktop = "(min-width: 413px)";
 const mqDesktopLarge = "(min-width: 1921px)";
 
 export const state = () => ({
