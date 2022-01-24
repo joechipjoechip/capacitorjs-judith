@@ -3,73 +3,101 @@
 
 		<div class="work-wrapper">
 
-			<div class="work-description-wrapper">
-
-				<span class="work-description-wrapper-border"></span>
+			<div v-if="$store.state.variables.isMobile" class="work-wrapper-inner only-mobile">
 
 				<div v-for="(item, index, id) in wording" :key="id"
-					class="work-description-container"
+					class="mobile-item"
 				>
 
-					<div class="work-description-subtitle-container">
+					<h3 class="mobile-title font-section-title">{{ item.section }}</h3>
 
-						<transition name="transition-description-y-up">
+					<h4 class="mobile-subtitle font-description-subtitle">{{ item.subtitle }}</h4>
 
-							<h3 v-if="currentKey === item.key" 
-								class="work-description-subtitle-content"
-							>
-								{{ item.subtitle }}
-							</h3>
-							
-						</transition>
+					<div class="mobile-description font-description-text">
+
+						<p v-for="sentence in item.description">
+							{{ sentence }}
+						</p>
 
 					</div>
 
-					<transition name="transition-description-y-down">
+				</div>
 
-						<div v-if="currentKey === item.key"
-							class="work-description-text"
-						>
+			</div>
 
-							<p v-for="sentence in item.description">
-								{{ sentence }}
-							</p>
+			<div v-else class="work-wrapper-inner only-desktop">
+
+				<div class="work-description-wrapper">
+
+					<span class="work-description-wrapper-border"></span>
+
+					<div v-for="(item, index, id) in wording" :key="id"
+						class="work-description-container"
+					>
+
+						<div class="work-description-subtitle-container">
+
+							<transition name="transition-description-y-up">
+
+								<h4 v-if="currentKey === item.key" 
+									class="work-description-subtitle-content font-description-subtitle"
+								>
+									{{ item.subtitle }}
+								</h4>
+								
+							</transition>
 
 						</div>
 
-					</transition>
+						<transition name="transition-description-y-down">
+
+							<div v-if="currentKey === item.key"
+								class="work-description-text font-description-text"
+							>
+
+								<p v-for="sentence in item.description">
+									{{ sentence }}
+								</p>
+
+							</div>
+
+						</transition>
+
+
+					</div>
+
+				</div>
+
+				<div class="work-section-container">
+
+					<ul class="work-section-list">
+
+						<li v-for="(item, indexx, id) in wording" :key="id"
+							:class="[
+								'work-section-item',
+								{'item-active': currentKey === item.key}
+							]"
+							:data-key="item.key"
+							@click.stop="sectionClickHandler"
+						>
+
+							<h3 class="section-title font-section-title">
+
+								<span v-for="(word, index, id) in item.section.split(' ')" :key="id">
+									{{ word }}
+								</span>
+
+							</h3>
+
+						</li>
+
+					</ul>
 
 				</div>
 
 			</div>
 
 
-			<div class="work-section-container">
-
-				<ul class="work-section-list">
-
-					<li v-for="(item, indexx, id) in wording" :key="id"
-						:class="[
-							'work-section-item',
-							{'item-active': currentKey === item.key}
-						]"
-						:data-key="item.key"
-						@click.stop="sectionClickHandler"
-					>
-
-						<h4 class="section-title">
-
-							<span v-for="(word, index, id) in item.section.split(' ')" :key="id">
-								{{ word }}
-							</span>
-
-						</h4>
-
-					</li>
-
-				</ul>
-
-			</div>
 
 		</div>
 
@@ -114,6 +142,87 @@
 
 <style lang="scss" scoped>
 
+	.font {
+
+		&-description {
+
+			&-subtitle {
+				font-family: "AktivGrotesk";
+				font-weight: bold;
+				font-size: 26px;
+				line-height: 33px;
+				color: currentColor;
+				text-transform: uppercase;
+			}
+
+			&-text {
+				p {
+					font-family: "AktivGrotesk";
+					font-weight: 300;
+					font-size: 24px;
+					line-height: 31px;
+				}
+			}
+
+		}
+
+		&-section {
+
+			&-title {
+				font-family: "PresicavXl";
+				font-size: 38px;
+				font-weight: normal;
+				line-height: 48px;
+				letter-spacing: 4.8px;
+				color: var(--color-white);
+				text-transform: capitalize;
+			}
+
+		}
+
+	}
+
+	.mobile {
+
+		&-item {
+
+			margin-bottom: 60px;
+	
+			> * {
+				position: relative;
+			}
+
+			&::before {
+				content: "";
+				display: block;
+				width: 20px;
+				height: 20px;
+				background-color: var(--color-primary);
+				margin: 0 auto;
+				margin-bottom: 30px;
+				transform: rotate(45deg);
+			}
+
+		}
+
+		&-title {
+			text-align: center;
+			margin-bottom: 5px;
+		}
+
+		&-subtitle {
+			text-align: center;
+			margin-bottom: 30px;
+
+		}
+
+		&-description {
+
+		}
+
+
+	}
+
 	.work {
 
 		$sideWidth: 42%;
@@ -129,11 +238,19 @@
 			margin: 0 auto;
 			margin-top: calc($headerHeight + 90px);
 			margin-bottom: calc(100px);
+			
+			&-inner {
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-between;
+				align-content: flex-start;
 
-			display: flex;
-			flex-flow: row nowrap;
-			justify-content: space-between;
-			align-content: flex-start;
+				@media #{$mobile} {
+					display: block;
+				}
+
+			}
+
 		}
 
 		&-description {
@@ -162,24 +279,32 @@
 				flex-flow: column nowrap;
 				justify-content: center;
 				align-items: center;
+
+				.only-desktop {
+
+					@media #{$mobile} {
+						display: none;
+					}
+					
+				}
+
+				.only-mobile {
+
+					@media #{$desktop} {
+						display: none;
+					}
+
+				}
 			}
 
 			&-subtitle {
 
 				&-container {
-
 					position: absolute;
-					font-family: "AktivGrotesk";
-					font-weight: bold;
-					font-size: 26px;
-					line-height: 33px;
-					color: currentColor;
 					// max-width: 200px;
 					padding-right: calc(100% - 200px);
 					left: 0;
 					top: 0;
-	
-					text-transform: uppercase;
 	
 					height: 135px;
 
@@ -194,13 +319,7 @@
 				position: absolute;
 				top: 233px;
 				max-width: 400px;
-
-				p {
-					font-family: "AktivGrotesk";
-					font-weight: 300;
-					font-size: 24px;
-					line-height: 31px;
-				}
+				left: calc(50% - 200px);
 
 			}
 
@@ -282,15 +401,6 @@
 
 				> * {
 					pointer-events: none;
-					font-family: "PresicavXl";
-					// font-size: 48px;
-					font-size: 38px;
-					font-weight: normal;
-					// line-height: 58px;
-					line-height: 48px;
-					letter-spacing: 4.8px;
-					color: var(--color-white);
-					text-transform: capitalize;
 
 					transition: color calc($animDuration / 2);
 
