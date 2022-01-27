@@ -17,12 +17,16 @@
 							{ 'is-active': currentKey === notion }
 						]"
 						@mouseenter="letterEventHandler"
+						@click="letterEventHandler"
+						v-touch="letterEventHandler"
 						:data-text="notion"
 					>
 						{{notion}}
 					</div>
 
-					<div class="description-wrapper">
+					<div class="description-wrapper"
+						v-touch:swipe="swipeHandler"
+					>
 
 						<div 
 							v-for="(notion, index, id) in  notions" :key="id"
@@ -80,6 +84,8 @@
 							{ 'is-active': currentKey === notion }
 						]"
 						@mouseenter="letterEventHandler"
+						@click="letterEventHandler"
+						v-touch="letterEventHandler"
 						:data-text="notion"
 					>
 						{{ notion.substring(0,1) }}
@@ -144,7 +150,6 @@
 
 			caretClickHandler( event ){
 
-				
 				const currentIndex = this.notions.indexOf(this.currentKey);
 
 				let newIndex;
@@ -168,6 +173,24 @@
 				}
 
 				this.currentKey = this.notions[newIndex];
+
+			},
+
+			swipeHandler(direction){
+
+				if( direction !== "top" && direction !== "bottom" ){
+
+					const fakeEventObj = {
+						target: {
+							dataset: {
+								way: direction === "right" ? "plus" : "minus"
+							}
+						}
+					}
+
+					this.caretClickHandler(fakeEventObj);
+
+				}
 
 			}
 

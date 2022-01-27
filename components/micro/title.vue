@@ -83,10 +83,10 @@
 				}
 
 				&-faded {
-					display: block;
 					opacity: 0.3;
 
 					@media #{$mobile} {
+						display: block;
 						opacity: 0.15;
 					}
 

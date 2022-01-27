@@ -1,10 +1,10 @@
 export default {
 
   // to inspect with real device throught local network
-  // server: {     
-  //   port: 8000, // default: 3000     
-  //   host: '0.0.0.0', // default: localhost   
-  // },
+  server: {     
+    port: 8000, // default: 3000     
+    host: '0.0.0.0', // default: localhost   
+  },
 
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -36,6 +36,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~/plugins/vue2-touch-events.js"
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -61,12 +62,20 @@ export default {
     ]
   },
 
+  router: {
+    prefetchLinks: true
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+
+    // transpile: ["vue2-touch-events"],
+
     babel: {
       plugins: [
         '@babel/plugin-proposal-optional-chaining'
       ]
     }
+
   }
 }

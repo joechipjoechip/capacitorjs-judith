@@ -1,25 +1,34 @@
 <template>
 	<div class="nav-wrapper">
+
 		<nav>
+
 			<JudithLogo class="logo" />
+
 			<ul class="links">
+
 				<li class="link-wrapper active">
 					<NuxtLink to="/">
 						Home
 					</NuxtLink>
 				</li>
+
 				<li class="link-wrapper">
-					<NuxtLink to="">
+					<NuxtLink to="/team">
 						Team
 					</NuxtLink>
 				</li>
+
 				<li class="link-wrapper">
 					<NuxtLink to="/work-with-us">
 						Work with us
 					</NuxtLink>
 				</li>
+
 			</ul>
+
 		</nav>
+
 	</div>
 </template>
 
@@ -78,14 +87,6 @@
 
 				.link-wrapper {
 
-					&.active {
-
-						a {
-							color: var(--color-primary);
-						}
-
-					}
-
 					a {
 						text-transform: uppercase;
 						font-family: 'AktivGrotesk';
@@ -95,6 +96,13 @@
 						color: var(--color-white);
 						text-decoration: none;
 						font-size: 16px;
+
+						-webkit-tap-highlight-color: transparent;
+
+						&.nuxt-link-exact-active {
+							color: var(--color-primary);
+						}
+
 					}
 
 				}

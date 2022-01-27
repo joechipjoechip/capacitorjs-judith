@@ -1,5 +1,7 @@
 <template>
-	<div class="carousel-container">
+	<div class="carousel-container"
+		v-touch:swipe="swipeHandler"
+	>
 
 		<div class="little-square-container">
 
@@ -73,7 +75,51 @@
 
 				this.currentIndex = parseInt(event.target.dataset.index);
 
-			}
+			},
+
+			infiniteSliderHandler( event ){
+
+				let newIndex;
+
+				if( event.target.dataset.way === "plus" ){
+					
+					newIndex = this.currentIndex + 1;
+
+					if( newIndex > this.wording.length - 1 ) {
+						newIndex = 0;
+					}
+
+				} else {
+					
+					newIndex = this.currentIndex - 1;
+
+					if( newIndex < 0 ){
+						newIndex = this.wording.length - 1;
+					}
+
+				}
+
+				this.currentIndex = newIndex;
+
+			},
+
+			swipeHandler( direction ){
+
+				if( direction !== "top" && direction !== "bottom" ){
+
+					const fakeEventObj = {
+						target: {
+							dataset: {
+								way: direction === "right" ? "plus" : "minus"
+							}
+						}
+					}
+
+					this.infiniteSliderHandler(fakeEventObj);
+
+				}
+
+			},
 		}
 
 	}
@@ -171,6 +217,8 @@
 			display: block;
 			height: 100%;
 			cursor: pointer;
+			-webkit-tap-highlight-color: transparent;
+			outline: none;
 
 			&::after {
 				content: "";
