@@ -111,53 +111,6 @@
 
 	$caretDuration: 1.7s;
 
-	&-page {
-
-		&-enter-active, 
-		&-leave-active {
-
-			display: block;
-	
-			opacity: 1;
-			transform: translateY(0);
-			
-			will-change: transform, opacity;
-			
-			
-		}
-		
-		&-enter-active {
-			
-			transition: 
-				opacity 1.2s,
-				transform 1s;
-			
-		} 
-
-		&-leave-active {
-			
-			transition: 
-				opacity 0.8s,
-				transform 0.7s;
-			
-		} 
-		
-		&-enter, 
-		&-leave-to {
-			
-			transform: translateY(100px);
-			opacity: 0;
-			
-		}
-		
-		&-leave-to {
-			
-			transform: translateX(200px);
-
-		}
-
-	}
-
 	&-description {
 
 		&-y {
@@ -330,6 +283,54 @@
 
 		}
 	
+	}
+
+}
+
+
+// default nuxt transition name beetween pages
+.page {
+
+	$enterDuration: 0.9s;
+	$leaveDuration: 0.3s;
+
+	&-enter-active, 
+	&-leave-active {
+
+		display: block;
+
+		opacity: 1;
+		transform: translateY(0);
+		
+		will-change: transform, opacity;
+		
+		
+	}
+	
+	&-enter-active {
+		
+		transition: all $enterDuration;
+		
+	} 
+
+	&-leave-active {
+		
+		transition: all $leaveDuration;
+		
+	} 
+	
+	&-enter, 
+	&-leave-to {
+		
+		transform: translateY(400px);
+		opacity: 0;
+		
+	}
+	
+	&-leave-to {
+		
+		transform: translateY(-200px);
+
 	}
 
 }

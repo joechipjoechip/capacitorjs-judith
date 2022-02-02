@@ -37,9 +37,11 @@
 	import JudithLogo from "@/assets/svg/logoFull.svg";
 
 	export default {
+		
 		components: {
 			JudithLogo
 		}
+
 	}
 	
 </script>
