@@ -14,6 +14,12 @@
 			navigation
 		},
 
+		data(){
+			return {
+				routeChangeTimeoutID: null
+			}
+		},
+
 		mounted(){
 
 			window.addEventListener("resize", this.onResizehandler);

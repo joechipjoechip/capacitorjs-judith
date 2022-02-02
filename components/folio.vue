@@ -196,7 +196,7 @@
 		margin: 0 auto;
 		margin-top: 150px;
 
-		left: calc((100% - 800px)/2);
+		// left: calc((100% - 800px)/2);
 
 		transform-origin: center center;
 
@@ -210,7 +210,7 @@
 
 		&.isActive {
 			position: relative;
-			left: unset;
+			// left: unset;
 
 			.particles-container {
 				opacity: 1;

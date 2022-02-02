@@ -67,6 +67,7 @@
 				const { top, bottom } = this.$refs.folio.$el.getBoundingClientRect();
 
 				this.$refs.folio.isActive = (top <= window.innerHeight && bottom > 0);
+				// this.$refs.folio.isActive = false;
 
 			},
 
