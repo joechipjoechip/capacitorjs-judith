@@ -128,6 +128,9 @@
 			setRotate(){
 
 				if( this.$store.state.variables.isMobile ){
+
+					this.resetRotate();
+
 					return;
 				}
 
@@ -160,6 +163,14 @@
 						)`;
 
 				}
+
+			},
+
+			resetRotate(){
+
+				this.transformString = "";
+
+				this.transformStringParticles = "";
 
 			}
 
@@ -194,6 +205,7 @@
 
 		@media #{$mobile} {
 			height: auto;
+			left: unset;
 		}
 
 		&.isActive {
