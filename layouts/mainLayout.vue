@@ -41,7 +41,7 @@
 <style lang="scss">
 
 	// here are transversal styles
-	// (fonts, mq, etc)
+	// fonts, mq, etc
 
 	$colorRed: #bc4342;
 

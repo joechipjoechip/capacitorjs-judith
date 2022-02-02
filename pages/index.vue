@@ -1,5 +1,11 @@
 <template>
-	<div class="home-wrapper" :class="{ 'active3d': active3d }">
+	<div :class="[
+			'home-wrapper',
+			{ 'active3d': active3d }
+		]"
+		@mousemove="onMouseMoveHandler"
+		@mousewheel="onMouseWheelHandler"
+	>
 
 		<losange 
 			ref="losange" 
@@ -54,19 +60,9 @@
 			}
 		},
 
-		mounted(){
-
-			window.addEventListener("resize", this.initSomeValues);
-
-			window.addEventListener("scroll", this.onWheelHandler);
-
-			window.addEventListener("mousemove", this.onMouseMoveHandler);
-
-		},
-
 		methods: {
 
-			onWheelHandler(){
+			onMouseWheelHandler(){
 
 				const { top, bottom } = this.$refs.folio.$el.getBoundingClientRect();
 
