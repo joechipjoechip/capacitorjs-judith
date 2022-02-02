@@ -291,8 +291,8 @@
 // default nuxt transition name beetween pages
 .page {
 
-	$enterDuration: 0.9s;
-	$leaveDuration: 0.3s;
+	$enterDuration: 1.3s;
+	$leaveDuration: 0.5s;
 
 	&-enter-active, 
 	&-leave-active {
@@ -319,8 +319,7 @@
 		
 	} 
 	
-	&-enter, 
-	&-leave-to {
+	&-enter {
 		
 		transform: translateY(400px);
 		opacity: 0;
@@ -330,6 +329,7 @@
 	&-leave-to {
 		
 		transform: translateY(-200px);
+		opacity: 0;
 
 	}
 
