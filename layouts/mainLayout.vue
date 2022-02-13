@@ -85,6 +85,10 @@
 		--color-secondary: #1aff8d;
 		--color-ternary: #5942BC;
 
+		--color-type-smooth: rgba(255,255,255, 0.6);
+		--color-type-smooth-plus: rgba(255,255,255, 0.5);
+		--color-type-smooth-max: rgba(255,255,255, 0.3);
+
 		// some widths
 		--width-folio: 810px;
 		--width-folio-ref-picture: 536px;
@@ -107,9 +111,7 @@
 
 		.main-content {
 
-			width: 90%;
-			max-width: $columnMaxWith;
-			margin: 0 auto;
+			@include mainColumn;
 
 		}
 
