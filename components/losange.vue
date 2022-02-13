@@ -48,7 +48,7 @@
 		flex-flow: row nowrap;
 		justify-content: center;
 		width: 100%;
-		top: 70vh;
+		top: 10vh;
 
 		@media #{$mobile} {
 			top: 0;

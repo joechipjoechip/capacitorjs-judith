@@ -1,8 +1,12 @@
 <template>
 
-	<div class="main-layout anim-colors">
+	<div :class="[
+		'main-layout anim-colors',
+		currentDesign
+		]"
+	>
 
-		<navigation :design="$nuxt.$route.path === '/' ? 'primary' : 'secondary'"/>
+		<navigation :design="currentDesign"/>
 
 		<div class="main-content">
 
@@ -27,6 +31,16 @@
 			return {
 				routeChangeTimeoutID: null
 			}
+		},
+
+		computed: {
+
+			currentDesign(){
+
+				return $nuxt.$route.path === '/' ? 'primary' : 'secondary';
+
+			}
+
 		},
 
 		mounted(){
@@ -96,7 +110,26 @@
 			width: 90%;
 			max-width: $columnMaxWith;
 			margin: 0 auto;
-			margin-top: calc($headerHeight + 90px);
+
+		}
+
+		&.primary {
+			
+			.main-content {
+				
+				margin-top: calc($headerHeightPrimary);
+
+			}
+			
+		}
+
+		&.secondary {
+			
+			.main-content {
+
+				margin-top: calc($headerHeightSecondary);
+
+			}
 
 		}
 		

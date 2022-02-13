@@ -233,10 +233,6 @@
 		}
 
 		&-wrapper {
-			// width: 90%;
-			// max-width: $columnMaxWith;
-			// margin: 0 auto;
-			// margin-top: calc($headerHeight + 90px);
 			margin-bottom: calc(100px);
 			
 			&-inner {
