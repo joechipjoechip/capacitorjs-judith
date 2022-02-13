@@ -197,7 +197,10 @@ export default {
 							}
 						]
 					],
-					bottom: "toyota-bottom"
+					bottom: {
+						assetName: "toyota-bottom",
+						extension: "jpg"
+					}
 				}
 			}
 		}

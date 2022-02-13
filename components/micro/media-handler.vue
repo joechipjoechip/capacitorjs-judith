@@ -2,14 +2,26 @@
 
 	<div class="media-handler">
 
-		<div v-if="imagesExtensions.includes(media.extension)"
+		<div v-if="imagesExtensions.includes(media.extension.toLowerCase())"
 			class="image-container"
 		>
 
-			<img class="image-content"
-				:src="`@/static/${media.type}/${media.folder}/${media.assetName}.${media.extension}`" 
+			<img class="content-image"
+				:src="`@/static/${media.from}/${media.folder}/${media.assetName}.${media.extension}`" 
 				alt=""
 			>
+
+		</div>
+
+		<div v-if="videosExtensions.includes(media.extension.toLowerCase())"
+			class="image-container"
+		>
+
+			<!-- @TODO : à tester -->
+			<video playsinline muted autoplay loop
+				class="content-video"
+				:src="`@/static/${media.from}/${media.folder}/${media.assetName}.${media.extension}`" 
+			></video>
 
 		</div>
 		
@@ -42,11 +54,11 @@
 
 	.media-handler {
 		
-		.image {
+		.content {
 
 			// &-container {}
 
-			&-content {
+			&-image {
 				width: 100%;
 				object-fit: cover;
 				object-position: center;

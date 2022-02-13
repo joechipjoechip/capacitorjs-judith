@@ -91,7 +91,7 @@
 
 			</section>
 
-			<section class="lines">
+			<section class="lines-container">
 
 				<div v-for="(line, index, id) in item.content.medias.lines" :key="id"
 					class="line"
@@ -99,8 +99,9 @@
 	
 					<media-handler 
 						v-for="(media, index, id) in line" :key="id"
+						class="line-media"
 						:media="{
-							type: 'case',
+							from: 'case',
 							folder: item.id,
 							assetName: media.assetName,
 							extension: media.extension
@@ -109,6 +110,25 @@
 
 				</div>
 
+			</section>
+
+			<section class="bottom-container">
+
+				<media-handler 
+					class="bottom-media"
+					:media="{
+						from: 'case',
+						folder: item.id,
+						assetName: item.content.medias.bottom.assetName,
+						extension: item.content.medias.bottom.extension
+					}"
+				/>
+
+			</section>
+
+			<section class="next-project">
+				<!-- button -->
+				<button>Next Project</button>
 			</section>
 
 		</div>
@@ -165,6 +185,10 @@
 			width: 95%;
 			margin: 0 auto;
 
+			& > * {
+				margin-top: $marginBeewteenElements;
+			}
+
 			.head {
 				display: flex;
 				flex-flow: row nowrap;
@@ -194,7 +218,7 @@
 			.cover {
 
 				&-container {
-					margin-top: $marginBeewteenElements;
+					// 
 				}
 
 				&-image {
@@ -207,7 +231,6 @@
 				&-container {
 					display: flex;
 					flex-flow: row nowrap;
-					margin-top: $marginBeewteenElements;
 					padding-bottom: $marginBeewteenElements;
 					border-bottom: solid 1px var(--color-type-smooth-plus);
 				}
@@ -334,6 +357,93 @@
 						}
 
 					}
+				}
+
+			}
+
+			.lines {
+
+				&-container {
+
+					$lineCellSizeBig: 60%;
+
+					$lineCellSizeSmal: 32%;
+
+					.line {
+	
+						margin-top: $marginBeewteenElements;
+	
+						display: flex;
+						flex-flow: row nowrap;
+						justify-content: space-between;
+						align-items: flex-start;
+
+						&:first-of-type {
+							margin: 0;
+						}
+	
+						// impairs
+						&:nth-of-type(odd) {
+							// border: solid 5px orange;
+	
+							.line-media {
+	
+								&:first-of-type {
+									width: $lineCellSizeBig;
+								}
+	
+								&:last-of-type {
+									width: $lineCellSizeSmal;
+								}
+	
+							}
+	
+						}
+	
+						// pairs
+						&:nth-of-type(even) {
+							// border: solid 5px pink;
+	
+							.line-media {
+	
+								&:first-of-type {
+									width: $lineCellSizeSmal;
+								}
+	
+								&:last-of-type {
+									width: $lineCellSizeBig;
+								}
+								
+							}
+	
+						}
+	
+					}
+
+				}
+
+			}
+
+			.bottom {
+
+				&-container {
+					// 
+				}
+
+				&-media {
+					border: solid 1px orange;
+				}
+
+			}
+
+			.next-project {
+				width: 100%;
+				padding-bottom: $marginBeewteenElements * 2;
+
+				button {
+					display: block;
+					text-align: center;
+					margin: 0 auto;
 				}
 
 			}
