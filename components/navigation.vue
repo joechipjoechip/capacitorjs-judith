@@ -136,7 +136,6 @@
 			height: $headerHeightPrimary;
 
 			.logo {
-				width: 100%;
 				max-width: $logoSizeMax;
 				margin-top: 40px;
 				margin-bottom: 28px;
@@ -151,11 +150,6 @@
 
 		&.secondary {
 			height: $headerHeightSecondary;
-			
-			nav {
-				// display: flex;
-				// flex-flow: row nowrap;
-			}
 
 			.logo {
 				max-width: $logoSizeMaxSecondary;
