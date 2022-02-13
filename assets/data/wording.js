@@ -7,7 +7,7 @@ export default {
 			"subtitle": "STAND OUT : Become a top-of-mind brand.",
 			"description": [
 				"brand We tap into human-centered insights, conversations and trend projection to create innovative, exciting experiences for your audience.",				
-				"From a brand perspective, insightful ideas allow us to deconstruct and accompany trend shifts."
+				"From a brand perspective, insightful ideas allow us to de∏construct and accompany trend shifts."
 			]
 		},
 		{

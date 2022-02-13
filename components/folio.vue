@@ -95,12 +95,12 @@
 			}
 		},
 
-		mounted(){
-
-			this.isMobile = window.matchMedia(this.$store.state.variables.mqMobile).matches;
-
-			console.log("wsh : ", this);
-
+		computed: {
+			
+			isMobile(){
+				return this.$store.state.variables.isMobile;
+			}
+			
 		},
 
 		watch: {
