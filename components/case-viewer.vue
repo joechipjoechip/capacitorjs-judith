@@ -38,6 +38,7 @@
 
 					<div class="parallax-coontainer">
 
+						<!-- src: item.content.medias.parallax.assetName + item.content.medias.parallax.extension -->
 						<img class="parallax-image" src="http://placehold.it/603x858" alt="parallax">
 
 					</div>
@@ -90,6 +91,26 @@
 
 			</section>
 
+			<section class="lines">
+
+				<div v-for="(line, index, id) in item.content.medias.lines" :key="id"
+					class="line"
+				>
+	
+					<media-handler 
+						v-for="(media, index, id) in line" :key="id"
+						:media="{
+							type: 'case',
+							folder: item.id,
+							assetName: media.assetName,
+							extension: media.extension
+						}"
+					/>
+
+				</div>
+
+			</section>
+
 		</div>
 
 	</div>
@@ -97,7 +118,14 @@
 </template>
 
 <script>
+
+	import MediaHandler from "@/components/micro/media-handler.vue";
+
 	export default {
+
+		components: {
+			"media-handler": MediaHandler
+		},
 
 		props: {
 
@@ -221,7 +249,6 @@
 					justify-content: space-between;
 				}
 
-
 			}
 
 			.parallax {
@@ -308,12 +335,11 @@
 
 					}
 				}
+
 			}
 
 		}
 
-
 	}
-	
 
 </style>

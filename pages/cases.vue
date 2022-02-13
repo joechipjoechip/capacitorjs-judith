@@ -85,12 +85,24 @@
 								},
 								lines: [
 									[
-										"toyota-line-1-visu-1",
-										"toyota-line-1-visu-2"
+										{
+											extension: "jpg",
+											assetName: "toyota-line-1-visu-1"
+										},
+										{
+											extension: "png",
+											assetName: "toyota-line-1-visu-2"
+										}
 									],
 									[
-										"toyota-line-1-visu-3",
-										"toyota-line-1-visu-4"
+										{
+											extension: "jpg",
+											assetName: "toyota-line-1-visu-1"
+										},
+										{
+											extension: "png",
+											assetName: "toyota-line-1-visu-2"
+										}
 									]
 								],
 								bottom: "toyota-bottom"
