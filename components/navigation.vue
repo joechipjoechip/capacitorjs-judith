@@ -136,14 +136,9 @@
 			height: $headerHeightPrimary;
 
 			.logo {
-				max-width: $logoSizeMax;
+				max-width: $logoSizeMaxPrimary;
 				margin-top: 40px;
 				margin-bottom: 28px;
-			}
-	
-			.links-contrainer {
-				width: 85%;
-				margin: 0 auto;
 			}
 	
 		}
