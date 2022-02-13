@@ -2,22 +2,26 @@
 
 	<div class="cases-wrapper">
 
-		ici la page cases
+
 
 	</div>
 
 </template>
 
 <script>
+
+
 	export default {
 
 		layout: "mainLayout",
 
-		data(){
+
+		data() {
 			return {
-				// 
-			}
-		}	
+				teammates: wording.teammates
+        }
+    }
+
 
 	}
 </script>

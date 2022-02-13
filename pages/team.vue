@@ -1,14 +1,13 @@
 <template>
     <div class="team-wrapper">
-        <h1>PAGE TEAM </h1>
 
-        <div class="team-container">
 
-            <span v-for="mate in teammates" :key="mate.id">
-                {{ mate }}
-            </span>
-
-        </div>
+        <cards-container :teammates="teammates" />
+        <br>
+        <micro-title :text="mainTitle" :sub-text="subTitle"/>
+        <br>
+        <listing-container :teammates="teammates" />
+      
         
     </div>   
         
@@ -16,42 +15,28 @@
 </template>
 
 <script>
+import wording from "@/assets/data/wording.js";
+import cards from "@/components/cards";
+import listing from "@/components/listing";
+
 export default {
-    layout: "mainLayout",
+	layout: "mainLayout",
+    components: {
+        "cards-container": cards,
+        "listing-container": listing,
+
+    },
+
     data() {
         return {
-            teammates : [
-                {
-                    nom:"Dupont",
-                    prenom:"Jean",
-                    discipline:"peintre"
-                },
-                {
-                    nom:"Vidal",
-                    prenom:"Pierre",
-                    discipline:"chanteur"
-                },
-                {
-                    nom:"Xin Yuh",
-                    prenom:"Antoine",
-                    discipline:"peintre"
-                },
-                {
-                    nom:"Paul",
-                    prenom:"Dupain",
-                    discipline:"caligraphie"
-                },
-                {
-                    nom:"Gilles",
-                    prenom:"Dubain",
-                    discipline:"chanteur"
-                },
-            ]
+            teammates: wording.teammates,
+            mainTitle: 'Team'
         }
     }
 }
 </script>
 
-<style>
+<style  lang="scss" scoped>
+
 
 </style>

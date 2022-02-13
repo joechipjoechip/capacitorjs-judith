@@ -57,8 +57,64 @@ export default {
 				"Insightful communication drives change."
 			]
 
-		}
+		},
+	},
+	"teammates": [
+		{
+			nom:"Dupont",
+			prenom:"Jean",
+			photo:"/images/artistes/dupont/dupont.jpg",
+			discipline:"peintre",
+			realisation: [
+				"/images/artistes/dupont/realisation/01.jpg",
+				"/images/artistes/dupont/realisation/02.jpg",
+				"/images/artistes/dupont/realisation/03.jpg",
+			]
+		},
+		{
+			nom:"Vidal",
+			prenom:"Jeanne",
+			photo:"/images/artistes/vidal/vidal.jpg",
+			discipline:"chanteur"
+		},
+		{
+			nom:"XinYuh",
+			prenom:"Antoine",
+			photo:"/images/artistes/xinyuh/xinyuh.jpg",
+			discipline:"peintre"
+		},
+		{
+			nom:"Dupain",
+			prenom:"Paul",
+			photo:"/images/artistes/dupain/dupain.jpg",
+			discipline:"caligraphie"
+		},
+		{
+			nom:"Dubai",
+			prenom:"Gilles",
+			photo:"/images/artistes/dubai/dubai.jpg",
+			discipline:"chanteur"
+		},
+		{
+			nom:"Bravo",
+			prenom:"Jhonny",
+			photo:"/images/artistes/bravo/bravo.jpg",
+			discipline:"chanteur"
+		},
+		{
+			nom:"Abberkan",
+			prenom:"Idriss",
+			photo:"/images/artistes/abberkan/abberkan.jpg",
+			discipline:"chanteur"
+		},
 		
-	}
+		{
+			nom:"Jossoui",
+			prenom:"Charli",
+			photo:"/images/artistes/jossoui/jossoui.jpg",
+			discipline:"chanteur"
+		},
+		
+	]
 	
 }
