@@ -119,6 +119,16 @@
 
 				}
 
+			},
+
+			"$store.state.variables.isMobile"( newVal ){
+
+				if( newVal ){
+
+					this.resetRotate();
+					
+				}
+
 			}
 
 		},

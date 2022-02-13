@@ -1,5 +1,8 @@
 <template>
-	<div class="nav-wrapper">
+	<div :class="[
+		'nav-wrapper',
+		design
+	]">
 
 		<nav>
 
@@ -25,6 +28,12 @@
 					</NuxtLink>
 				</li>
 
+				<li class="link-wrapper">
+					<NuxtLink to="/cases">
+						Cases
+					</NuxtLink>
+				</li>
+
 			</ul>
 
 		</nav>
@@ -40,6 +49,15 @@
 		
 		components: {
 			JudithLogo
+		},
+
+		props: {
+
+			design: {
+				type: String,
+				required: true
+			}
+
 		}
 
 	}
@@ -64,54 +82,75 @@
 			width: 100vw;
 		}
 
-		nav {
-			display: block;
-			width: $navWidth;
-			margin: 0 auto;
-			text-align: center;
+		&.primary {
 
-			.logo {
+			nav {
+				display: block;
 				width: 100%;
-				margin-top: 40px;
-				margin-bottom: 28px;
-			}
-	
-			.links {
-				width: 85%;
 				margin: 0 auto;
-				list-style: none;
-				padding: 0;
+				text-align: center;
 	
-				display: flex;
-				flex-flow: row nowrap;
-				justify-content: space-between;
-				align-items: center;
+				.logo {
+					width: 100%;
+					max-width: $logoSizeMax;
+					margin-top: 40px;
+					margin-bottom: 28px;
+				}
+		
+				.links {
+					width: 85%;
+					margin: 0 auto;
+					list-style: none;
+					padding: 0;
+		
+					display: flex;
+					flex-flow: row nowrap;
+					justify-content: center;
+					align-items: center;
+	
+					.link-wrapper {
 
-				.link-wrapper {
+						display: inline-block;
+						margin: 0 15px;
 
-					a {
-						text-transform: uppercase;
-						font-family: 'AktivGrotesk';
-						font-weight: 300;
-						letter-spacing: 0.32px;
-
-						color: var(--color-white);
-						text-decoration: none;
-						font-size: 16px;
-
-						-webkit-tap-highlight-color: transparent;
-
-						&.nuxt-link-exact-active {
-							color: var(--color-primary);
+						&:first-of-type {
+							margin-left: 0;
 						}
 
+						&:last-of-type {
+							margin-right: 0;
+						}
+	
+						a {
+							text-transform: uppercase;
+							font-family: 'AktivGrotesk';
+							font-weight: 300;
+							letter-spacing: 0.32px;
+	
+							color: var(--color-white);
+							text-decoration: none;
+							font-size: 16px;
+	
+							-webkit-tap-highlight-color: transparent;
+	
+							&.nuxt-link-exact-active {
+								color: var(--color-primary);
+							}
+	
+						}
+	
 					}
-
+	
 				}
-
+	
 			}
 
 		}
+
+		&.secondary {
+			// 
+		}
+
 
 	}
 

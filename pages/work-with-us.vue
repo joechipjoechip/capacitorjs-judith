@@ -72,7 +72,7 @@
 
 					<ul class="work-section-list">
 
-						<li v-for="(item, indexx, id) in wording" :key="id"
+						<li v-for="(item, index, id) in wording" :key="id"
 							:class="[
 								'work-section-item',
 								{'item-active': currentKey === item.key}
@@ -233,10 +233,10 @@
 		}
 
 		&-wrapper {
-			width: 90%;
-			max-width: $columnMaxWith;
-			margin: 0 auto;
-			margin-top: calc($headerHeight + 90px);
+			// width: 90%;
+			// max-width: $columnMaxWith;
+			// margin: 0 auto;
+			// margin-top: calc($headerHeight + 90px);
 			margin-bottom: calc(100px);
 			
 			&-inner {

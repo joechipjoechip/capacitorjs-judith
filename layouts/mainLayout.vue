@@ -1,8 +1,17 @@
 <template>
+
 	<div class="main-layout anim-colors">
-		<navigation />
-		<Nuxt />
+
+		<navigation :design="$nuxt.$route.path === '/' ? 'primary' : 'secondary'"/>
+
+		<div class="main-content">
+
+			<Nuxt />
+
+		</div>
+
 	</div>
+
 </template>
 
 <script>
@@ -80,6 +89,15 @@
 
 		&::-webkit-scrollbar {
 			display: none;
+		}
+
+		.main-content {
+
+			width: 90%;
+			max-width: $columnMaxWith;
+			margin: 0 auto;
+			margin-top: calc($headerHeight + 90px);
+
 		}
 		
 	}

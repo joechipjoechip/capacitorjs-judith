@@ -93,19 +93,21 @@
 
 	.home-wrapper {
 		position: relative;
-		// padding-top: $headerHeight;
 
 		&.active3d {
+
 			perspective: 3000px;
+			
 		}
 
 		.hooked-content {
-			// display: none;
+
 			opacity: 0;
 
 			&.hooked-displayed {
-				// display: block;
+
 				opacity: 1;
+
 			}
 
 		}
