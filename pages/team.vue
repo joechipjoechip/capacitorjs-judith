@@ -40,7 +40,7 @@
 <style  lang="scss" scoped>
 
 .title-team {
-        padding: 20px 0;
+        padding-top: 50px;
 }
 
 

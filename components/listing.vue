@@ -17,7 +17,8 @@
 
 					<div class="artiste-identity-head">
 
-						<h1 class="name-surname">{{mate.nom}} {{mate.prenom}}</h1>
+						<h1 class="surname">{{mate.prenom}}</h1>
+						<h1 class="name">{{mate.nom}}</h1>
 
 						<p class="discipline">{{mate.discipline}}</p>
 
@@ -111,34 +112,45 @@ export default {
 		}
 
 		.artiste-identity-head {
-
-			.name-surname, 
+		
+			.name,
+			.surname, 
 			.discipline {
 				text-transform: uppercase;
 				font-family: "PresicavRg";
 			}
 
-			.name-surname {
-
-				text-transform: uppercase;
+			.surname, .name {
+				letter-spacing: 1.36px;
 				width: 90%;
 				font-size: 2em;
+			
+			}
+			
 
+			.surname {
+				color: var(--color-white)
+			}
+
+			.name {
+				color: var(--color-type-smooth-plus);
 				&::after {
 					content: "";
 					border-bottom: solid 1px white;
 					display: block;
 					width: 90%;
 					height: 1px;
-					margin-top: 7px;
+					margin-top: 14px;
 				}
-			}
 
+			}
 			.discipline {
-				font-size: 1.7em;
-				margin-top:15px;
-				
+				letter-spacing: 0.36px;
+				font-size: 0.8em;
 				text-transform: uppercase;
+				color: var(--color-type-smooth);
+				margin-top:20px;
+				
 			}
 		}
 
@@ -176,7 +188,8 @@ export default {
 					color:var(--color-primary)
 				}
 				&.learnmore {
-					color: white;
+					color:var(--color-type-smooth-max)
+
 				}
 			}
 
