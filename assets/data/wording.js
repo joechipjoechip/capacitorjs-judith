@@ -64,7 +64,12 @@ export default {
 			nom:"Dupont",
 			prenom:"Jean",
 			photo:"/images/artistes/dupont/dupont.jpg",
-			discipline:"peintre",
+			discipline:"Peintre",
+			website:'https://www.dupontjean.com',
+			description: [
+				"Lorem Ipsum sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del",
+				"Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
+			],
 			realisation: [
 				"/images/artistes/dupont/realisation/01.jpg",
 				"/images/artistes/dupont/realisation/02.jpg",
@@ -75,44 +80,79 @@ export default {
 			nom:"Vidal",
 			prenom:"Jeanne",
 			photo:"/images/artistes/vidal/vidal.jpg",
-			discipline:"chanteur"
+			discipline:"Caligraphie",
+			website:'https://www.vidaljeanne.com',
+			description: [
+				"Lorem Ipsum semblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del",
+				"Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
+			],
 		},
 		{
 			nom:"XinYuh",
 			prenom:"Antoine",
 			photo:"/images/artistes/xinyuh/xinyuh.jpg",
-			discipline:"peintre"
+			discipline:"Peintre",
+			website:'https://www.xinyuhantoine.com',
+			description: [
+				"Lorem Ipsum sin dal sedicesimo secolo, sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del",
+				"Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
+			],
 		},
 		{
 			nom:"Dupain",
 			prenom:"Paul",
 			photo:"/images/artistes/dupain/dupain.jpg",
-			discipline:"caligraphie"
+			discipline:"Caligraphie",
+			website:'https://www.dupainpaul.com',
+			description: [
+				"Lorem standard sin dal più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del",
+				"Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
+			],
 		},
 		{
 			nom:"Dubai",
 			prenom:"Gilles",
 			photo:"/images/artistes/dubai/dubai.jpg",
-			discipline:"chanteur"
+			discipline:"Chanteur",
+			website:'https://www.dubaigillescom',
+			description: [
+				"Lorem Ipsum è un testo anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del",
+				"Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
+			],
 		},
 		{
 			nom:"Bravo",
 			prenom:"Jhonny",
 			photo:"/images/artistes/bravo/bravo.jpg",
-			discipline:"chanteur"
+			discipline:"Chanteur",
+			website:'https://www.bravojhonny.com',
+			description: [
+				"Lorem Ipsum anonimo sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del",
+				"Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
+			],
 		},
 		{
 			nom:"Abberkan",
 			prenom:"Idriss",
 			photo:"/images/artistes/abberkan/abberkan.jpg",
-			discipline:"chanteur"
+			discipline:"Chanteur",
+			website:'https://www.abberkanidriss.com',
+			description: [
+				"Lorem Ipsum è considerato il testo ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del",
+				"Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
+			],
 		},
 		
 		{
 			nom:"Jossoui",
 			prenom:"Charli",
 			photo:"/images/artistes/jossoui/jossoui.jpg",
-			discipline:"chanteur"
+			discipline:"Chanteur",
+			website:'https://www.jossouicharli.com',
+			description: [
+				"Lorem Ipsum è un testo segnaposto. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del",
+				"Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
+			],
 		},
 		
 	],
