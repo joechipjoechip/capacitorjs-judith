@@ -4,7 +4,7 @@
 
         <cards :teammates="teammates" />
     
-        <listing :teammates="teammates" />
+        <mate-listing :teammates="teammates" />
         
     </div>   
         
@@ -21,7 +21,7 @@
         layout: "mainLayout",
         components: {
             "cards": Cards,
-            "listing": Listing,
+            "mate-listing": Listing,
 
         },
 

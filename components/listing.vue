@@ -9,7 +9,7 @@
 
 				<div class="artiste-image-container">
 
-                	<img  class="artiste-image-content" :srcset="mate.photo" :alt="mate.prenom">
+                	<img  class="artiste-image-content" :src="mate.photo" :alt="mate.prenom">
 
 				</div>
 
@@ -122,33 +122,37 @@ export default {
 			.surname, .name {
 				letter-spacing: 1.36px;
 				width: 90%;
-				font-size: 2em;
+				font-size: 28px;
 			
 			}
 			
 
 			.surname {
-				color: var(--color-white)
+				color: var(--color-white);
+				font-family: "PresicavRg";
 			}
 
 			.name {
 				color: var(--color-type-smooth-plus);
+				font-family: "PresicavLt";
 				&::after {
 					content: "";
 					border-bottom: solid 1px white;
 					display: block;
 					width: 90%;
 					height: 1px;
-					margin-top: 14px;
+					margin-top: 20px;
 				}
 
 			}
 			.discipline {
-				letter-spacing: 0.36px;
-				font-size: 0.8em;
+				font-family: "AktivGrotesk";
+				letter-spacing: normal;
+				line-height: 1.31px;
+				font-size: 16px;
 				text-transform: uppercase;
 				color: var(--color-type-smooth);
-				margin-top:20px;
+				margin-top:13px;
 				
 			}
 		}
@@ -181,7 +185,7 @@ export default {
 			a {
 				font-family: "AktivGrotesk";
 				text-decoration: none;
-				padding-left:20px;
+				padding-left: 36px;
 				letter-spacing: 0.36px;
 				&.website {
 					color:var(--color-primary)

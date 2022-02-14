@@ -4,7 +4,8 @@
 
 		<case-viewer v-if="viewerIsActive" :item="cases[0]"/>
 		
-		kkkkk
+		<case-listing :cases="cases"/>
+		
 	</div>
 
 </template>
@@ -12,6 +13,7 @@
 <script>
 
 	import CaseViewer from "@/components/case-viewer.vue"
+	import CaseListing from "@/components/cases-listing.vue"
 
 	import wording from "@/assets/data/wording.js";
 
@@ -20,7 +22,8 @@
 		layout: "mainLayout",
 
 		components: {
-			"case-viewer": CaseViewer
+			"case-viewer": CaseViewer,
+			"case-listing": CaseListing
 		},
 
 		data(){
