@@ -94,6 +94,8 @@
 		--width-folio-ref-picture: 536px;
 		--width-carousel-text: 260px;
 
+
+
 	}
 
 	body {
