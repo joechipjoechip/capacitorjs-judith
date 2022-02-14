@@ -77,18 +77,17 @@ export default {
 		font-family: "AktivGrotesk";
 		position: relative;
 		display: flex;
-		justify-content: row;
+		justify-content: space-between;
 		height: 700px;
 		width: 100%;
-		max-width: 700px;
-		// border: solid 2px red;
-		justify-content: space-between;
+		max-width: $alternateColumnMaxWith;
 		margin: 0 auto;
 		margin-top: 100px;
 
 		.artiste-image-container {
 			overflow: hidden;
-			width: 45%;
+			// width: 45%;
+			width: 534px;
 			background-color: rgba(255,0,0,0.1);
 
 			.artiste-image-content {
@@ -104,7 +103,7 @@ export default {
 
 		.artiste-identity-container {
 			display: flex;
-			width: 50%;
+			width: calc(100% - 584px);
 			justify-content: space-between;
 			flex-direction: column;
 			color: white;

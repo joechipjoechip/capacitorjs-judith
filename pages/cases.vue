@@ -3,7 +3,8 @@
 	<div class="cases-wrapper">	
 
 		<case-viewer v-if="viewerIsActive" :item="cases[0]"/>
-
+		
+		kkkkk
 	</div>
 
 </template>
@@ -25,7 +26,7 @@
 		data(){
 			return {
 
-				viewerIsActive: true,
+				viewerIsActive: false,
 				cases: wording.cases
 
 			}

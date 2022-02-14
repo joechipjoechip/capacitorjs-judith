@@ -3,8 +3,6 @@
     <div class="team-wrapper">
 
         <cards :teammates="teammates" />
-
-        <micro-title class="title-team" :text="mainTitle" />
     
         <listing :teammates="teammates" />
         
@@ -39,9 +37,13 @@
 
 <style  lang="scss" scoped>
 
-.title-team {
+    .team-wrapper {
+        overflow: hidden;
+    }
+
+    .title-team {
         padding-top: 50px;
-}
+    }
 
 
 </style>
