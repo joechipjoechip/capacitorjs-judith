@@ -171,9 +171,11 @@
 		},
 
 		methods:{
+
 			handleCloseClick() {
-				$nuxt.$emit('close-viewer');
 				
+				$nuxt.$emit('close-viewer');
+
 				window.scrollTo(0,0)
 			}
 		}

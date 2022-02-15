@@ -26,6 +26,13 @@
 			"case-listing": CaseListing
 		},
 
+		created() {
+		
+			this.$nuxt.$on('open-viewer', this.openViewerHandler)
+			
+			this.$nuxt.$on('close-viewer', this.closeViewerHandler)
+		},
+
 		data(){
 			return {
 				currentProjet: null,
@@ -35,11 +42,10 @@
 			}
 		},
 
-		created() {
-		
-			this.$nuxt.$on('open-viewer', this.openViewerHandler)
-			
-			this.$nuxt.$on('close-viewer', this.closeViewerHandler)
+	
+		beforeDestroy(){
+			this.$nuxt.$off('open-viewer');
+			this.$nuxt.$off('close-viewer');
 		},
 
 		methods: {
@@ -52,23 +58,20 @@
 			},
 
 			closeViewerHandler() {
-				
+
 				this.currentProjet = null;
 
 				this.viewerIsActive = false;
 			}
 		},
 
-		beforeDestroy(){
-			this.$nuxt.$off('open-viewer');
-			this.$nuxt.$off('close-viewer');
-		}
+	
 	}
 
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 	.cases-wrapper {
 		color: white;
