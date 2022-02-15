@@ -2,9 +2,9 @@
 
 	<div class="cases-wrapper">	
 
-		<case-viewer v-if="viewerIsActive" :item="cases[0]"/>
+		<case-viewer v-if="viewerIsActive" :item="currentProjet"/>
 		
-		<case-listing :cases="cases"/>
+		<case-listing v-if="!viewerIsActive" :cases="cases"/>
 		
 	</div>
 
@@ -28,14 +28,30 @@
 
 		data(){
 			return {
-
+				currentProjet: null,
 				viewerIsActive: false,
 				cases: wording.cases
 
 			}
-		}	
+		},
 
+		created() {
+		
+			this.$nuxt.$on('click-on-project', projectId => {
+			
+				this.currentProjet = this.cases.find( project => project.id === projectId);
+				this.viewerIsActive = true;
+			})
+			
+			this.$nuxt.$on('click-on-cancel', () => {
+			
+				this.currentProjet = null;
+				this.viewerIsActive = false;
+			})
+		}
 	}
+
+
 </script>
 
 <style lang="scss" scoped>

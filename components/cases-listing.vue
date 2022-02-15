@@ -2,7 +2,7 @@
 	<div class="project-listing-container">
 		<div v-for="(project, index) in this.cases" :key="project.id">
 
-			<div class="project-container" :class="{ 'active' : currentProject === project.id} ">
+			<div :class="['project-container',{ 'active' : currentProject === project.id}] ">
 
 				<div class="project-id-container">
 
@@ -15,6 +15,7 @@
 					<p 
 						@mouseenter="enterNameHandler" 
 						@mouseleave="leaveNameHandler" 
+						@click="clickHandler"
 						:data-index-project="project.id"
 					>
 						{{ project.name }}
@@ -76,6 +77,10 @@ export default {
 
 		leaveNameHandler() {
 			this.currentProject =  "";
+		},
+		clickHandler(event) {
+			const projectId = event.target.dataset.indexProject
+			$nuxt.$emit('click-on-project', projectId)
 		}
 	}
 
@@ -172,10 +177,12 @@ export default {
 			width: 9%;
 			height: auto;         
 			&:nth-of-type(2) {
+				transition: all 0.75s;
 				opacity:0
 			}
 		
 			&:nth-of-type(3) {
+				transition: all 0.45s;
 				opacity:0
 			}
 		}

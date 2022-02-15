@@ -5,6 +5,7 @@
 		<div class="case-viewer-inner">
 
 			<section class="head">
+				<h1 @click="handleCloseClick" style="color:red;position:absolute;top:0;left:50px;cursor:pointer;">X</h1>
 
 				<h2 class="head-title">{{ item.name }}</h2>
 
@@ -160,6 +161,12 @@
 
 			console.log("on a bien recu la props item : ", this.item);
 
+		},
+
+		methods:{
+			handleCloseClick() {
+				$nuxt.$emit('click-on-cancel');
+			}
 		}
 
 	}
