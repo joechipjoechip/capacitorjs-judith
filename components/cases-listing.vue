@@ -80,7 +80,7 @@ export default {
 		},
 		clickHandler(event) {
 			const projectId = event.target.dataset.indexProject
-			$nuxt.$emit('click-on-project', projectId)
+			$nuxt.$emit('open-viewer', projectId)
 		}
 	}
 

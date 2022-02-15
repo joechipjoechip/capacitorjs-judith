@@ -110,6 +110,9 @@
 
 				});
 			},
+		},
+		beforeDestroy() {
+			this.$nuxt.$off('click-on-artist');
 		}
 	}
 

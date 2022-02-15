@@ -37,22 +37,31 @@
 
 		created() {
 		
-			this.$nuxt.$on('click-on-project', projectId => {
+			this.$nuxt.$on('open-viewer', this.openViewerHandler)
 			
-				this.currentProjet = this.cases.find( project => project.id === projectId);
+			this.$nuxt.$on('close-viewer', this.closeViewerHandler)
+		},
+
+		methods: {
+			openViewerHandler( event ) {
+
+				this.currentProjet = this.cases.find( project => project.id === event);
+
 				this.viewerIsActive = true;
-			})
-			
-			this.$nuxt.$on('click-on-cancel', () => {
-			
+
+			},
+
+			closeViewerHandler() {
+				
 				this.currentProjet = null;
+
 				this.viewerIsActive = false;
-			})
+			}
 		},
 
 		beforeDestroy(){
-			this.$nuxt.$off('click-on-project');
-			this.$nuxt.$off('click-on-cancel');
+			this.$nuxt.$off('open-viewer');
+			this.$nuxt.$off('close-viewer');
 		}
 	}
 

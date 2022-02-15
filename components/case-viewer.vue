@@ -172,7 +172,9 @@
 
 		methods:{
 			handleCloseClick() {
-				$nuxt.$emit('click-on-cancel');
+				$nuxt.$emit('close-viewer');
+				
+				window.scrollTo(0,0)
 			}
 		}
 

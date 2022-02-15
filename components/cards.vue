@@ -38,7 +38,10 @@
 				console.log('click on artist',artistName)
 
 			}
-		}
+		},
+	
+		
+		
 	}
 </script>
 
