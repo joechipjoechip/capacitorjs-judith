@@ -83,7 +83,7 @@ export default {
 
     afterEnter(){
 
-      // le fait de créer cette prop
+      // le simple fait de créer cette prop
       // permet à nuxt de faire le scrollToTop entre les pages
       // en respectant les transitions
       console.log("weh la pageTransition after");
