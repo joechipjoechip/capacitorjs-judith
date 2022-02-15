@@ -92,16 +92,17 @@ export default {
 	}
 
 	.project-container {
+		color: var(--color-type-smooth-plus);
 		transition: all 0.45s;
-		height: 10vh;
-		padding-bottom: 20px;
+		height: 5%;
+		padding: 10px 0;
 		padding-left: 25px;
 		position: relative;
 		display: flex;
 		justify-content: row;
 		align-items: center;
 		flex-direction: row;
-		flex-wrap: nowrap ;
+		flex-wrap: nowrap;
 		align-items: baseline;
 	}
 
@@ -129,9 +130,11 @@ export default {
 		text-transform: uppercase; 
 		font-weight: 300;
 		font-size: 5vw;
-		margin-right:15px;
-		cursor:pointer;
+		margin-right: 15px;
+		cursor: pointer;
 		p {
+			color: rgba(255, 255, 255, 0.74);
+
 			white-space: nowrap;
 
 		}
