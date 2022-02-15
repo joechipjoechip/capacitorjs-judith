@@ -63,7 +63,7 @@ export default {
 		{
 			name:"Dupont",
 			surname:"Jean",
-			picture:"/images/artistes/dupont/dupont.jpg",
+			picture:"/images/artists/dupont/dupont.jpg",
 			role:"Peintre",
 			website:'https://www.dupontjean.com',
 			descriptions: [
@@ -71,15 +71,15 @@ export default {
 				"Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum."
 			],
 			realisations: [
-				"/images/artistes/dupont/realisation/01.jpg",
-				"/images/artistes/dupont/realisation/02.jpg",
-				"/images/artistes/dupont/realisation/03.jpg",
+				"/images/artists/dupont/realisation/01.jpg",
+				"/images/artists/dupont/realisation/02.jpg",
+				"/images/artists/dupont/realisation/03.jpg",
 			]
 		},
 		{
 			name:"Vidal",
 			surname:"Jeanne",
-			picture:"/images/artistes/vidal/vidal.jpg",
+			picture:"/images/artists/vidal/vidal.jpg",
 			role:"Caligraphie",
 			website:'https://www.vidaljeanne.com',
 			descriptions: [
@@ -90,7 +90,7 @@ export default {
 		{
 			name:"XinYuh",
 			surname:"Antoine",
-			picture:"/images/artistes/xinyuh/xinyuh.jpg",
+			picture:"/images/artists/xinyuh/xinyuh.jpg",
 			role:"Peintre",
 			website:'https://www.xinyuhantoine.com',
 			descriptions: [
@@ -101,7 +101,7 @@ export default {
 		{
 			name:"Dupain",
 			surname:"Paul",
-			picture:"/images/artistes/dupain/dupain.jpg",
+			picture:"/images/artists/dupain/dupain.jpg",
 			role:"Caligraphie",
 			website:'https://www.dupainpaul.com',
 			descriptions: [
@@ -112,7 +112,7 @@ export default {
 		{
 			name:"Dubai",
 			surname:"Gilles",
-			picture:"/images/artistes/dubai/dubai.jpg",
+			picture:"/images/artists/dubai/dubai.jpg",
 			role:"Chanteur",
 			website:'https://www.dubaigillescom',
 			descriptions: [
@@ -123,7 +123,7 @@ export default {
 		{
 			name:"Bravo",
 			surname:"Jhonny",
-			picture:"/images/artistes/bravo/bravo.jpg",
+			picture:"/images/artists/bravo/bravo.jpg",
 			role:"Chanteur",
 			website:'https://www.bravojhonny.com',
 			descriptions: [
@@ -134,7 +134,7 @@ export default {
 		{
 			name:"Abberkan",
 			surname:"Idriss",
-			picture:"/images/artistes/abberkan/abberkan.jpg",
+			picture:"/images/artists/abberkan/abberkan.jpg",
 			role:"Chanteur",
 			website:'https://www.abberkanidriss.com',
 			descriptions: [
@@ -146,7 +146,7 @@ export default {
 		{
 			name:"Jossoui",
 			surname:"Charli",
-			picture:"/images/artistes/jossoui/jossoui.jpg",
+			picture:"/images/artists/jossoui/jossoui.jpg",
 			role:"Chanteur",
 			website:'https://www.jossouicharli.com',
 			descriptions: [

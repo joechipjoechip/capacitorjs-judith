@@ -3,22 +3,22 @@
     <div class="listing-container">
 
 
-        <div    :data-artiste="mate.name" 
+        <div    :data-artist="mate.name" 
 				v-for="mate in teammates" 
 				:key="mate.id" 
-				class="list-artiste">
+				class="list-artist">
             
-            <div class="artiste-bandeau">
+            <div class="artist-bandeau">
 
-				<div class="artiste-image-container">
+				<div class="artist-image-container">
 
-                	<img  class="artiste-image-content" :src="mate.picture" :alt="mate.surname">
+                	<img  class="artist-image-content" :src="mate.picture" :alt="mate.surname">
 
 				</div>
 
-                <div class="artiste-identity-container">
+                <div class="artist-identity-container">
 
-					<div class="artiste-identity-head">
+					<div class="artist-identity-head">
 
 						<h1 class="surname">{{mate.surname}}</h1>
 						<h1 class="name">{{mate.name}}</h1>
@@ -27,13 +27,13 @@
 
 					</div>
 
-					<div class="artiste-identity-body" >
+					<div class="artist-identity-body" >
 
 						<p class="information" v-for="info in mate.descriptions" :key="info.id" >{{info}}</p>
 
 					</div>
 
-					<div class="artiste-identity-footer">
+					<div class="artist-identity-footer">
 
 						<a href="#" target="_blank" class="learnmore">LEARN MORE</a>
 
@@ -74,10 +74,11 @@ export default {
 	.listing-container {
 		display:flex;
 		flex-direction: column;
+		padding-bottom: 90px;
 		
 	}
 
-	.artiste-bandeau {
+	.artist-bandeau {
 		font-family: "AktivGrotesk";
 		position: relative;
 		display: flex;
@@ -88,13 +89,13 @@ export default {
 		margin: 0 auto;
 		margin-top: 100px;
 
-		.artiste-image-container {
+		.artist-image-container {
 			overflow: hidden;
 			// width: 45%;
 			width: 534px;
 			background-color: rgba(255,0,0,0.1);
 
-			.artiste-image-content {
+			.artist-image-content {
 				height: 100%;
 				width: 100%;
 				object-fit: cover;
@@ -105,7 +106,7 @@ export default {
 
 		
 
-		.artiste-identity-container {
+		.artist-identity-container {
 			display: flex;
 			width: calc(100% - 584px);
 			justify-content: space-between;
@@ -114,7 +115,7 @@ export default {
 			
 		}
 
-		.artiste-identity-head {
+		.artist-identity-head {
 		
 			.name,
 			.surname, 
@@ -161,7 +162,7 @@ export default {
 			}
 		}
 
-		.artiste-identity-body {
+		.artist-identity-body {
 
 			.information {
 				font-family: "AktivGrotesk";
@@ -178,7 +179,7 @@ export default {
 
 	
 	
-		.artiste-identity-footer {
+		.artist-identity-footer {
 			justify-content: flex-end;
 			width: 100%;
 			right: 0;

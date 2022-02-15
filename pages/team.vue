@@ -23,7 +23,7 @@
     import wording from "@/assets/data/wording.js";
     import Cards   from "@/components/cards";
     import Listing from "@/components/listing";
-	import ArrowUp from "@/assets/svg/arrowup.svg";
+	import ArrowUp from "@/assets/svg/arrowUp.svg";
 
     export default {
         layout: "mainLayout",
@@ -45,19 +45,10 @@
 
         created() {
     
-            this.$nuxt.$on('click-on-artiste', artistName => {
+            this.$nuxt.$on('click-on-artist', artistName => {
 
-                // Récupére l'obj artiste
-                this.currentArtiste = this.teammates.find( artist => artist.name === artistName);
+				this.goToArtistSelected(artistName)
 
-                // Selection de l'artiste dans le dom
-                let elementToReach    =  document.querySelector("[data-artiste='" + this.currentArtiste.name + "']");
-                let topElementToReach =  elementToReach.getBoundingClientRect().top;
-
-                // Scroll jusqu'a l'élèment data-artiste
-                window.scrollTo({ top: topElementToReach, behavior: 'smooth' });
-
-    
             })
             
         },
@@ -66,14 +57,30 @@
 			const el = document.querySelector('.cards-container');
             const galeryTop = el.offsetTop;
             const galeryHeight = el.offsetHeight;
+
             this.galeryBottom = galeryTop + galeryHeight;
+
             window.addEventListener('scroll', this.handleScroll)
-      
 
         },
 
         methods: {
-            handleScroll: function () {
+
+			goToArtistSelected(artistName){
+
+				// Récupére l'obj artist
+				this.currentArtist = this.teammates.find( artist => artist.name === artistName);
+
+  				// Selection de l'artist dans le dom
+				const elementToReach    =  document.querySelector(`[data-artist='${this.currentArtist.name}']`);
+				const topElementToReach =  elementToReach.getBoundingClientRect().top;
+
+                // Scroll jusqu'a l'élèment data-artist
+				window.scrollTo({ top: topElementToReach, behavior: 'smooth' });
+
+			},
+
+            handleScroll() {
                 if(window.scrollY >= this.galeryBottom) {
                     this.displayScroll = true;
                 } else {
@@ -82,7 +89,7 @@
      
             },
 
-            toTop: function () {
+            toTop() {
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
@@ -113,17 +120,21 @@
     }
 
     .arrowToTop-enter-active, .arrowToTop-leave-active {
-    	transition: opacity .5s;
+    	transition: all .5s;
     }
+
     .arrowToTop-enter {
     	opacity: 0;
     }
+
 	.arrowToTop-enter-to {
-		opacity: 1;
+		opacity: 0.80;
 	}
+
     .arrowToTop-leave {
-    	opacity: 1;
+    	opacity: 0.80;
     }
+
     .arrowToTop-leave-to {
     	opacity: 0;
     }

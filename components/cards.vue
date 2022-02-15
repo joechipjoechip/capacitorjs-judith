@@ -33,9 +33,9 @@
 		methods: {
 			clickOnArtist(event) {
 				const artistName = event.target.dataset.name
-				$nuxt.$emit('click-on-artiste', artistName)
+				$nuxt.$emit('click-on-artist', artistName)
 
-				console.log('click on artiste',artistName)
+				console.log('click on artist',artistName)
 	
 			}
 		}
