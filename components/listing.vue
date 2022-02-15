@@ -46,9 +46,9 @@
 
 
 			</div>
-		
+
 		</div>
-		
+
 
 	</div>
 
@@ -59,7 +59,7 @@ export default {
 	layout:'mainLayout',
 
 	props: {
-		
+
 		teammates: {
 			type: Array,
 			required: true
@@ -76,7 +76,7 @@ export default {
 		display:flex;
 		flex-direction: column;
 		padding-bottom: 90px;
-		
+
 	}
 
 	.artist-bandeau {
@@ -105,7 +105,7 @@ export default {
 
 		}
 
-		
+
 
 		.artist-identity-container {
 			display: flex;
@@ -113,7 +113,7 @@ export default {
 			justify-content: space-between;
 			flex-direction: column;
 			color: white;
-			
+
 		}
 
 		.artist-identity-head {
@@ -129,7 +129,7 @@ export default {
 				letter-spacing: 1.36px;
 				width: 90%;
 				font-size: 28px;
-			
+
 			}
 			
 
@@ -176,7 +176,7 @@ export default {
 			}
 		}
 
-	
+
 		.artist-identity-footer {
 			justify-content: flex-end;
 			width: 100%;

@@ -23,7 +23,7 @@
 		layout:'mainLayout',
 
 		props: {
-			
+
 			teammates: {
 				type: Array,
 				required: true
@@ -36,7 +36,7 @@
 				$nuxt.$emit('click-on-artist', artistName)
 
 				console.log('click on artist',artistName)
-	
+
 			}
 		}
 	}
@@ -96,7 +96,6 @@
 			width: 100%;
 			height: 100%;
 			filter: opacity(0.5) saturate(0);
-
 			transition: all 0.45s;
 		}
 

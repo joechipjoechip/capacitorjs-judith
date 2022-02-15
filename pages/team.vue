@@ -3,7 +3,7 @@
 	<div class="team-wrapper">
 
 		<cards :teammates="teammates" />
-	
+
 		<mate-listing :teammates="teammates" />
 
 		<transition name="arrowToTop">
@@ -15,9 +15,9 @@
 			</div>
 
 		</transition>
-		
+
 	</div> 
-		
+
 
 </template>
 
@@ -47,17 +47,17 @@
 		},
 
 		created() {
-	
+
 			this.$nuxt.$on('click-on-artist', artistName => {
 
 				this.goToArtistSelected(artistName)
 
 			})
-			
+
 		},
 
 		mounted() {
-			
+
 			const el = document.querySelector('.cards-container');
 
 			const galeryTop = el.offsetTop;
@@ -98,7 +98,7 @@
 					this.displayScroll = false;
 
 				}
-	
+
 			},
 
 			toTop() {

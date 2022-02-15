@@ -5,7 +5,12 @@
 		<div class="case-viewer-inner">
 
 			<section class="head">
-				<h1 @click="handleCloseClick" style="color:red;position:absolute;top:0;left:50px;cursor:pointer;">X</h1>
+
+				<div class="head-cross" @click="handleCloseClick" >
+
+					<cross  />
+
+				</div>
 
 				<h2 class="head-title">{{ item.name }}</h2>
 
@@ -97,7 +102,7 @@
 				<div v-for="(line, index, id) in item.content.medias.lines" :key="id"
 					class="line"
 				>
-	
+
 					<media-handler 
 						v-for="(media, index, id) in line" :key="id"
 						class="line-media"
@@ -141,11 +146,13 @@
 <script>
 
 	import MediaHandler from "@/components/micro/media-handler.vue";
+	import Cross from "@/assets/svg/cross.svg";
 
 	export default {
 
 		components: {
-			"media-handler": MediaHandler
+			"media-handler": MediaHandler,
+			"cross": Cross
 		},
 
 		props: {
@@ -218,6 +225,14 @@
 
 					border: solid 1px var(--color-type-smooth);
 					border-radius: 999px;
+				}
+				&-cross {
+					color: var(--color-primary);
+					position: fixed;
+					top: 102px;
+					right: 59px;
+					cursor: pointer;
+
 				}
 				
 			}
@@ -456,6 +471,8 @@
 			}
 
 		}
+
+
 
 	}
 
