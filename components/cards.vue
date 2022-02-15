@@ -1,9 +1,9 @@
 <template>
 	<div class="cards-container">
 
-			<div  @click="clickOnArtiste" :data-nom="mate.nom" v-for="mate in teammates" :key="mate.id" class="card">
+			<div  @click="clickOnArtiste" :data-name="mate.name" v-for="mate in teammates" :key="mate.id" class="card">
 			
-				<img class="card-image" :src="mate.photo" :alt="mate.prenom">
+				<img class="card-image" :src="mate.picture" :alt="mate.prenom">
 
 				<h1 class="card-prenom">{{mate.prenom}}</h1>
 		
@@ -26,7 +26,7 @@
 		},
 		methods: {
 			clickOnArtiste(event) {
-				const artisteName = event.target.dataset.nom
+				const artisteName = event.target.dataset.name
 				$nuxt.$emit('click-on-artiste', artisteName)
 
 				console.log('click on artiste',artisteName)

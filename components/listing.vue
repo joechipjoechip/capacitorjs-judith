@@ -3,13 +3,13 @@
     <div class="listing-container">
 
 
-        <div  :data-artiste="mate.nom" v-for="mate in teammates" :key="mate.id" class="list-artiste">
+        <div  :data-artiste="mate.name" v-for="mate in teammates" :key="mate.id" class="list-artiste">
             
             <div class="artiste-bandeau">
 
 				<div class="artiste-image-container">
 
-                	<img  class="artiste-image-content" :src="mate.photo" :alt="mate.prenom">
+                	<img  class="artiste-image-content" :src="mate.picture" :alt="mate.surname">
 
 				</div>
 
@@ -17,16 +17,16 @@
 
 					<div class="artiste-identity-head">
 
-						<h1 class="surname">{{mate.prenom}}</h1>
-						<h1 class="name">{{mate.nom}}</h1>
+						<h1 class="surname">{{mate.surname}}</h1>
+						<h1 class="name">{{mate.name}}</h1>
 
-						<p class="discipline">{{mate.discipline}}</p>
+						<p class="discipline">{{mate.role}}</p>
 
 					</div>
 
 					<div class="artiste-identity-body" >
 
-						<p class="information" v-for="info in mate.description" :key="info.id" >{{info}}</p>
+						<p class="information" v-for="info in mate.descriptions" :key="info.id" >{{info}}</p>
 
 					</div>
 
