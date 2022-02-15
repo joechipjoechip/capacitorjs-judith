@@ -8,7 +8,8 @@
 
         <transition name="arrowToTop">
             <div id="pagetop" v-show="displayScroll" @click="toTop">
-            	&#8593;
+            	<!-- &#8593; -->
+				<arrow-up />
             </div>
         </transition>
         
@@ -20,14 +21,16 @@
 <script>
 
     import wording from "@/assets/data/wording.js";
-    import Cards from "@/components/cards";
+    import Cards   from "@/components/cards";
     import Listing from "@/components/listing";
+	import ArrowUp from "@/assets/svg/arrowup.svg";
 
     export default {
         layout: "mainLayout",
         components: {
             "cards": Cards,
             "mate-listing": Listing,
+			"arrow-up": ArrowUp
 
         },
 
@@ -37,7 +40,6 @@
                 mainTitle: 'Team',
                 displayScroll: false,
                 galeryBottom: 0,
-                scY: 0,
             }
         },
 
@@ -49,11 +51,11 @@
                 this.currentArtiste = this.teammates.find( artist => artist.name === artistName);
 
                 // Selection de l'artiste dans le dom
-                let elementToReach    =  document.querySelector("[data-artiste='" + this.currentArtiste.name + "']")
-                let topElementToReach =  elementToReach.getBoundingClientRect().top
+                let elementToReach    =  document.querySelector("[data-artiste='" + this.currentArtiste.name + "']");
+                let topElementToReach =  elementToReach.getBoundingClientRect().top;
 
                 // Scroll jusqu'a l'élèment data-artiste
-                window.scrollTo({ top: topElementToReach, behavior: 'smooth' })
+                window.scrollTo({ top: topElementToReach, behavior: 'smooth' });
 
     
             })
@@ -61,10 +63,11 @@
         },
 
         mounted() {
+			const el = document.querySelector('.cards-container');
+            const galeryTop = el.offsetTop;
+            const galeryHeight = el.offsetHeight;
+            this.galeryBottom = galeryTop + galeryHeight;
             window.addEventListener('scroll', this.handleScroll)
-            const galeryTop = document.querySelector('.cards-container').offsetTop;
-            const galeryHeight = document.querySelector('.cards-container').offsetHeight;
-            this.galeryBottom = galeryTop + galeryHeight
       
 
         },
@@ -112,16 +115,16 @@
     .arrowToTop-enter-active, .arrowToTop-leave-active {
     	transition: opacity .5s;
     }
-    .arrowToTop-enter /* .fade-leave-active below version 2.1.8 */ {
+    .arrowToTop-enter {
     	opacity: 0;
     }
-	.arrowToTop-enter-to /* .fade-leave-active below version 2.1.8 */ {
+	.arrowToTop-enter-to {
 		opacity: 1;
 	}
-    .arrowToTop-leave /* .fade-leave-active below version 2.1.8 */ {
+    .arrowToTop-leave {
     	opacity: 1;
     }
-    .arrowToTop-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    .arrowToTop-leave-to {
     	opacity: 0;
     }
 

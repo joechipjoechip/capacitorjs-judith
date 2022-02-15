@@ -3,7 +3,10 @@
     <div class="listing-container">
 
 
-        <div  :data-artiste="mate.name" v-for="mate in teammates" :key="mate.id" class="list-artiste">
+        <div    :data-artiste="mate.name" 
+				v-for="mate in teammates" 
+				:key="mate.id" 
+				class="list-artiste">
             
             <div class="artiste-bandeau">
 
