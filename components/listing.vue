@@ -3,7 +3,7 @@
     <div class="listing-container">
 
 
-        <div v-for="mate in teammates" :key="mate.id" class="list-artiste">
+        <div  :data-artiste="mate.nom" v-for="mate in teammates" :key="mate.id" class="list-artiste">
             
             <div class="artiste-bandeau">
 
@@ -62,6 +62,7 @@ export default {
         },
 
     },
+	
 }
 </script>
 

@@ -48,6 +48,11 @@
 				this.currentProjet = null;
 				this.viewerIsActive = false;
 			})
+		},
+
+		beforeDestroy(){
+			this.$nuxt.$off('click-on-project');
+			this.$nuxt.$off('click-on-cancel');
 		}
 	}
 
