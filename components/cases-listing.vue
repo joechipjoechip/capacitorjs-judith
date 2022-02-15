@@ -104,11 +104,27 @@ export default {
 		flex-direction: row;
 		flex-wrap: nowrap;
 		align-items: baseline;
+		&.active {
+			background-color: rgba(255, 251, 251, 0.795);
+
+
+			.project-image-container {
+
+				&:nth-of-type(2) {
+					opacity:1;
+				}
+			
+				&:nth-of-type(3) {
+					opacity:1;
+				}
+			}
+		}
 	}
 
 	.project-id-container,
 	.project-year-container {
 		font-family: "AktivGrotesk";
+		font-weight: 300;
 		display: flex;
 		flex-direction: column;
 	  
@@ -155,24 +171,29 @@ export default {
 			padding-right: 2%;
 			width: 9%;
 			height: auto;         
+			&:nth-of-type(2) {
+				opacity:0
+			}
+		
+			&:nth-of-type(3) {
+				opacity:0
+			}
 		}
 		
 		.project-image-content {
-			
 			object-fit: cover;
 			display: block;
 			padding-right: 20px;
 			height: 100%;
 			width: 100%;
 	
+	
 		}
 
 
 	}
 
-	.active {
-		background-color: rgba(255, 251, 251, 0.795)
-	}
+
 
 
 
