@@ -1,26 +1,27 @@
 <template>
 
-    <div class="listing-container">
+	<div class="listing-container">
 
 
-        <div    :data-artist="mate.name" 
+		<div	:data-artist="mate.name" 
 				v-for="mate in teammates" 
 				:key="mate.id" 
 				class="list-artist">
-            
-            <div class="artist-bandeau">
+			
+			<div class="artist-bandeau">
 
 				<div class="artist-image-container">
 
-                	<img  class="artist-image-content" :src="mate.picture" :alt="mate.surname">
+					<img  class="artist-image-content" :src="mate.picture" :alt="mate.surname">
 
 				</div>
 
-                <div class="artist-identity-container">
+				<div class="artist-identity-container">
 
 					<div class="artist-identity-head">
 
 						<h1 class="surname">{{mate.surname}}</h1>
+
 						<h1 class="name">{{mate.name}}</h1>
 
 						<p class="discipline">{{mate.role}}</p>
@@ -41,30 +42,30 @@
 
 					</div>
 
-                </div>
+				</div>
 
 
-            </div>
-          
-        </div>
-        
+			</div>
+		
+		</div>
+		
 
-    </div>
+	</div>
 
 </template>
 
 <script>
 export default {
-    layout:'mainLayout',
+	layout:'mainLayout',
 
-    props: {
-        
-        teammates: {
-            type: Array,
-            required: true
-        },
+	props: {
+		
+		teammates: {
+			type: Array,
+			required: true
+		},
 
-    },
+	},
 	
 }
 </script>
@@ -175,9 +176,6 @@ export default {
 			}
 		}
 
-	
-
-	
 	
 		.artist-identity-footer {
 			justify-content: flex-end;
