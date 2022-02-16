@@ -3,10 +3,16 @@
 	<div class="cases-wrapper">	
 
 		<transition name="transition-case-viewer">
+
 			<case-viewer v-if="viewerIsActive" :item="currentProjet"/>
+
 		</transition>
 		
-		<case-listing v-if="!viewerIsActive" :cases="cases"/>
+		<transition name="transition-case-viewer">
+
+			<case-listing v-if="!viewerIsActive" :cases="cases"/>
+			
+		</transition>
 		
 	</div>
 
