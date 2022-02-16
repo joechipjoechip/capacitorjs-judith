@@ -198,7 +198,9 @@ export default {
 		.artist-identity-body {
 
 			@media #{$mobile} {
-				margin-top:10px;			
+				margin-top:10px;	
+				
+
 			}
 
 			.information {
@@ -209,6 +211,11 @@ export default {
 				font-weight: normal;
 				text-align: left;
 				padding-bottom:15px;
+				@media #{$mobile} {
+		
+					font-weight: 100;
+
+				}
 			}
 		}
 
