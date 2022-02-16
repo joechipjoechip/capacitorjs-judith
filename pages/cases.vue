@@ -11,7 +11,7 @@
 		<transition name="transition-case-viewer">
 
 			<case-listing v-if="!viewerIsActive" :cases="cases"/>
-			
+
 		</transition>
 		
 	</div>
@@ -34,6 +34,15 @@
 			"case-listing": CaseListing
 		},
 
+		data(){
+			return {
+				currentProjet: null,
+				viewerIsActive: false,
+				cases: wording.cases,
+				pageIsArrived: false
+			}
+		},
+
 		created() {
 		
 			this.$nuxt.$on('open-viewer', this.openViewerHandler)
@@ -41,16 +50,6 @@
 			this.$nuxt.$on('close-viewer', this.closeViewerHandler)
 		},
 
-		data(){
-			return {
-				currentProjet: null,
-				viewerIsActive: false,
-				cases: wording.cases
-
-			}
-		},
-
-	
 		beforeDestroy(){
 			this.$nuxt.$off('open-viewer');
 			this.$nuxt.$off('close-viewer');
@@ -82,7 +81,7 @@
 <style lang="scss">
 
 	.cases-wrapper {
-		color: white;
+		// 
 	}
 
 </style>

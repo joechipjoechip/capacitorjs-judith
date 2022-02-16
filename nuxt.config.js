@@ -81,12 +81,17 @@ export default {
 
   pageTransition: {
 
-    afterEnter(){
+    beforeEnter(){
 
-      // le simple fait de créer cette prop
-      // permet à nuxt de faire le scrollToTop entre les pages
-      // en respectant les transitions
-      console.log("weh la pageTransition after");
+      if( this.$parent.fullWidthPages.indexOf(this.$nuxt.$route.name) !== -1 ){
+
+        this.$parent.fullWidth = true;
+        
+      } else {
+        
+        this.$parent.fullWidth = false;
+
+      }
 
     }
 

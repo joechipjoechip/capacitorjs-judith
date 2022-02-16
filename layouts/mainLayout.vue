@@ -8,7 +8,10 @@
 
 		<navigation :design="currentDesign"/>
 
-		<div class="main-content" :class="{ 'full-width': $nuxt.$route.path === '/cases' }">
+		<div :class="[
+			'main-content',
+			{ 'full-width': fullWidth }
+		]">
 
 			<Nuxt />
 
@@ -29,7 +32,9 @@
 
 		data(){
 			return {
-				routeChangeTimeoutID: null
+				routeChangeTimeoutID: null,
+				fullWidth: false,
+				fullWidthPages: ["work-with-us", "cases"]
 			}
 		},
 
@@ -117,13 +122,8 @@
 			max-width: $columnMaxWith;
 			margin: 0 auto;
 
-			// avoid jump at $route changes
-			transition: all .8s;
-
 			&.full-width {
-				// position:absolute;
-				margin: 0 auto;
-				max-width: 100%; // probleme affichage /cases
+				max-width: 100%;
 				width: 100%;
 			}
 
