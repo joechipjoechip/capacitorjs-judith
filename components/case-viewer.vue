@@ -232,6 +232,7 @@
 		&-inner {
 			width: 95%;
 			margin: 0 auto;
+			color: var(--color-white);
 
 			& > * {
 				margin-top: $marginBeewteenElements;
