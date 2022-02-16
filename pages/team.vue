@@ -127,22 +127,21 @@
 		color: var(--color-primary);
 		font-size: 40px;
 		cursor: pointer;
+		@media #{$mobile} {
+			left: 21px;
+			bottom: 9px;
+		}
 	}
 
 	.team-wrapper {
 		overflow: hidden;
-		// @media #{$mobile} {
-		// 	// background-color:red;
-		// 	.cards-container {
-		// 		display:none;
-
-		// 		.artist-image-content {
-		// 			height: unset;
-		// 			width: 50%;
-		// 		}
-		// 	}
-		// }
+		@media #{$mobile} {
+			// background-color:red;
+			.cards-container {
+				display:none;
+			}
 	
+		}
 	}
 
 	.title-team {

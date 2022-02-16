@@ -76,6 +76,9 @@ export default {
 		display:flex;
 		flex-direction: column;
 		padding-bottom: 90px;
+		@media #{$mobile} {
+			margin-bottom: -100px;
+		}
 
 	}
 
@@ -89,22 +92,38 @@ export default {
 		max-width: $alternateColumnMaxWith;
 		margin: 0 auto;
 		margin-top: 100px;
+		@media #{$mobile} {
+			display: inline-block;
+			width: 100%;
+			margin-top: 35px;
+		}
 
 		.artist-image-container {
 			overflow: hidden;
 			// width: 45%;
 			width: 534px;
 			background-color: rgba(255,0,0,0.1);
+			@media #{$mobile} {
+			    height: 40%;
+    			width: 100%;
+				
+			}
 
 			.artist-image-content {
 				height: 100%;
 				width: 100%;
 				object-fit: cover;
 				width: 100%;
+				@media #{$mobile} {
+					width: 100%;
+				}
 			}
 
+	
+			
 		}
 
+	
 
 
 		.artist-identity-container {
@@ -113,6 +132,11 @@ export default {
 			justify-content: space-between;
 			flex-direction: column;
 			color: white;
+			@media #{$mobile} {
+				display: inline-block;
+				width: 100%;
+				margin-top: 5px;
+			}
 
 		}
 
@@ -148,6 +172,9 @@ export default {
 					width: 90%;
 					height: 1px;
 					margin-top: 20px;
+					@media #{$mobile} {
+						margin-top: 9px;
+					}
 				}
 
 			}
@@ -159,11 +186,20 @@ export default {
 				text-transform: uppercase;
 				color: var(--color-type-smooth);
 				margin-top:13px;
+				@media #{$mobile} {
+					margin-top:15px;
+					margin-bottom:20px;
+				}
+				
 				
 			}
 		}
 
 		.artist-identity-body {
+
+			@media #{$mobile} {
+				margin-top:10px;			
+			}
 
 			.information {
 				font-family: "AktivGrotesk";
