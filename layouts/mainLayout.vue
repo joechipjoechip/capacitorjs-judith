@@ -8,7 +8,7 @@
 
 		<navigation :design="currentDesign"/>
 
-		<div class="main-content">
+		<div class="main-content" :class="{ 'full-width': $nuxt.$route.path === '/cases' }">
 
 			<Nuxt />
 
@@ -113,7 +113,14 @@
 
 		.main-content {
 
-			@include mainColumn;
+			width: 90%;
+			max-width: $columnMaxWith;
+			margin: 0 auto;
+
+			&.full-width {
+				max-width: unset;
+				width: 100%;
+			}
 
 		}
 
