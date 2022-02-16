@@ -130,16 +130,10 @@ export default {
 		font-weight: 300;
 		display: flex;
 		flex-direction: column;
-		font-size: 4vw;
+		font-size: 1vw;
 		
-		p {
-			@media #{$mobile} {
-				font-size: 4vw;
-			}
-			@media #{$desktop} {
-				font-size: 2.5vw;
-			}
-			
+		@media #{$mobile} {
+			font-size: 4vw;
 		}
 	  
 	}
