@@ -4,11 +4,11 @@
 
 		<div class="case-viewer-inner">
 
-			<transition name="transition-case-viewer">
+			<div class="case-viewer-cross" @click="handleCloseClick" >
 
 				<cross  />
 
-			</transition>
+			</div>
 
 			<section class="head">
 
@@ -177,7 +177,7 @@
 				
 				$nuxt.$emit('close-viewer');
 
-				window.scrollTo(0,0);
+				window.scrollTo(0,0)
 			}
 		}
 
