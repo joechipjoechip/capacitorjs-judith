@@ -2,14 +2,13 @@
 
 	<div class="case-viewer-wrapper">
 
-		<div class="case-viewer-cross" @click="handleCloseClick" >
+		<div class="case-viewer-inner">
+
+			<transition name="transition-case-viewer">
 
 				<cross  />
 
-		</div>
-
-
-		<div class="case-viewer-inner">
+			</transition>
 
 			<section class="head">
 
@@ -178,7 +177,7 @@
 				
 				$nuxt.$emit('close-viewer');
 
-				window.scrollTo(0,0)
+				window.scrollTo(0,0);
 			}
 		}
 
@@ -192,14 +191,24 @@
 	.case-viewer {
 
 		&-cross {
-			color: var(--color-primary);
 			position: fixed;
-			top: 108px;
-			right: 59px;
+			margin-top: 0 !important;
+			right: 2.5%;
+			width: 50px;
+			height: 50px;
+
+			color: var(--color-white);
+
 			cursor: pointer;
+
 			@media #{$mobile} {
 				top: 107px;
 				right: 23px;
+			}
+
+			svg {
+				width: 100%;
+				height: 100%;
 			}
 
 		}
@@ -211,7 +220,9 @@
 			width: 100%;
 			top: $headerHeightSecondary;
 			left: 0;
+
 			background-color: var(--color-bg);
+
 			@media #{$mobile} {
 				top: 23px;
 			}
@@ -231,6 +242,9 @@
 				flex-flow: row nowrap;
 				justify-content: space-between;
 				align-items: center;
+
+				margin-top: unset;
+				padding-top: $marginBeewteenElements;
 
 				&-title {
 					font-family: "PresicavRg";
