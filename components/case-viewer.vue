@@ -198,12 +198,14 @@
 			height: 50px;
 
 			color: var(--color-white);
-
 			cursor: pointer;
 
 			opacity: 1;
 
 			transition: opacity 0.3s;
+
+			-webkit-tap-highlight-color: transparent;
+			outline: none;
 
 			@media #{$mobile} {
 				margin-top: unset !important;
