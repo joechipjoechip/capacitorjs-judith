@@ -201,9 +201,15 @@
 
 			cursor: pointer;
 
+			opacity: 1;
+
+			transition: opacity 0.3s;
+
 			@media #{$mobile} {
-				top: 107px;
-				right: 23px;
+				margin-top: unset !important;
+				top: 90px;
+				right: 2.5%;
+				transform: translateY(0);
 			}
 
 			svg {
@@ -223,16 +229,28 @@
 
 			background-color: var(--color-bg);
 
-			@media #{$mobile} {
-				top: 23px;
+			&.transition-case-viewer-enter-active,
+			&.transition-case-viewer-enter-active-to,
+			&.transition-case-viewer-leave-active,
+			&.transition-case-viewer-leave-to {
+
+				.case-viewer-cross {
+					opacity: 0;
+				}
+
 			}
 	
 		}
 
 		&-inner {
+			position: relative;
 			width: 95%;
 			margin: 0 auto;
 			color: var(--color-white);
+
+			@media #{$mobile} {
+				margin-top: unset;
+			}
 
 			& > * {
 				margin-top: $marginBeewteenElements;
@@ -246,6 +264,10 @@
 
 				margin-top: unset;
 				padding-top: $marginBeewteenElements;
+
+				@media #{$mobile} {
+					padding: unset;
+				}
 
 				&-title {
 					font-family: "PresicavRg";
