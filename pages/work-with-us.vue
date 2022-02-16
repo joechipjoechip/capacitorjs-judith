@@ -233,6 +233,8 @@
 		}
 
 		&-wrapper {
+			@include mainColumn;
+			
 			margin-bottom: calc(100px);
 			
 			&-inner {

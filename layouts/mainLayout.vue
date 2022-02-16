@@ -118,9 +118,7 @@
 
 		.main-content {
 
-			width: 90%;
-			max-width: $columnMaxWith;
-			margin: 0 auto;
+			@include mainColumn;
 
 			&.full-width {
 				max-width: 100%;
