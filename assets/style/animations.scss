@@ -110,6 +110,7 @@
 .transition {
 
 	$caretDuration: 1.7s;
+	$casesDuration: 10s;
 
 	&-description {
 
@@ -284,6 +285,22 @@
 		}
 	
 	}
+	&-caseviewer {
+		&-enter-active,
+		&-leave-active {
+			transition: 0.25s;
+
+		}
+		&-enter, 
+		&-leave-to {
+			opacity:0;
+		}
+		&-enter-to {
+			opacity: 1;
+		}
+
+	}
+	
 
 }
 

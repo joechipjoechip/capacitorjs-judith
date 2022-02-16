@@ -131,6 +131,18 @@
 
 	.team-wrapper {
 		overflow: hidden;
+		// @media #{$mobile} {
+		// 	// background-color:red;
+		// 	.cards-container {
+		// 		display:none;
+
+		// 		.artist-image-content {
+		// 			height: unset;
+		// 			width: 50%;
+		// 		}
+		// 	}
+		// }
+	
 	}
 
 	.title-team {

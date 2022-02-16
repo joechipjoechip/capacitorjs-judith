@@ -1,5 +1,6 @@
 <template>
 	<div class="project-listing-container">
+		
 		<div v-for="(project, index) in this.cases" :key="project.id">
 
 			<div :class="['project-container',{ 'active' : currentProject === project.id}] ">
@@ -93,18 +94,16 @@ export default {
 		width: 100%;
 		height:100%;
 
+
 	}
 
 	.project-container {
 		color: var(--color-type-smooth-plus);
 		transition: all 0.45s;
 		height: 5%;
-		padding: 10px 0;
-		padding-left: 25px;
+		padding: 10px 20px;
 		position: relative;
 		display: flex;
-		justify-content: row;
-		align-items: center;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		align-items: baseline;

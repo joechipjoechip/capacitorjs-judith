@@ -2,7 +2,9 @@
 
 	<div class="cases-wrapper">	
 
-		<case-viewer v-if="viewerIsActive" :item="currentProjet"/>
+		<transition name="transition-caseviewer">
+			<case-viewer v-if="viewerIsActive" :item="currentProjet"/>
+		</transition>
 		
 		<case-listing v-if="!viewerIsActive" :cases="cases"/>
 		

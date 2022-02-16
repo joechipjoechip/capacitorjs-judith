@@ -121,7 +121,9 @@
 			transition: all .8s;
 
 			&.full-width {
-				max-width: 100%;
+				// position:absolute;
+				margin: 0 auto;
+				max-width: 100%; // probleme affichage /cases
 				width: 100%;
 			}
 
