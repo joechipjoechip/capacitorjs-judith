@@ -25,7 +25,7 @@
 
 	import wording from "@/assets/data/wording.js";
 	import Cards   from "@/components/cards";
-	import Listing from "@/components/listing";
+	import Listing from "@/components/team-listing";
 	import ArrowUp from "@/assets/svg/arrowUp.svg";
 
 	export default {

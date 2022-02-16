@@ -2,16 +2,18 @@
 
 	<div class="case-viewer-wrapper">
 
+		<div class="case-viewer-cross" @click="handleCloseClick" >
+
+				<cross  />
+
+		</div>
+
+
 		<div class="case-viewer-inner">
 
 			<section class="head">
 
-				<div class="head-cross" @click="handleCloseClick" >
-
-					<cross  />
-
-				</div>
-
+			
 				<h2 class="head-title">{{ item.name }}</h2>
 
 				<a v-if="item.content.cta" class="head-cta" target="blank">
@@ -189,13 +191,30 @@
 
 	.case-viewer {
 
+		&-cross {
+			color: var(--color-primary);
+			position: fixed;
+			top: 102px;
+			right: 59px;
+			cursor: pointer;
+			@media #{$mobile} {
+				top: 107px;
+				right: 23px;
+			}
+
+		}
+
+				
+
 		&-wrapper {
 			position: absolute;
 			width: 100%;
 			top: $headerHeightSecondary;
 			left: 0;
-	
 			background-color: var(--color-bg);
+			@media #{$mobile} {
+				top: 23px;
+			}
 	
 		}
 
@@ -217,6 +236,11 @@
 					font-family: "PresicavRg";
 					font-size: 70px;
 					text-transform: uppercase;
+					@media #{$mobile} {
+						width: 100%;
+						font-size: 44px;
+					}
+
 				}
 
 				&-cta {
@@ -229,14 +253,9 @@
 
 					border: solid 1px var(--color-type-smooth);
 					border-radius: 999px;
-				}
-				&-cross {
-					color: var(--color-primary);
-					position: fixed;
-					top: 102px;
-					right: 59px;
-					cursor: pointer;
-
+					@media #{$mobile} {
+						display:none;
+					}
 				}
 				
 			}
@@ -283,6 +302,9 @@
 
 					&:first-of-type {
 						margin-top: 0;
+					}
+					@media #{$mobile} {
+						font-size:1em;
 					}
 
 				}

@@ -130,6 +130,17 @@ export default {
 		font-weight: 300;
 		display: flex;
 		flex-direction: column;
+		font-size: 4vw;
+		
+		p {
+			@media #{$mobile} {
+				font-size: 4vw;
+			}
+			@media #{$desktop} {
+				font-size: 2.5vw;
+			}
+			
+		}
 	  
 	}
 
@@ -141,8 +152,12 @@ export default {
 		height: 100%;
 		padding-right: 10px;
 		width: 1vh;
+	
+	
 
 	}
+
+
 
 	.project-name-container {
 		font-family: "AktivGrotesk";
@@ -151,6 +166,13 @@ export default {
 		font-size: 5vw;
 		margin-right: 15px;
 		cursor: pointer;
+		@media #{$mobile} {
+			font-size: 10vw;
+		}
+		@media #{$desktop} {
+			font-size: 10vw;
+		}
+
 		p {
 			color: rgba(255, 255, 255, 0.74);
 
@@ -169,6 +191,9 @@ export default {
 		height: 100%;
 		display: flex;
 		align-items: center;
+		@media #{$mobile} {
+				display:none;
+		}
 
 		.project-image-container {
 			padding-right: 2%;
