@@ -292,33 +292,35 @@ $caretDuration: 1.7s;
 
 		&-enter-active,
 		&-leave-active {
+
+			display: block;
+			position: relative;
+
+			opacity: 1;
+			transform: translateY(0);
 			
-			will-change:  opacity;
+			will-change:  opacity, transform;
 			
 		}
 		
 		&-enter-active {
 
-			transition: all 0.25s;
+			transition: all $enterDuration;
 
 		}
 
 		&-leave-active {
 
-			transition: all 0.25s;
+			transition: all $leaveDuration;
 
 		}
 
-		&-enter, 
+		&-enter,
 		&-leave-to {
-
-			opacity:0;
-		}
-
-		&-enter-to {
-
-			opacity: 1;
-
+		
+			transform: translateY(400px);
+			opacity: 0;
+			
 		}
 
 	}
