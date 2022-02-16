@@ -57,10 +57,8 @@ export default {
 	data(){
 		return {
 			currentProject: ''
-
 		}
 	},
-
 
 	props: {
 
@@ -72,20 +70,31 @@ export default {
 	},
 
 	methods: {
+
 		enterNameHandler(event) {
+
 			this.currentProject =  event.target.getAttribute('data-index-project');
+
 		},
 
 		leaveNameHandler() {
+
 			this.currentProject =  "";
+
 		},
+
 		clickHandler(event) {
+
 			const projectId = event.target.dataset.indexProject
+
 			$nuxt.$emit('open-viewer', projectId)
+
 		}
+
 	}
 
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -93,8 +102,7 @@ export default {
 	.project-listing-container {
 		width: 100%;
 		height:100%;
-
-
+		color: var(--color-white);
 	}
 
 	.project-container {
