@@ -117,8 +117,11 @@
 			max-width: $columnMaxWith;
 			margin: 0 auto;
 
+			// avoid jump at $route changes
+			transition: all .8s;
+
 			&.full-width {
-				max-width: unset;
+				max-width: 100%;
 				width: 100%;
 			}
 
