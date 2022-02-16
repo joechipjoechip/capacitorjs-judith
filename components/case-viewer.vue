@@ -194,7 +194,7 @@
 		&-cross {
 			color: var(--color-primary);
 			position: fixed;
-			top: 102px;
+			top: 108px;
 			right: 59px;
 			cursor: pointer;
 			@media #{$mobile} {
@@ -278,6 +278,10 @@
 					flex-flow: row nowrap;
 					padding-bottom: $marginBeewteenElements;
 					border-bottom: solid 1px var(--color-type-smooth-plus);
+					// col en mobile
+					@media #{$mobile} {
+						flex-flow: column nowrap;
+					}
 				}
 
 			}
@@ -288,6 +292,10 @@
 					width: 60%;
 					display: flex;
 					flex-flow: column nowrap;
+					@media #{$mobile} {
+						width: 100%;
+					}
+					// width 100%
 				}
 
 				&-paragraph {
@@ -304,7 +312,9 @@
 						margin-top: 0;
 					}
 					@media #{$mobile} {
-						font-size:1em;
+						width: 100%;
+						font-size:100%;
+						//100%
 					}
 
 				}
@@ -318,6 +328,12 @@
 					display: flex;
 					flex-flow: column nowrap;
 					justify-content: space-between;
+					// 100%
+					@media #{$mobile} {
+						width: 100%;
+
+					}
+					
 				}
 
 			}
@@ -325,7 +341,7 @@
 			.parallax {
 
 				&-container {
-					// 
+					//
 				}
 
 				&-image {
@@ -426,6 +442,14 @@
 						justify-content: space-between;
 						align-items: flex-start;
 
+						@media #{$mobile} {
+							width: 100%;
+							flex-flow: column nowrap;
+							margin-top:0px;
+					
+						}
+						// display: col et les enfant passe 100%
+
 						&:first-of-type {
 							margin: 0;
 						}
@@ -435,7 +459,11 @@
 							// border: solid 5px orange;
 	
 							.line-media {
-	
+
+								@media #{$mobile} {
+									width: 100%;
+								}
+
 								&:first-of-type {
 									width: $lineCellSizeBig;
 								}
@@ -475,7 +503,9 @@
 			.bottom {
 
 				&-container {
-					// 
+					@media #{$mobile} {
+						margin-top:20px;
+					}
 				}
 
 				&-media {
@@ -487,6 +517,11 @@
 			.next-project {
 				width: 100%;
 				padding-bottom: $marginBeewteenElements * 2;
+				@media #{$mobile} {
+						margin-top:0;
+						padding-bottom: 50px;
+						padding-top: 50px;
+				}
 
 				button {
 					display: block;

@@ -1,3 +1,8 @@
+$enterDuration: 1.3s;
+$leaveDuration: 0.5s;
+$caretDuration: 1.7s;
+
+
 .anim {
 
 	&-shadow {
@@ -109,8 +114,6 @@
 
 .transition {
 
-	$caretDuration: 1.7s;
-	$casesDuration: 10s;
 
 	&-description {
 
@@ -285,18 +288,37 @@
 		}
 	
 	}
-	&-caseviewer {
+	&-case-viewer {
+
 		&-enter-active,
 		&-leave-active {
-			transition: 0.25s;
+			
+			will-change:  opacity;
+			
+		}
+		
+		&-enter-active {
+
+			transition: all 0.25s;
 
 		}
+
+		&-leave-active {
+
+			transition: all 0.25s;
+
+		}
+
 		&-enter, 
 		&-leave-to {
+
 			opacity:0;
 		}
+
 		&-enter-to {
+
 			opacity: 1;
+
 		}
 
 	}
@@ -307,9 +329,6 @@
 
 // default nuxt transition name beetween pages
 .page {
-
-	$enterDuration: 1.3s;
-	$leaveDuration: 0.5s;
 
 	&-enter-active, 
 	&-leave-active {
