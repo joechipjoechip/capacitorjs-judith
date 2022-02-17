@@ -38,6 +38,14 @@
 			}
 		},
 
+		head(){
+			return {
+				bodyAttrs: {
+					class: this.$nuxt.$store.state.variables.isMobileNavOpen ? "no-scroll" : ""
+				}
+			}
+		},
+
 		computed: {
 
 			currentDesign(){

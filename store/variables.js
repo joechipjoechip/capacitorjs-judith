@@ -27,9 +27,3 @@ export const mutations = {
 	}
 
 };
-
-export const getters = {
-	getIsMobileNavOpen(state) {
-		return state.isMobileNavOpen;
-	}
-}
