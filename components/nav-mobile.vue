@@ -217,14 +217,6 @@ export default {
 					height: 100%;
 					background-color: #000;
 
-					a {
-						color:white;
-						font-family: 'AktivGrotesk';
-						text-decoration: none;
-						text-transform: uppercase;
-
-					}
-
 					ul {
 						margin-left: 40px;
 						margin-left: 40px;
@@ -234,7 +226,16 @@ export default {
 						justify-content: space-between;
 
 						li {
-							// 
+							padding-bottom: 5px;
+
+							a {
+								color:white;
+								font-family: 'AktivGrotesk';
+								text-decoration: none;
+								text-transform: uppercase;
+								letter-spacing: 1.8px;
+							}
+
 						}
 
 					}
