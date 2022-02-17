@@ -9,9 +9,9 @@
 				class="card"
 				>
 			
-				<img class="card-image" :src="mate.picture" :alt="mate.prenom">
+				<img class="card-image" :src="mate.picture" :alt="mate.name">
 
-				<h1 class="card-prenom">{{mate.prenom}}</h1>
+				<h1 class="card-prenom">{{mate.surname}}</h1>
 		
 			</div>
 
