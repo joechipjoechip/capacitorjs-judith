@@ -1,6 +1,7 @@
 $enterDuration: 1.3s;
 $leaveDuration: 0.5s;
 $caretDuration: 1.7s;
+$toggleMenuMobileDuration: 2s;
 
 
 .anim {
@@ -321,6 +322,94 @@ $caretDuration: 1.7s;
 			transform: translateY(400px);
 			opacity: 0;
 			
+		}
+
+	}
+	&-mobile-nav {
+
+		&-enter-active,
+		&-leave-active {
+
+			display: block;
+			position: relative;
+
+			opacity: 1;
+			
+			will-change:  opacity, transform;
+			transition-timing-function: ease;
+			
+		}
+		
+		&-enter-active {
+
+			transition: all $toggleMenuMobileDuration;
+
+		}
+
+		&-leave-active {
+
+			transition: all $toggleMenuMobileDuration;
+
+		}
+
+		&-enter {
+			transform: translateX(120%);	
+		}
+		
+
+		&-enter-to {
+			transform: translateX(0%);	
+		}
+		
+		&-leave {
+			transform: translateX(0%);
+		}
+		
+		&-leave-to {
+			transform: translateX(120%);
+		}
+
+	}
+	
+	&-logo-j {
+
+		&-enter-active,
+		&-leave-active {
+
+	
+			opacity: 1;
+			
+			will-change:  opacity, transform;
+			
+		}
+		
+		&-enter-active {
+
+			transition: all 0.75s;
+
+		}
+
+		&-leave-active {
+
+			transition: all 0.75s;
+
+		}
+
+		&-enter {
+			transform: translateY(-100px);	
+		}
+		
+
+		&-enter-to {
+			transform: translateY(0px);	
+		}
+		
+		&-leave {
+			transform: translateY(0px);
+		}
+		
+		&-leave-to {
+			transform: translateY(-100px);
 		}
 
 	}

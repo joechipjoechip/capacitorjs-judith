@@ -3,51 +3,56 @@
 	<div class="mobile-nav-container">
 
 
-		<div v-if="displayMenuMobile" class="mobile-links-wrapper">
+
+		<transition name="transition-mobile-nav">
+
+			<div v-if="displayMenuMobile" class="mobile-links-wrapper">
+
+				<JudithLogo class="mobile-logo" />
+				<div v-on:click="clickOnMobileNav" class="menu-container" >
 
 
-			<div v-on:click="clickOnMobileNav">
+					<nav class="mobile-menu-wrapper">
 
+						<ul class="mobile-links-container">
 
-				<nav class="mobile-menu-wrapper">
+							<li v-for="link in  allLinks" :key="link.id"  class="mobile-link-wrapper active">
 
-					<JudithLogo class="mobile-logo-desktop" />
+								<NuxtLink  :to="link.to">
 
-					<ul class="mobile-links-container">
+									{{link.label}}
 
-						<li v-for="link in  allLinks" :key="link.id"  class="mobile-link-wrapper active">
+								</NuxtLink>
 
-							<NuxtLink  :to="link.to">
+							</li>
 
-								{{link.label}}
+						</ul>
 
-							</NuxtLink>
+					</nav>
 
-						</li>
-
-					</ul>
-
-				</nav>
-
-			</div>
-
-		</div>
-
-		<div v-if="!displayMenuMobile" class="mobile-wrapper">
-
-			<div class="logo-j-mobile">
-
-				<menu-logo-j  />
+				</div>
 
 			</div>
 
-			<div  @click="clickOnToggleMobileMenu" class="toggle-menu-mobile">
+		</transition>
 
-				<menu-lines  />
+		<transition name="transition-logo-j">
+			<div v-if="!displayMenuMobile" class="mobile-wrapper">
+
+					<div class="logo-j-mobile">
+
+						<menu-logo-j  />
+
+					</div>
+
+				<div  @click="clickOnToggleMobileMenu" class="toggle-menu-mobile">
+
+					<menu-lines  />
+
+				</div>
 
 			</div>
-
-		</div>
+		</transition>
 
 	</div>
 	
@@ -70,7 +75,7 @@ export default {
 	},
 	data() {
 		return {
-			displayMenuMobile: false,
+			displayMenuMobile: true,
 			allLinks: wording.links
 		}
 	},
@@ -90,60 +95,75 @@ export default {
 
 <style lang="scss" scoped>
 
-	.mobile-wrapper {
-			z-index:501;
-			display:flex;
-			flex-direction: row;
-			height: 90px;
-	
-			.logo-j-mobile {
-			
-				
-				display:flex;
-				padding: 20px 0;
-				margin: 0 auto;
-			}
-		
-			.toggle-menu-mobile{
-				color: var(--color-primary);
+	.mobile-nav-container {
+		.mobile-logo {
 				position: absolute;
-				height: auto;
-				height: 90px;
-				right: 4px;
-				top: -5px;
-				display: flex;
-				align-items: center;
-			}
+				width: 200px;
+				margin:0 auto;
 		}
-		.mobile-links-wrapper {
-		
-			// display: none;
+
+		.menu-container {
+			justify-content: space-around;
+			flex-flow: column;
 			display: flex;
-			justify-content: center;
-			width: 100%;
-			height: 100vh;
-			background-color:rgba(14, 14, 14, 0.6);
+		}
+		
 
-			.mobile-menu-wrapper {
-
-			    display: flex;
-    			justify-content: center;
-				flex-direction: column;
-
-				a {
+		.mobile-wrapper {
+				z-index:501;
+				display:flex;
+				flex-direction: row;
+				height: 90px;
+		
+				.logo-j-mobile {
 					
-					font-family: 'AktivGrotesk';
-					text-decoration: none;
-					text-transform: uppercase;
-
+					display:flex;
+					padding: 20px 0;
+					margin: 0 auto;
 				}
-
-				.mobile-logo-desktop {
-					width: 200px;
-					margin:0 auto;
+			
+				.toggle-menu-mobile{
+					color: var(--color-primary);
+					position: absolute;
+					height: auto;
+					height: 90px;
+					right: 4px;
+					top: -5px;
+					display: flex;
+					align-items: center;
 				}
 			}
-		}
+			.mobile-links-wrapper {
+			
+				backdrop-filter: blur(2px);
+				z-index: 510;
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				height: 100vh;
+				background-color:rgba(0, 0, 0, 0.6);
+				position: absolute;
+				right:0;
+				width: 80%;
+	
 
+				.mobile-menu-wrapper {
+
+					display: flex;
+					justify-content: center;
+					flex-direction: column;
+
+					a {
+						color:white;
+						font-family: 'AktivGrotesk';
+						text-decoration: none;
+						text-transform: uppercase;
+
+					}
+
+				
+				}
+			}
+	}
 
 </style>

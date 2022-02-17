@@ -1,7 +1,7 @@
 <template>
 	<div>
 	
-		<mobile-nav class="mobile-nav"/>
+		<mobile-nav class="mobile-nav" />
 
 		<desktop-nav class="desktop-nav" :design="design"/>
 		
@@ -38,6 +38,11 @@
 
 	.desktop-nav {
 		@media #{$mobile} {
+				display:none;
+			}
+	}
+	.mobile-nav {
+		@media #{$desktop} {
 				display:none;
 			}
 	}
