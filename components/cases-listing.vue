@@ -108,7 +108,7 @@ export default {
 	.project-container {
 		color: var(--color-type-smooth-plus);
 		transition: all 0.45s;
-		height: 5%;
+		height: 7vw;
 		padding: 10px 20px;
 		position: relative;
 		display: flex;
@@ -138,7 +138,7 @@ export default {
 		font-weight: 300;
 		display: flex;
 		flex-direction: column;
-		font-size: 1vw;
+		
 		
 		@media #{$mobile} {
 			font-size: 4vw;
@@ -150,7 +150,6 @@ export default {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
-		font-size: 1vw;
 		height: 100%;
 		padding-right: 10px;
 		width: 1vh;
@@ -165,16 +164,13 @@ export default {
 		font-family: "AktivGrotesk";
 		text-transform: uppercase; 
 		font-weight: 300;
-		font-size: 5vw;
+		font-size: min(max(30px, 8vw), 100px);
 		margin-right: 15px;
 		cursor: pointer;
 		@media #{$mobile} {
 			font-size: 10vw;
 		}
-		@media #{$desktop} {
-			font-size: 10vw;
-		}
-
+	
 		p {
 			color: rgba(255, 255, 255, 0.74);
 
@@ -183,11 +179,6 @@ export default {
 		}
 	}
 
-	.project-year-container {
-
-		font-size: 1vw;
-
-	}
 
 	.project-medias-container {
 		height: 100%;
@@ -199,8 +190,7 @@ export default {
 
 		.project-image-container {
 			padding-right: 2%;
-			width: 9%;
-			height: auto;         
+			height: 100%;         
 			&:nth-of-type(2) {
 				transition: all 0.75s;
 				opacity:0
@@ -213,11 +203,13 @@ export default {
 		}
 		
 		.project-image-content {
-			object-fit: cover;
+			object-fit: contain;
 			display: block;
 			padding-right: 20px;
 			height: 100%;
 			width: 100%;
+			object-position: bottom;
+		
 	
 	
 		}

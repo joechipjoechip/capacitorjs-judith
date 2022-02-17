@@ -11,10 +11,8 @@
 
 <script>
 
-
-	import mobileNav from "@/components/mobile-nav.vue";
-	import desktopNav from "@/components/desktop-nav.vue";
-    
+	import mobileNav from "@/components/nav-mobile.vue";
+	import desktopNav from "@/components/nav-desktop.vue";
 
 	export default {
 		
@@ -24,23 +22,13 @@
 
 		},
 
-
-		created() {
-		
-		},
-
 		props: {
-
 			design: {
 				type: String,
 				required: true
 			}
 
 		},
-		methods: {
-		
-		}
-
 	}
 	
 </script>

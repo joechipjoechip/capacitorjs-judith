@@ -504,10 +504,16 @@
 								}
 
 								&:first-of-type {
+									@media #{$mobile} {
+										width: 100%;
+									}
 									width: $lineCellSizeBig;
 								}
 	
 								&:last-of-type {
+									@media #{$mobile} {
+										width: 100%;
+									}
 									width: $lineCellSizeSmal;
 								}
 	
@@ -520,13 +526,24 @@
 							// border: solid 5px pink;
 	
 							.line-media {
+								@media #{$mobile} {
+									width: 100%;
+								}
+
 	
 								&:first-of-type {
 									width: $lineCellSizeSmal;
+									@media #{$mobile} {
+										width: 100%;
+									}
+
 								}
 	
 								&:last-of-type {
 									width: $lineCellSizeBig;
+									@media #{$mobile} {
+										width: 100%;
+									}
 								}
 								
 							}

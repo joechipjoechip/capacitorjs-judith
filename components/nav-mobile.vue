@@ -1,8 +1,8 @@
 <template>
 
 	<div class="mobile-nav-container">
-		
-			
+
+
 		<div v-if="displayMenuMobile" class="mobile-links-wrapper">
 
 
@@ -58,7 +58,6 @@
 	import JudithLogo from "@/assets/svg/logoFull.svg";
 	import logoJ from "@/assets/svg/logoJ.svg";
 	import menuLines from "@/assets/svg/menuLines.svg";
-	import mobileNav from "@/components/mobile-nav.vue";
 	import wording from "@/assets/data/wording"
 
 export default {
@@ -67,14 +66,13 @@ export default {
 		JudithLogo,
 		"menu-lines": menuLines,
 		"menu-logo-j": logoJ,
-		"mobile-nav": mobileNav,
 		wording
 	},
 	data() {
-			return {
-				displayMenuMobile: false,
-				allLinks: wording.links
-			}
+		return {
+			displayMenuMobile: false,
+			allLinks: wording.links
+		}
 	},
 
 	methods: {
@@ -96,7 +94,7 @@ export default {
 			z-index:501;
 			display:flex;
 			flex-direction: row;
-		
+			height: 90px;
 	
 			.logo-j-mobile {
 			
@@ -107,10 +105,14 @@ export default {
 			}
 		
 			.toggle-menu-mobile{
-				color:var(--color-primary);
-				position:absolute;
-				right:0;
-				align-self: center;
+				color: var(--color-primary);
+				position: absolute;
+				height: auto;
+				height: 90px;
+				right: 4px;
+				top: -5px;
+				display: flex;
+				align-items: center;
 			}
 		}
 		.mobile-links-wrapper {
