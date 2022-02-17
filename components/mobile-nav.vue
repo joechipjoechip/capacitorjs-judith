@@ -15,28 +15,14 @@
 
 					<ul class="mobile-links-container">
 
-						<li class="mobile-link-wrapper active">
-							<NuxtLink  to="/">
-								Home
-							</NuxtLink>
-						</li>
+						<li v-for="link in  allLinks" :key="link.id"  class="mobile-link-wrapper active">
 
-						<li class="mobile-link-wrapper">
-							<NuxtLink  to="/team">
-								Team
-							</NuxtLink>
-						</li>
+							<NuxtLink  :to="link.to">
 
-						<li class="mobile-link-wrapper">
-							<NuxtLink to="/work-with-us">
-								Work with us
-							</NuxtLink>
-						</li>
+								{{link.label}}
 
-						<li class="link-wrapper">
-							<NuxtLink  to="/cases">
-								Cases
 							</NuxtLink>
+
 						</li>
 
 					</ul>
@@ -73,6 +59,7 @@
 	import logoJ from "@/assets/svg/logoJ.svg";
 	import menuLines from "@/assets/svg/menuLines.svg";
 	import mobileNav from "@/components/mobile-nav.vue";
+	import wording from "@/assets/data/wording"
 
 export default {
 
@@ -80,21 +67,21 @@ export default {
 		JudithLogo,
 		"menu-lines": menuLines,
 		"menu-logo-j": logoJ,
-		"mobile-nav": mobileNav
+		"mobile-nav": mobileNav,
+		wording
 	},
 	data() {
 			return {
-				displayMenuMobile: false
+				displayMenuMobile: false,
+				allLinks: wording.links
 			}
 	},
 
 	methods: {
 		clickOnMobileNav() {
-				console.log('yeeeet NAV');
 				this.displayMenuMobile = false
 			},
 		clickOnToggleMobileMenu(){
-				console.log('yeeeet SVG');
 				this.displayMenuMobile = true
 		}
 
@@ -112,17 +99,18 @@ export default {
 		
 	
 			.logo-j-mobile {
-				width: 100%;
-				justify-content: center;
+			
+				
 				display:flex;
 				padding: 20px 0;
 				margin: 0 auto;
 			}
 		
 			.toggle-menu-mobile{
+				color:var(--color-primary);
 				position:absolute;
-				top:0;
 				right:0;
+				align-self: center;
 			}
 		}
 		.mobile-links-wrapper {
@@ -135,7 +123,7 @@ export default {
 			background-color:rgba(14, 14, 14, 0.6);
 
 			.mobile-menu-wrapper {
-				
+
 			    display: flex;
     			justify-content: center;
 				flex-direction: column;

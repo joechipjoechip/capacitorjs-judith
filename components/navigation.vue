@@ -6,7 +6,6 @@
 		<desktop-nav class="desktop-nav" :design="design"/>
 		
 
-
 	</div>
 </template>
 
@@ -25,11 +24,6 @@
 
 		},
 
-		data() {
-			return {
-				displayMenuMobile: false
-			}
-		},
 
 		created() {
 		

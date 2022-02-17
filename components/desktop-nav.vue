@@ -1,41 +1,28 @@
 <template>
 	<div :class="[
-		'nav-wrapper',
-		design
-	]">
-	
+			'nav-wrapper',
+			design
+		]">
+		
 
-	<nav class="destkop-menu-wrapper">
+		<nav class="destkop-menu-wrapper">
 
-			<JudithLogo class="logo-desktop" />
+				<JudithLogo class="logo-desktop" />
 
-			<ul class="links-container">
+				<ul class="links-container">
+					
+					<li v-for="link in  allLinks" :key="link.id"  class="link-wrapper active">
 
-				<li class="link-wrapper active">
-					<NuxtLink to="/">
-						Home
-					</NuxtLink>
-				</li>
+						<NuxtLink  :to="link.to">
 
-				<li class="link-wrapper">
-					<NuxtLink to="/team">
-						Team
-					</NuxtLink>
-				</li>
+							{{link.label}}
 
-				<li class="link-wrapper">
-					<NuxtLink to="/work-with-us">
-						Work with us
-					</NuxtLink>
-				</li>
+						</NuxtLink>
 
-				<li class="link-wrapper">
-					<NuxtLink to="/cases">
-						Cases
-					</NuxtLink>
-				</li>
+					</li>
 
-			</ul>
+
+				</ul>
 
 		</nav>
 	</div>
@@ -43,20 +30,28 @@
 
 <script>
 	import JudithLogo from "@/assets/svg/logoFull.svg";
+	import wording from "@/assets/data/wording"
 	
 export default {
 	components: {
-			JudithLogo,
+		JudithLogo,
 		},
+
+	props: {
 		
-		props: {
+		design: {
+			type: String,
+			required: true
+		}
 
-			design: {
-				type: String,
-				required: true
+	},
+	data() {
+			return {
+			
+				allLinks: wording.links
 			}
+	},
 
-		},
 
 }
 </script>
