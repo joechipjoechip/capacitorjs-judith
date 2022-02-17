@@ -39,7 +39,7 @@
 
 				<div class="panel-logo-container">
 
-					<JudithLogo class="mobile-logo" @click="closeHandler"/>
+					<menu-logo-j class="mobile-logo" @click="closeHandler"/>
 
 				</div>
 
@@ -117,7 +117,7 @@ export default {
 		}
 
 	},
-	
+
 
 	computed: {
 
@@ -180,8 +180,8 @@ export default {
 				color: var(--color-primary);
 				z-index:615;
 				position:absolute;
-				top: 120px;
-				right:35px;
+				top: 35px;
+				right: 2.5%;
 			}
 
 
@@ -189,7 +189,7 @@ export default {
 
 			.panel-logo-container {
 				z-index: 600;
-
+				padding-top: 30px;
 				position: absolute;
 				height: 90px;
 				width: 80%;
