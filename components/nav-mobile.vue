@@ -121,7 +121,7 @@ export default {
 	computed: {
 
 		computedIsMobileNavOpen() {
-
+			
 			return  this.$store.state.variables.isMobileNavOpen;
 
 		}
