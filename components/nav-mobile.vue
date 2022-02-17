@@ -105,30 +105,31 @@ export default {
 	methods: {
 
 		openHandler(){
+
 			this.$store.commit('variables/setMobileNavOpen', true)
-			// this.displayMenuMobile = true
-			console.log('true open, computedIsMobileNavOpen : ', this.computedIsMobileNavOpen)
 
 		},
 
 		closeHandler(){
-			this.$store.commit('variables/setMobileNavOpen', false)
-			console.log('false close, computedIsMobileNavOpen : ', this.computedIsMobileNavOpen)
 
-			// this.displayMenuMobile = false
+			this.$store.commit('variables/setMobileNavOpen', false)
 
 		}
 
 	},
 
 	computed: {
+
 		computedIsMobileNavOpen() {
-			console.log("computed isMobileNavOpen : ", this.$store.getters['variables/isMobileNavOpen'])
+
 			return  this.$store.state.variables.isMobileNavOpen;
+
 		}
+
 	}
 
 }
+
 </script>
 
 <style lang="scss" scoped>

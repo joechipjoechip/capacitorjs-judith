@@ -10,15 +10,13 @@ export const state = () => ({
 	isMobileNavOpen: false,
 });
 
-
-  
 export const mutations = {
 
 	updateIsMobile(state) {
 
 		state.isMobile = window.matchMedia(state.mqMobile).matches;
 
-		console.log("mutation for $store.state.variables.isMobile has been triggered, this value is now : ", state.isMobile);
+		// console.log("mutation for $store.state.variables.isMobile has been triggered, this value is now : ", state.isMobile);
 	
 	},
 
