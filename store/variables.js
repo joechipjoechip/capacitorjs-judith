@@ -6,7 +6,7 @@ export const state = () => ({
 	mqMobile,
 	mqDesktop,
 	mqDesktopLarge,
-	isMobile: false
+	isMobile: false,
 });
 
   

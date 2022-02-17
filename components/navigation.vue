@@ -1,9 +1,9 @@
 <template>
 	<div>
 	
-		<mobile-nav class="mobile-nav" />
+		<nav-mobile class="only-mobile" />
 
-		<desktop-nav class="desktop-nav" :design="design"/>
+		<nav-desktop class="only-desktop" :design="design"/>
 		
 
 	</div>
@@ -11,14 +11,14 @@
 
 <script>
 
-	import mobileNav from "@/components/nav-mobile.vue";
-	import desktopNav from "@/components/nav-desktop.vue";
+	import navMobile from "@/components/nav-mobile.vue";
+	import navDesktop from "@/components/nav-desktop.vue";
 
 	export default {
 		
 		components: {
-			"mobile-nav": mobileNav,
-			"desktop-nav": desktopNav
+			"nav-mobile": navMobile,
+			"nav-desktop": navDesktop
 
 		},
 
@@ -36,15 +36,16 @@
 <style lang="scss" scoped>
 
 
-	.desktop-nav {
+	.only-desktop {
 		@media #{$mobile} {
-				display:none;
-			}
+			display:none;
+		}
 	}
-	.mobile-nav {
+
+	.only-mobile {
 		@media #{$desktop} {
-				display:none;
-			}
+			display:none;
+		}
 	}
 	
 
