@@ -58,7 +58,9 @@ export default {
       "./assets/style/resets.scss",
       "./assets/style/variables.scss",
       "./assets/style/fontsloader.scss",
-      "./assets/style/animations.scss"
+      "./assets/style/animations.scss",
+      "./assets/style/base.scss",
+      "./assets/style/mixins.scss"
     ]
   },
 
