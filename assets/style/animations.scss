@@ -1,7 +1,8 @@
 $enterDuration: 1.3s;
 $leaveDuration: 0.5s;
 $caretDuration: 1.7s;
-$toggleMenuMobileDuration: 2s;
+$toggleMenuMobileDuration: 0.75s;
+$mobileBlurNavDuration: 1s;
 
 
 .anim {
@@ -413,6 +414,52 @@ $toggleMenuMobileDuration: 2s;
 		}
 
 	}
+	
+	&-mobile-blur {
+
+		&-enter-active,
+		&-leave-active {
+
+	
+			opacity: 0;
+			
+			will-change:  opacity, transform;
+			
+		}
+		
+		&-enter-active {
+
+			transition: all $mobileBlurNavDuration;
+			
+		}
+
+		&-leave-active {
+
+			transition: all $mobileBlurNavDuration;
+
+		}
+
+		&-enter {
+			
+		}
+		
+
+		&-enter-to {
+			opacity:1;
+		}
+		
+		&-leave {
+			opacity:1;
+		}
+		
+		&-leave-to {
+			opacity:0;
+		}
+
+	}
+
+
+
 	
 
 }

@@ -6,7 +6,8 @@
 		<transition name="transition-logo-j">
 
 			<!-- <div v-if="!displayMenuMobile" class="mobile-wrapper"> -->
-			<div class="header-wrapper">
+	
+			<div class="header-wrapper">			
 
 				<div class="header-logo">
 
@@ -28,7 +29,13 @@
 		<!-- panel -->
 		<transition name="transition-nav-mobile">
 
-			<div v-if="displayMenuMobile" class="panel-wrapper">
+			<div v-if="computedIsMobileNavOpen" class="panel-wrapper">
+
+				<div v-on:click="closeHandler" class="header-cross">
+
+					<header-cross />
+
+				</div>
 
 				<div class="panel-logo-container">
 
@@ -36,7 +43,7 @@
 
 				</div>
 
-				<div v-on:click="closeHandler" class="panel-nav-container" >
+				<div class="panel-nav-container" >
 
 					<nav>
 
@@ -44,7 +51,7 @@
 
 							<li v-for="link in  allLinks" :key="link.id">
 
-								<NuxtLink  :to="link.to">
+								<NuxtLink  v-on:click.native="closeHandler" :to="link.to">
 
 									{{ link.label }}
 
@@ -62,6 +69,11 @@
 
 		</transition>
 
+		<transition name="transition-mobile-blur">
+			<div v-if="computedIsMobileNavOpen" class="nav-blur">
+
+			</div>
+		</transition >
 	</div>
 	
 </template>
@@ -70,6 +82,7 @@
 
 	import JudithLogo from "@/assets/svg/logoFull.svg";
 	import logoJ from "@/assets/svg/logoJ.svg";
+	import Cross from "@/assets/svg/cross.svg";
 	import menuLines from "@/assets/svg/menuLines.svg";
 	import wording from "@/assets/data/wording"
 
@@ -79,6 +92,7 @@ export default {
 		JudithLogo,
 		"menu-lines": menuLines,
 		"menu-logo-j": logoJ,
+		"header-cross": Cross,
 		wording
 	},
 	data() {
@@ -91,17 +105,27 @@ export default {
 	methods: {
 
 		openHandler(){
-
-			this.displayMenuMobile = true
+			this.$store.commit('variables/setMobileNavOpen', true)
+			// this.displayMenuMobile = true
+			console.log('true open, computedIsMobileNavOpen : ', this.computedIsMobileNavOpen)
 
 		},
 
 		closeHandler(){
+			this.$store.commit('variables/setMobileNavOpen', false)
+			console.log('false close, computedIsMobileNavOpen : ', this.computedIsMobileNavOpen)
 
-			this.displayMenuMobile = false
+			// this.displayMenuMobile = false
 
 		}
 
+	},
+
+	computed: {
+		computedIsMobileNavOpen() {
+			console.log("computed isMobileNavOpen : ", this.$store.getters['variables/isMobileNavOpen'])
+			return  this.$store.state.variables.isMobileNavOpen;
+		}
 	}
 
 }
@@ -134,6 +158,7 @@ export default {
 				display: flex;
 				align-items: center;
 			}
+			
 		}
 
 		.panel-wrapper {
@@ -148,6 +173,14 @@ export default {
 			display: flex;
 			flex-direction: row;
 			justify-content: flex-end;
+
+			.header-cross {
+				color: var(--color-primary);
+				z-index:615;
+				position:absolute;
+				top: 120px;
+				right:35px;
+			}
 
 
 			// background-color:rgba(0, 0, 0, 0.75);
@@ -211,6 +244,15 @@ export default {
 			}
 
 
+		}
+		.nav-blur {
+			z-index: 450;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top:0;
+			left:0;
+			background-color:rgba(255,255,255, 0.4)
 		}
 	}
 

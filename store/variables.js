@@ -7,7 +7,9 @@ export const state = () => ({
 	mqDesktop,
 	mqDesktopLarge,
 	isMobile: false,
+	isMobileNavOpen: false,
 });
+
 
   
 export const mutations = {
@@ -18,6 +20,16 @@ export const mutations = {
 
 		console.log("mutation for $store.state.variables.isMobile has been triggered, this value is now : ", state.isMobile);
 	
+	},
+
+	setMobileNavOpen(state, x) {
+		state.isMobileNavOpen = x;
 	}
 
 };
+
+export const getters = {
+	getIsMobileNavOpen(state) {
+		return state.isMobileNavOpen;
+	}
+}
