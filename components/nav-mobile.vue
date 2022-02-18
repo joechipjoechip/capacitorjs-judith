@@ -11,7 +11,9 @@
 
 				<div class="header-logo">
 
-					<menu-logo-j  />
+					<NuxtLink  v-on:click.native="closeHandler" to="/">
+						<menu-logo-j class="mobile-logo" />
+					</NuxtLink>
 
 				</div>
 
@@ -29,7 +31,16 @@
 		<!-- panel -->
 		<transition name="transition-nav-mobile">
 
-			<div v-if="computedIsMobileNavOpen" class="panel-wrapper">
+			<div 
+				v-touch:swipe="swipePanel" 
+				v-if="computedIsMobileNavOpen"
+				class="panel-wrapper">
+
+			<div 
+				@click="closeHandler"
+				class="touch-to-close">
+
+			</div>
 
 				<div v-on:click="closeHandler" class="header-cross">
 
@@ -38,8 +49,10 @@
 				</div>
 
 				<div class="panel-logo-container">
+					<NuxtLink  v-on:click.native="closeHandler" to="/">
+						<menu-logo-j class="mobile-logo" />
+					</NuxtLink>
 
-					<menu-logo-j class="mobile-logo" @click="closeHandler"/>
 
 				</div>
 
@@ -70,7 +83,12 @@
 		</transition>
 
 		<transition name="transition-mobile-blur">
-			<div v-if="computedIsMobileNavOpen" class="nav-blur">
+			<div 
+			v-if="computedIsMobileNavOpen"
+			@click="closeHandler"
+			data-info="nav-blur"
+			class="nav-blur"
+			>
 
 			</div>
 		</transition >
@@ -104,18 +122,26 @@ export default {
 
 	methods: {
 
-		openHandler(){
+		openHandler() {
 
 			this.$store.commit('variables/setMobileNavOpen', true)
 
 		},
 
-		closeHandler(){
+		closeHandler() {
 
 			this.$store.commit('variables/setMobileNavOpen', false)
 
-		}
+		},
+		swipePanel( direction ) {
 
+			if( direction === "right" ) {
+
+				this.$store.commit('variables/setMobileNavOpen', false)
+
+			}
+
+		}
 	},
 
 
@@ -185,8 +211,6 @@ export default {
 			}
 
 
-			// background-color:rgba(0, 0, 0, 0.75);
-
 			.panel-logo-container {
 				z-index: 600;
 				padding-top: 30px;
@@ -200,6 +224,14 @@ export default {
 					margin: 0 auto;
 				}
 
+			}
+
+			.touch-to-close {
+				left: 0;
+				position: absolute;
+				width: 20%;
+				height: 100%;
+				position: fixed;
 			}
 
 			.panel-nav-container {
