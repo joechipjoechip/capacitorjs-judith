@@ -8,7 +8,11 @@
 
 		<transition name="arrowToTop">
 
-			<div id="arrow-to-top" v-show="displayScroll" @click="toTop">
+			<div 
+			id="arrow-to-top"
+			class="only-desktop"
+			v-show="displayScroll" 
+			@click="toTop">
 				
 				<arrow-up />
 
