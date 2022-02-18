@@ -5,3 +5,19 @@ body {
 	}
 
 }
+
+.only-desktop {
+
+	@media #{$mobile} {
+		display:none;
+	}
+
+}
+
+.only-mobile {
+
+	@media #{$desktop} {
+		display:none;
+	}
+	
+}

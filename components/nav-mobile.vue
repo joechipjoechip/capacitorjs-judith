@@ -34,13 +34,13 @@
 			<div 
 				v-touch:swipe="swipePanel" 
 				v-if="computedIsMobileNavOpen"
-				class="panel-wrapper">
+				class="panel-wrapper"
+			>
 
-			<div 
-				@click="closeHandler"
-				class="touch-to-close">
-
-			</div>
+				<div 
+					@click="closeHandler"
+					class="panel-mask-bg">
+				</div>
 
 				<div v-on:click="closeHandler" class="header-cross">
 
@@ -226,7 +226,7 @@ export default {
 
 			}
 
-			.touch-to-close {
+			.panel-mask-bg {
 				left: 0;
 				position: absolute;
 				width: 20%;

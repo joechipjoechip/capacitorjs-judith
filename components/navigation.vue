@@ -34,19 +34,7 @@
 </script>
 
 <style lang="scss" scoped>
-
-
-	.only-desktop {
-		@media #{$mobile} {
-			display:none;
-		}
-	}
-
-	.only-mobile {
-		@media #{$desktop} {
-			display:none;
-		}
-	}
 	
+	// 
 
 </style>

@@ -20,8 +20,8 @@ export const mutations = {
 	
 	},
 
-	setMobileNavOpen(state, x) {
-		state.isMobileNavOpen = x;
+	setMobileNavOpen(state, newState) {
+		state.isMobileNavOpen = newState;
 	}
 
 };
