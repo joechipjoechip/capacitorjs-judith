@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="navigation-main-wrapper">
 	
 		<nav-mobile class="only-mobile" />
 
@@ -35,6 +35,14 @@
 
 <style lang="scss" scoped>
 	
-	// 
+	.navigation-main-wrapper {
+		z-index: 500;
+
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: var(--color-bg);
+	}
 
 </style>

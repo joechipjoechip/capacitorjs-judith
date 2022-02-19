@@ -60,28 +60,11 @@ export default {
 
 	.nav-wrapper {
 
-	
-		z-index: 500;
-		position: fixed;
-		background-color: var(--color-bg);
-		width: 100%;
-		top: 0;
-		right: 0;
-
-		@media #{$mobile} {
-			right: unset;
-			left: 0;
-			width: 100vw;
-		}
-
 		nav {
 			display: block;
 			width: 100%;
 			margin: 0 auto;
 			text-align: center;
-			@media #{$mobile} { 
-				display: none; // temporaire, le temps de dev
-				}
 		}
 
 		.links-container {
@@ -163,8 +146,6 @@ export default {
 
 		}
 
-
 	}
-
 
 </style>

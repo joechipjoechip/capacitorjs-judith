@@ -98,21 +98,20 @@
 
 <script>
 
-	import JudithLogo from "@/assets/svg/logoFull.svg";
 	import logoJ from "@/assets/svg/logoJ.svg";
 	import Cross from "@/assets/svg/cross.svg";
 	import menuLines from "@/assets/svg/menuLines.svg";
+	
 	import wording from "@/assets/data/wording"
 
 export default {
 
 	components: {
-		JudithLogo,
 		"menu-lines": menuLines,
 		"menu-logo-j": logoJ,
-		"header-cross": Cross,
-		wording
+		"header-cross": Cross
 	},
+
 	data() {
 		return {
 			displayMenuMobile: true,
@@ -278,8 +277,8 @@ export default {
 
 			}
 
-
 		}
+
 		.nav-blur {
 			z-index: 450;
 			width: 100%;
@@ -289,6 +288,7 @@ export default {
 			left:0;
 			background-color:rgba(255,255,255, 0.4)
 		}
+
 	}
 
 </style>
