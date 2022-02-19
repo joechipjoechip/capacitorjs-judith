@@ -186,6 +186,7 @@
 
 		&-item {
 
+			padding-top: 5px;
 			margin-bottom: 60px;
 	
 			> * {
@@ -278,21 +279,6 @@
 				justify-content: center;
 				align-items: center;
 
-				.only-desktop {
-
-					@media #{$mobile} {
-						display: none;
-					}
-					
-				}
-
-				.only-mobile {
-
-					@media #{$desktop} {
-						display: none;
-					}
-
-				}
 			}
 
 			&-subtitle {
