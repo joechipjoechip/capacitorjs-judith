@@ -52,7 +52,7 @@
 
 		@media #{$mobile} {
 			top: 0;
-			margin-top: 30vh;
+			margin-top: 33vh;
 		}
 		
 		.losange {
