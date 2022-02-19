@@ -9,7 +9,7 @@ body {
 .only-desktop {
 
 	@media #{$mobile} {
-		display:none;
+		display: none !important;
 	}
 
 }
@@ -17,7 +17,7 @@ body {
 .only-mobile {
 
 	@media #{$desktop} {
-		display:none;
+		display: none !important;
 	}
 	
 }
