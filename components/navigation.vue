@@ -1,9 +1,9 @@
 <template>
 	<div class="navigation-main-wrapper">
 	
-		<nav-mobile class="only-mobile" />
+		<nav-mobile v-if="$store.state.variables.isMobile" />
 
-		<nav-desktop class="only-desktop" :design="design"/>
+		<nav-desktop v-else :design="design"/>
 		
 
 	</div>
