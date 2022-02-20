@@ -128,6 +128,8 @@
 
 			@include mainColumn;
 
+			transition: margin-top .4s;
+
 			&.full-width {
 				max-width: 100%;
 				width: 100%;

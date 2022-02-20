@@ -60,6 +60,10 @@ export default {
 
 	.nav-wrapper {
 
+		will-change: height;
+		transition: height .4s;
+		overflow: hidden;
+
 		nav {
 			display: block;
 			width: 100%;
