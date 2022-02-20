@@ -5,6 +5,7 @@
 		]"
 		@mousemove="onMouseMoveHandler"
 		@mousewheel="onMouseWheelHandler"
+		@DOMMouseScroll="onMouseWheelHandler"
 	>
 
 		<losange 
@@ -63,6 +64,8 @@
 		methods: {
 
 			onMouseWheelHandler(){
+
+				console.log("mouseWheelHandler !");
 
 				const { top, bottom } = this.$refs.folio?.$el.getBoundingClientRect();
 
