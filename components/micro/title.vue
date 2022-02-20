@@ -59,7 +59,7 @@
 			letter-spacing: 7.2px;
 
 			@media #{$mobile} {
-				font-size: 15px;
+				font-size: 3vw;
 			}
 
 			&-text {
