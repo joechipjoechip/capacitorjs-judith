@@ -32,7 +32,6 @@
 
 		data(){
 			return {
-				routeChangeTimeoutID: null,
 				fullWidth: false,
 				fullWidthPages: ["work-with-us", "cases"]
 			}
