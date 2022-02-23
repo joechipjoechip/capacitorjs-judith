@@ -1,4 +1,4 @@
-Testing CapacitorJS with NuxtJs
+## Testing CapacitorJS with NuxtJs
 
 Node version : 13.14.0
 
