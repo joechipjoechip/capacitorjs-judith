@@ -1,4 +1,7 @@
+Testing CapacitorJS with NuxtJs
+
 Node version : 13.14.0
+
 
 # frontend
 
