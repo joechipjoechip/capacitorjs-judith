@@ -1,0 +1,9 @@
+{
+	"appId": "app.judith.com",
+	"appName": "Judith",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"server": {
+		"iosScheme": "nuxtmobile"
+	}
+}
